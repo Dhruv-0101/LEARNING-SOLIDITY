@@ -1,0 +1,84 @@
+{
+	"id": "e9c21573bc519d1696eba7d5724da289",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.26",
+	"solcLongVersion": "0.8.26+commit.8a97fa7a",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/10.0.store.sol": {
+				"content": "// 1. Stack (Temporary Execution Space)\r\n// -->The Stack is the fastest but most limited storage location.\r\n// -->It is used for small computations and local function variables.\r\n// -->Solidity functions use the stack to store temporary values during execution.\r\n// -->It has a strict size limit (1024 slots), so only small values (like uint, bool, address) are stored here.\r\n// -->It is automatically cleared when the function execution ends.\r\n// -->No gas cost, as it directly uses CPU registers.\r\n\r\n\r\n// 2. Memory (Temporary, Used Inside Functions)\r\n// -->Memory is similar to RAM and is used to store temporary variables like arrays, structs, and strings inside a function.\r\n// --> Data in memory exists only during function execution and is cleared afterward.\r\n// -->Moderate gas cost—reading is cheap, but writing consumes gas.\r\n// -->Used when dealing with dynamic data types (arrays, structs, mappings, strings).\r\n\r\n\r\n// 3. Storage (Permanent, Contract-Level Data)\r\n// -->Storage is the most important type of memory in Solidity.\r\n// -->It stores contract state variables that persist on the blockchain.\r\n// -->Expensive gas cost—modifying storage variables is costly since it changes the blockchain state.\r\n// -->Unlike stack and memory, storage remains even after function execution and transactions.\r\n// -->Used for permanent contract state data, such as mappings and large arrays."
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"errors": [
+			{
+				"component": "general",
+				"errorCode": "1878",
+				"formattedMessage": "Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.\n--> contracts/10.0.store.sol\n\n",
+				"message": "SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": -1,
+					"file": "contracts/10.0.store.sol",
+					"start": -1
+				},
+				"type": "Warning"
+			},
+			{
+				"component": "general",
+				"errorCode": "3420",
+				"formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.26;\"\n--> contracts/10.0.store.sol\n\n",
+				"message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.26;\"",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": -1,
+					"file": "contracts/10.0.store.sol",
+					"start": -1
+				},
+				"type": "Warning"
+			}
+		],
+		"sources": {
+			"contracts/10.0.store.sol": {
+				"ast": {
+					"absolutePath": "contracts/10.0.store.sol",
+					"exportedSymbols": {},
+					"id": 1,
+					"nodeType": "SourceUnit",
+					"nodes": [],
+					"src": "1396:0:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}
