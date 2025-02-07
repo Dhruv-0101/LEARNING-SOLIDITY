@@ -87,11 +87,11 @@
 	},
 	"sources": {
 		"contracts/10.17.simplestruct.sol": {
-			"keccak256": "0xd73f7dcfba2b9a9993d1743541dafee12c017a9a178820e53cf5e8dc96186b78",
+			"keccak256": "0xea1247b804cc28d85f1d90b846fefbb5bfb713513ca57b32b73e03ea0d0f6d3d",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://ff2d170ccbfb4d7c30e4cee773a06df95275ef98ca231b77775079e41c9182e8",
-				"dweb:/ipfs/Qmbvmc8iKzYg11ueMcu3aEfpTdyzuJTg8JsV2xuccKqe8Y"
+				"bzz-raw://097fcfb8e3f89f21dfb170b4134302e5548d83e4a189aeb0775e7a6f9f212c33",
+				"dweb:/ipfs/Qmau9XmrUP8LR1nJ6Xos7CQUvZszjdTWNhJc4d4gAx8buq"
 			]
 		}
 	},

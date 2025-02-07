@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
-
+//index is main here
 contract StudentManagement {
     // Define a struct to represent a student
     struct Student {
@@ -14,6 +14,7 @@ contract StudentManagement {
 
     // Mapping to store student ID to array index
     mapping(uint256 => uint256) public studentIdToIndex;
+    //     studentid  arrayindex        collection
 
     // Function to add a new student
     function addStudent(

@@ -259,7 +259,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/voting_project.sol": "Vote"
+			"contracts/10.27.voting_project.sol": "Vote"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -273,12 +273,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/voting_project.sol": {
-			"keccak256": "0x5360f29532bbb76326b59bbb44ef28d3d350efe900ad0fc6377a19de183ae282",
+		"contracts/10.27.voting_project.sol": {
+			"keccak256": "0x70f1402601b8552a076909357416939cc36361d932441cf563cf31fbfd35e952",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://34ad1b4564beef22cf060720197500c03d5662f75f8aecf3850499b721825f55",
-				"dweb:/ipfs/QmbXU1i1KaQsiCLVyEqsMe8gmG6x79myhe5Bwjn9jL63JZ"
+				"bzz-raw://9ba7a2c91596d1bd168259fbfffaacac25e327ff23f25f6fe3210b7665443809",
+				"dweb:/ipfs/QmRRh3Qn5A29DMsHnwFsHpK2Nwdef8eFMBuk2E3uAub4pP"
 			]
 		}
 	},

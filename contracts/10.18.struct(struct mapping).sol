@@ -11,6 +11,7 @@ contract StudentRecords {
 
     // Mapping to store student ID to Student struct
     mapping(uint256 => Student) private students;
+         //    _id    onestruct        collections
 
     // Function to add or update a student
     function addOrUpdateStudent(
