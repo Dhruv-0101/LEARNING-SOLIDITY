@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "greet",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/10.35_solidity_oops_interface.sol": "Greeter"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/10.35_solidity_oops_interface.sol": {
+			"keccak256": "0xc780ac79824db0d5c8ae49963d96a8d5031294dcaac0750db7d359f03427a43c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6dfec6e9f20dab0267dde7ec3efafc79b5d1b55e4fdee9e07e07b3c4ee14d4f0",
+				"dweb:/ipfs/QmTNRqqDidip4FgT2Mwss75PiSftjvTq6akc1QhjMtSF28"
+			]
+		}
+	},
+	"version": 1
+}

@@ -7,30 +7,12 @@
 		"abi": [
 			{
 				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
 				"name": "manager",
 				"outputs": [
 					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "num",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -89,7 +71,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/oops-1.sol": "Child"
+			"contracts/10.34.solidity_oops_abstract.sol": "Child"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -103,12 +85,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/oops-1.sol": {
-			"keccak256": "0x3f464a749a7a88ede1f5fa05c50ddf3862e48d9d4ff5cb93c799b6eb9100d2a3",
+		"contracts/10.34.solidity_oops_abstract.sol": {
+			"keccak256": "0x59dce9beac1a4052019309099de1cfea7df5f2d9513d90ced89a9dc8bcd348ae",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://034e3fcbc1d1dd833408c0aaf31062dbcb3be05efc79e688bb200166370b2761",
-				"dweb:/ipfs/QmTeCJoy5bW1tu7Y28r1aviiCDJ8XkheNB1x9H8FA5qaQz"
+				"bzz-raw://8359175f055e7fc56d51480ad02a85e68e48f9a74c1414a598183898073b028d",
+				"dweb:/ipfs/QmfDPBigQPKHfBcYhJA9M2psoiQKatrixg47j6Wqhrs7Hr"
 			]
 		}
 	},

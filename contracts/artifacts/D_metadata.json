@@ -78,7 +78,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/oops-1.sol": "D"
+			"contracts/10.32.solidity_oops_obj.sol": "D"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -92,12 +92,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/oops-1.sol": {
-			"keccak256": "0x872f117bd7cd7a782c43d23d5de05891c97583c468a038392adfe9d051ef1851",
+		"contracts/10.32.solidity_oops_obj.sol": {
+			"keccak256": "0xfe1a10a8a743f52eadf70f1ab30c473b5cfcc9a430092dee91d5991fb02c88bc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://963b4835aa74955884a1fdb55e61bd03b82c4ee89e5dd625f6b7f9907c1c09e4",
-				"dweb:/ipfs/QmYnjbo8LfsXaNs5Xk5hroLpYmmYKg2cKNr5gTRNREPnVB"
+				"bzz-raw://9fc46f9b0faa2ac6def53dcf89057804f35c92ebfcbdf353104495471010ec70",
+				"dweb:/ipfs/QmVjF9WGrHCSTeXKLKVaj8Mgfv2XP54R6Nx4kbXbaAwJqN"
 			]
 		}
 	},
