@@ -15,8 +15,8 @@ contract Demo {
         return counter; //reading the state variable
     }
 
-    function readStateVariable() public returns (int256) {
-        counter = 100; //writing the state variable
+    function readStateVariable() public view returns (int256) {
+        // counter = 100; //writing the state variable
         return counter; //reading the state variable
     }
 

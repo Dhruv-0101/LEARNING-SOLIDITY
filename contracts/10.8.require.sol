@@ -20,3 +20,8 @@ contract demo {
         }
     }
 }
+
+//error throw in require check
+//statement return in conditionals
+
+//function require check reverse ho jayega

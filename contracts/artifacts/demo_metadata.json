@@ -7,20 +7,7 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "getter",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "pureFunction",
+				"name": "f1",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -33,14 +20,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "setter",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "state_var",
+				"name": "f4",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -48,7 +28,7 @@
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -65,7 +45,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.1.local&state-variable.sol": "demo"
+			"contracts/10.12.visibility.sol": "demo"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -79,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.1.local&state-variable.sol": {
-			"keccak256": "0x95125da9291f119352c6adaf1cbe9d849fc1f6c724b6d623877bd06b27d3dcf9",
-			"license": "GPL-3.0",
+		"contracts/10.12.visibility.sol": {
+			"keccak256": "0xfd36f71b9c9da387cd58e5401cd0d9bf37c469bf437523ec11b24f2bfe29c43a",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://67c90d0b785453987f83e23978aaa6848320d9814322de9998a411be15f9c8a9",
-				"dweb:/ipfs/QmNiPNmW2dErkutFPDdRFTXHiboS2iHzUeiv6RcxZVb4Np"
+				"bzz-raw://2d218bc16a431c2596752ceee44c0739d445048ab3d80d47b097b64057df4673",
+				"dweb:/ipfs/QmdqZgbtxa8yFNmhUqDmj2tZTvnZkeihc6RLrkPGmakWw5"
 			]
 		}
 	},
