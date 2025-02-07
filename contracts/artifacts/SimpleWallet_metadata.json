@@ -340,7 +340,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/wallet_project.sol": "SimpleWallet"
+			"contracts/10.28.wallet_project.sol": "SimpleWallet"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -354,12 +354,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/wallet_project.sol": {
-			"keccak256": "0xa27360f6587ab0b7fcada5d6fea6273d28dab4ebd480c346279bc4d52dcc8874",
+		"contracts/10.28.wallet_project.sol": {
+			"keccak256": "0x1ae04def62d4b717d06443d1125825827566c65a70507959bce444797b82e03f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://167dd577a4bd6ff586850d0ff16393f5c27c5bdc53a31b8948949c3371862bb3",
-				"dweb:/ipfs/QmcWSpECEqDRipE5Tapis6v4mLvhXHSdP3oeR4HY19fxaw"
+				"bzz-raw://a295efdff957c758c04294efb05f4ec868133e84e6aeb33235ca6ba05e76b273",
+				"dweb:/ipfs/QmcaWcFehXg7vWyCR2g3fPRpVNJV4i5YkVvn3CpTMJdV2r"
 			]
 		}
 	},

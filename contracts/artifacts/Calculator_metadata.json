@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "x",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "y",
+						"type": "uint256"
+					}
+				],
+				"name": "getSum",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/10.29.simplelibrary.sol": "Calculator"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/10.29.simplelibrary.sol": {
+			"keccak256": "0x7870612836b0d47b93d15e6701fe9127470c6f70651472f36e0e21f1c931cad4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://877fe0efd4d97ac6f042b8b9d4254d53bce0afd8520dc78dbf088a929d173c1c",
+				"dweb:/ipfs/QmPNV73icEKLsNykR384pUGuRqYJdGH6u4UQu6FKJ1TRLu"
+			]
+		}
+	},
+	"version": 1
+}

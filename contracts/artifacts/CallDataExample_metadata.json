@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"name": "getFirstCharacter",
+				"outputs": [
+					{
+						"internalType": "bytes1",
+						"name": "",
+						"type": "bytes1"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/10.30.memoryvscalldata.sol": "CallDataExample"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/10.30.memoryvscalldata.sol": {
+			"keccak256": "0xf4b5582a0dc49fa9425a62eed0e5ea16498f5ea4d5cd795124fcc5055d882e30",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d7408a4282ba5b9079eb8b3b6f4022591df55f84b0e9d59eff680ef10614bc78",
+				"dweb:/ipfs/QmXPg8FduQPtKAks3zfcYZQD4jwPNtd7xghFagvWxVpAyA"
+			]
+		}
+	},
+	"version": 1
+}
