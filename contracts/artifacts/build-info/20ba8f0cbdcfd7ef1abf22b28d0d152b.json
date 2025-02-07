@@ -1,0 +1,69 @@
+{
+	"id": "20ba8f0cbdcfd7ef1abf22b28d0d152b",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.26",
+	"solcLongVersion": "0.8.26+commit.8a97fa7a",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/10.13.datalocations.sol": {
+				"content": "// contracts/GLDToken.sol\n// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n// storage-Characteristics:\n// Persistent: Data is stored on the blockchain and persists between function calls and transactions.\n// Expensive: Operations on storage are costly in terms of gas because it involves writing to the blockchain.\n// Default Location: State variables are stored in storage by default.\n\n// memory-Characteristics:\n// Temporary: Data is not saved on the blockchain and exists only while the function is executing.\n// Cheaper: Operations on memory are less expensive compared to storage.\n// Explicitly Specified: You need to explicitly specify memory for dynamic arrays and structs.\n\n// 3. calldata-Definition\n// -calldata is a read-only data location used for function arguments. It is used when dealing with external function calls and is immutable (cannot be modified).\n// Characteristics:\n\n// Read-Only: Data in calldata cannot be modified. It is used for function parameters in external function calls.\n// Efficient: Accessing calldata is more gas-efficient for function arguments compared to copying them into memory.\n// Default for External Functions: Function parameters of external functions use calldata by default.\n\n\n\n\n"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"sources": {
+			"contracts/10.13.datalocations.sol": {
+				"ast": {
+					"absolutePath": "contracts/10.13.datalocations.sol",
+					"exportedSymbols": {},
+					"id": 2,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "58:23:0"
+						}
+					],
+					"src": "58:1178:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

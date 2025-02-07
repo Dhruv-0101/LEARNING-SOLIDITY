@@ -27,5 +27,5 @@ contract otherContract {
 }
 
 contract child is demo {
-    uint256 public x = f3();
+    uint256 public x = f1();
 }

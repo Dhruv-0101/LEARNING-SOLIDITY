@@ -7,20 +7,7 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "f1",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "f4",
+				"name": "calculate",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -45,7 +32,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.12.visibility.sol": "demo"
+			"contracts/store.sol": "demo"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -59,12 +46,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.12.visibility.sol": {
-			"keccak256": "0x50aa2f4689e58b977da3c433d955b86b996fb6b9168b169f235393ecdee57aca",
-			"license": "MIT",
+		"contracts/store.sol": {
+			"keccak256": "0x02e082e8ba08933be108791110d86ae70e7e7577e18306633ae5209da4ae3846",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3b58d634f96ec5c3ec873ad73efd1fdf9e3ccd3e26382ad9423e1f410ec1ff29",
-				"dweb:/ipfs/QmRtbGVMNtZqA9Pbzv6rUhaN2c5Txhvg9vEjeLRK1Hbviq"
+				"bzz-raw://a2545e7c2d51f33a13ef1c51d7fb7ef594a2ffa1510c70b0b0025a3f0ec97174",
+				"dweb:/ipfs/QmPRxmjqJuVwfqWDrh2FpYB6NaFNXCvLFQo6U4iMbtYXzW"
 			]
 		}
 	},

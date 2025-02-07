@@ -19,3 +19,7 @@ pragma solidity ^0.8.0;
 // Read-Only: Data in calldata cannot be modified. It is used for function parameters in external function calls.
 // Efficient: Accessing calldata is more gas-efficient for function arguments compared to copying them into memory.
 // Default for External Functions: Function parameters of external functions use calldata by default.
+
+
+
+
