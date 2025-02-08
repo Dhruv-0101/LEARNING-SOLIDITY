@@ -21,4 +21,4 @@ contract Caller {//owner
         require(success, "Delegatecall failed");
     }
 }
-//painter ne kya kiya --- mere resources se mere hi ghar me kam kiya
+//painter ne kya kiya --- mere resources se mere hi ghar me kam kiya.yani ki mera storage or mere me hi changes
