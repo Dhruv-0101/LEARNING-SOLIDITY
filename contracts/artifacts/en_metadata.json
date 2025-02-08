@@ -1,0 +1,114 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "decodeData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "fixedNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "dynamicString",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "fixedArray",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "dynamicArray",
+						"type": "uint256[]"
+					}
+				],
+				"name": "encodeData",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/10.40.abiencodingdecoding.sol": "en"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/10.40.abiencodingdecoding.sol": {
+			"keccak256": "0x43e6cdf3bc50e1d6430029850c810ca28e8f54b25664292d28dd3ce7956f9666",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://94baa186eeef691a0f0d5d58cf016c42fbae3978a844c9a1e9b944b1c04e86b8",
+				"dweb:/ipfs/QmexHWDep9hb1gZE7WL4qGX75amb13wVXq1qef2qhBqjb9"
+			]
+		}
+	},
+	"version": 1
+}

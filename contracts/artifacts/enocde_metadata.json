@@ -1,0 +1,114 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "decodeData",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "fixedNumber",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "dynamicString",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256[2]",
+						"name": "fixedArray",
+						"type": "uint256[2]"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "dynamicArray",
+						"type": "uint256[]"
+					}
+				],
+				"name": "encodeData",
+				"outputs": [
+					{
+						"internalType": "bytes",
+						"name": "",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/10.40.abiencodingdecoding.sol": "enocde"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/10.40.abiencodingdecoding.sol": {
+			"keccak256": "0x03c3cf361ce09af89864361063731268fe109f08249e417a38bd298065d2227d",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://05937532ec56a804fe2a047fe46ca54ac6b851b51745c3e0fc1067af53da6823",
+				"dweb:/ipfs/Qmaa8SrtMuNKVjn7sxR8T5yu4g2SecjKCcdDeXghiX5hDv"
+			]
+		}
+	},
+	"version": 1
+}
