@@ -22,6 +22,18 @@ contract TokenMarketPlace is Ownable {
     uint256 public buyerCount = 1;
     uint256 public prevAdjustedRatio;
     IERC20 public gldToken;
+    /*
+    IERC20
+    IERC20 is an interface from OpenZeppelin's ERC-20 contract, which defines the standard functions of an ERC-20 token.
+    It allows the smart contract to interact with any ERC-20 token without knowing its implementation.
+
+    gldToken
+    This is the ERC-20 token contract that will be used in this marketplace.
+    It holds the reference to the token's smart contract, which allows this marketplace contract to transfer, buy, and sell tokens.
+
+    IERC20 public gldToken; is a reference to the ERC-20 token contract, allowing this marketplace contract to buy, sell, and manage GLD tokens safely.
+
+    */
 
     event TokenPriceUpdated(uint256 newPrice);
     event TokenBought(address indexed buyer, uint256 amount, uint256 totalCost);
@@ -35,8 +47,30 @@ contract TokenMarketPlace is Ownable {
     event CalculateTokenPrice(uint256 priceToPay);
 
     constructor(address _gldToken) Ownable(msg.sender) {
-        //apne parent ke constructor ko call karna hai to ---name out parent constructor and pass the value
+        //apne parent ke constructor ko call karna hai to ---name of parent constructor and pass the value
         gldToken = IERC20(_gldToken);
+        /* Initialized in Constructor:
+_gldToken is the address of an existing ERC-20 token contract.
+IERC20(_gldToken) casts this address as an IERC20 interface, allowing this contract to call ERC-20 functions.
+
+----------------Simple Meaning with a Life Example
+Think of IERC20 public gldToken; as a wallet app that supports different bank cards (like Visa, Mastercard).
+
+IERC20 → Just like all bank cards follow a common standard (chip, PIN, swipe/tap), all ERC-20 tokens follow a common standard (transfer, balance check).
+gldToken → This is like one specific bank card that the wallet app is currently using.
+Life Example: Wallet & Bank Card
+📌 Imagine you have a wallet app that can store different bank cards (HDFC, ICICI, SBI).
+📌 Right now, your wallet is linked to an HDFC debit card.
+
+
+IERC20 public hdfcCard;
+This means the wallet app (contract) knows how to use the HDFC card (token contract) for transactions.
+
+Just like you can check balance, send money, or receive money using your card, this contract can check token balance, transfer, and receive tokens using gldToken.
+
+✅ Conclusion: IERC20 public gldToken; means this contract is linked to a specific ERC-20 token (like a wallet linked to a bank card), so it can perform transactions with it. 🚀
+
+*/
     }
 
     // Updated logic for token price calculation with safeguards

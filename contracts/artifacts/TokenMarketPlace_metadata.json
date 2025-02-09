@@ -486,11 +486,11 @@
 			]
 		},
 		"contracts/10.44.tokenmarketplacetemplate.sol": {
-			"keccak256": "0xbbcc835f006ace98e1954afb2d53cb771afab94df3db2d4f5f0b301b25b57517",
+			"keccak256": "0x4e6cc2a7326f1ecc17912002df5527095205f99124afbfdf010dd671dd34fa70",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f6f53f81d7e788755ec00ef03e80cb3cb3b14d08b825c9a629227ad4d5f98f59",
-				"dweb:/ipfs/QmWddoDtc3zFNYkkwfHH9x1hKMJbg39kAixcqscr2XFRaY"
+				"bzz-raw://d7686ac91aa1aeed36e75a01a16143e9a9eca35f174125f9731d37c4d9fe2016",
+				"dweb:/ipfs/Qmc25Xfzcyq5J2N5QUa5NmJip61ddxgP9Hk9gkJAfVcWVd"
 			]
 		},
 		"hardhat/console.sol": {
