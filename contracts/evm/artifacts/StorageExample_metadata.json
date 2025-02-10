@@ -1,0 +1,65 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "slot",
+						"type": "uint256"
+					}
+				],
+				"name": "getSlotValue",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/evm/structinstorage.sol": "StorageExample"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/evm/structinstorage.sol": {
+			"keccak256": "0xc7a4dc90fd1c935b94b280f1fa6c67b116d19e7f6d98d45208d5a31db9a4965d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9c074960c8878e8dce66f8b8264feb19ba5749b1affd1520dd9f5a2bc0e6c106",
+				"dweb:/ipfs/QmW5qma6vVabn65bDJbCSJJuy3PtfkXrfVEgLi914ppjpo"
+			]
+		}
+	},
+	"version": 1
+}

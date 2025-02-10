@@ -1,0 +1,84 @@
+{
+	"id": "4e7dd149f7707ee62f360631f3fab7ca",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.26",
+	"solcLongVersion": "0.8.26+commit.8a97fa7a",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"contracts/evm/stackvsstoragevsmemory.sol": {
+				"content": "\r\n// 1️⃣ Stack 🗄️ (Temporary & Fast)\r\n// Location: CPU-like register inside the EVM.\r\n// Lifetime: Only exists while a function is executing.\r\n// Access: LIFO (Last In, First Out) structure.\r\n// Size Limit: 1024 slots, each 32 bytes (256 bits).\r\n// Gas Cost: Very cheap (almost free).\r\n// Use Cases:\r\n// Storing temporary variables.\r\n// Function arguments & return values.\r\n// Opcode calculations (e.g., ADD, MUL).\r\n\r\n// function addNumbers(uint256 a, uint256 b) public pure returns (uint256) {\r\n//     return a + b; // Uses the stack\r\n// }\r\n//🔹 Here, a and b are stored in the stack because they are temporary and disappear after function execution.\r\n\r\n\r\n\r\n// 2️⃣ Memory 🧠 (Temporary & Resizable)\r\n// Location: Off-stack volatile storage (RAM-like).\r\n// Lifetime: Exists only during function execution.\r\n// Access: Random access, unlike the stack.\r\n// Size Limit: No strict limit, but expands dynamically in 32-byte chunks.\r\n// Gas Cost:\r\n// Cheap for small sizes, but gets expensive as it grows.\r\n// Expanding memory doubles the cost every 32 bytes.\r\n// Use Cases:\r\n// Storing temporary dynamic data (e.g., arrays, structs).\r\n// Handling function parameters and return data.\r\n// Solidity’s abi.encode and abi.encodePacked.\r\n\r\n// function storeInMemory() public pure returns (uint256[] memory) {\r\n//     uint256; // Stored in memory\r\n//     tempArray[0] = 10;\r\n//     return tempArray; // Disappears after function execution\r\n// }\r\n// 🔹 tempArray is stored in memory, so it gets deleted once the function ends.\r\n\r\n\r\n\r\n// 3️⃣ Storage 📦 (Persistent & Expensive)\r\n// Location: Ethereum blockchain (permanent storage).\r\n// Lifetime: Persists across transactions & contract calls.\r\n// Access: Slow (compared to stack & memory).\r\n// Size Limit: No hard limit, but modifying storage is VERY expensive.\r\n// Gas Cost:\r\n// Writing: 20,000 gas per slot (very expensive).\r\n// Reading: 800 gas per slot (cheaper but still costly).\r\n// Use Cases:\r\n// Storing contract state variables.\r\n// Data that must persist across function calls.\r\n\r\n// contract Example {\r\n//     uint256 public storedNumber; // Stored in storage\r\n\r\n//     function updateNumber(uint256 _num) public {\r\n//         storedNumber = _num; // Writing to storage (expensive)\r\n//     }\r\n// }\r\n\r\n// storedNumber is stored in storage, meaning it remains even after the function ends and across transactions.\r\n\r\n\r\n// Best Practices 🚀\r\n// ✔️ Use stack for temporary small variables.\r\n// ✔️ Use memory for dynamic arrays, structs, and function variables.\r\n// ✔️ Use storage ONLY when necessary (because it costs gas).\r\n//stack and memory both till fucntion execution\r\n\r\n\r\n\r\n// contract Token {\r\n//     mapping(address => uint256) public balances; // Storage (permanent)\r\n\r\n//     function setBalance(uint256 _amount) public {\r\n//         balances[msg.sender] = _amount; // Storage write (expensive)\r\n//     }\r\n\r\n//     function tempCalculation() public pure returns (uint256) {\r\n//         uint256 a = 10; // Stack (cheap)\r\n//         uint256; // Memory (temporary)\r\n//         tempArray[0] = a * 2;\r\n//         return tempArray[0]; // Disappears after execution\r\n//     }\r\n// }\r\n\r\n// 🔹 balances[msg.sender] is in storage because it needs to persist.\r\n// 🔹 a is stored in the stack because it’s temporary.\r\n// 🔹 tempArray is in memory because it’s temporary but dynamic."
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			},
+			"remappings": []
+		}
+	},
+	"output": {
+		"errors": [
+			{
+				"component": "general",
+				"errorCode": "1878",
+				"formattedMessage": "Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.\n--> contracts/evm/stackvsstoragevsmemory.sol\n\n",
+				"message": "SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": -1,
+					"file": "contracts/evm/stackvsstoragevsmemory.sol",
+					"start": -1
+				},
+				"type": "Warning"
+			},
+			{
+				"component": "general",
+				"errorCode": "3420",
+				"formattedMessage": "Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.26;\"\n--> contracts/evm/stackvsstoragevsmemory.sol\n\n",
+				"message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.8.26;\"",
+				"severity": "warning",
+				"sourceLocation": {
+					"end": -1,
+					"file": "contracts/evm/stackvsstoragevsmemory.sol",
+					"start": -1
+				},
+				"type": "Warning"
+			}
+		],
+		"sources": {
+			"contracts/evm/stackvsstoragevsmemory.sol": {
+				"ast": {
+					"absolutePath": "contracts/evm/stackvsstoragevsmemory.sol",
+					"exportedSymbols": {},
+					"id": 1,
+					"nodeType": "SourceUnit",
+					"nodes": [],
+					"src": "3375:0:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

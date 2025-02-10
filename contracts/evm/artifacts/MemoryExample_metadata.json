@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "storeAndRetrieveMemory",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/evm/memoryevm.sol": "MemoryExample"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/evm/memoryevm.sol": {
+			"keccak256": "0xb36e0b87a13c478b02070aaf3aa7106581153747ac176de9a19697cf610b8fc9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a4c0ed94b13e776c80e01048b82fc4fdef25c1aae58b117bc8dd3bb774ad252e",
+				"dweb:/ipfs/QmcB68LC2X8Wm5MHw9vMaafikVuK6PBgPA4EgCXbrEydhf"
+			]
+		}
+	},
+	"version": 1
+}
