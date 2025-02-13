@@ -123,7 +123,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.33.inheritance.sol": "SuperCar"
+			"contracts/10.33.solidty_oops_inheritance.sol": "SuperCar"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -137,7 +137,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.33.inheritance.sol": {
+		"contracts/10.33.solidty_oops_inheritance.sol": {
 			"keccak256": "0x0539285fc628356df1267fa972617ddec8338125ec27b740e11dfa120b17154b",
 			"license": "GPL-3.0",
 			"urls": [

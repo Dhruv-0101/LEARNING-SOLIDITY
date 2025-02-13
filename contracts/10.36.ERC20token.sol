@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-
+//this is just for show how looks ERC20 that's it.in the next code actual ERC20 is there.
 pragma solidity ^0.8.20;
 
 interface IERC20 {
@@ -75,7 +75,6 @@ contract ERC20 is IERC20 {
         emit Approval(msg.sender, spender, value);
         return true;
     }
-
     //reading a cheque
     function allowance(address owner, address spender)
         external
