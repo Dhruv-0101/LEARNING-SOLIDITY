@@ -8,32 +8,38 @@
 			{
 				"inputs": [
 					{
-						"internalType": "bytes",
-						"name": "data",
-						"type": "bytes"
+						"internalType": "int256",
+						"name": "_smallNumber",
+						"type": "int256"
+					},
+					{
+						"internalType": "int8",
+						"name": "_tinyNumber",
+						"type": "int8"
 					}
 				],
-				"name": "decodeData",
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "a",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "b",
+						"type": "int256"
+					}
+				],
+				"name": "addNumbers",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "int256",
 						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256[2]",
-						"name": "",
-						"type": "uint256[2]"
-					},
-					{
-						"internalType": "uint256[]",
-						"name": "",
-						"type": "uint256[]"
+						"type": "int256"
 					}
 				],
 				"stateMutability": "pure",
@@ -42,35 +48,135 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "fixedNumber",
-						"type": "uint256"
+						"internalType": "int256",
+						"name": "a",
+						"type": "int256"
 					},
 					{
-						"internalType": "string",
-						"name": "dynamicString",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256[2]",
-						"name": "fixedArray",
-						"type": "uint256[2]"
-					},
-					{
-						"internalType": "uint256[]",
-						"name": "dynamicArray",
-						"type": "uint256[]"
+						"internalType": "int256",
+						"name": "b",
+						"type": "int256"
 					}
 				],
-				"name": "encodeData",
+				"name": "divideNumbers",
 				"outputs": [
 					{
-						"internalType": "bytes",
+						"internalType": "int256",
 						"name": "",
-						"type": "bytes"
+						"type": "int256"
 					}
 				],
 				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getNumbers",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					},
+					{
+						"internalType": "int8",
+						"name": "",
+						"type": "int8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "a",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "b",
+						"type": "int256"
+					}
+				],
+				"name": "multiplyNumbers",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "_smallNumber",
+						"type": "int256"
+					},
+					{
+						"internalType": "int8",
+						"name": "_tinyNumber",
+						"type": "int8"
+					}
+				],
+				"name": "setNumbers",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "smallNumber",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "a",
+						"type": "int256"
+					},
+					{
+						"internalType": "int256",
+						"name": "b",
+						"type": "int256"
+					}
+				],
+				"name": "subtractNumbers",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tinyNumber",
+				"outputs": [
+					{
+						"internalType": "int8",
+						"name": "",
+						"type": "int8"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -87,7 +193,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.40.abiencodingdecoding.sol": "IntegerExample"
+			"contracts/10.4.integerdatatypes.sol": "IntegerExample"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -101,12 +207,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.40.abiencodingdecoding.sol": {
-			"keccak256": "0x6b64db0cbcf8ffb1dc8744342cea418db6d5d90925880e042761c039274cadf9",
+		"contracts/10.4.integerdatatypes.sol": {
+			"keccak256": "0x4bf4c86418b57d7dcc94232c2a662766678e6efbf0b7ee5445d45bcec73e66c6",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://b0c3deb832774cae21c607085e9b1fece01b5db3afc2b690d42010fc635c3ad7",
-				"dweb:/ipfs/QmNnbeSaFeEqP8RXQZ4PD9jLexy8zLqGLGiTsphgwJJDcc"
+				"bzz-raw://591d02f58cbd8bc42a30ecdd4fa5ea0034ca3ffaf440f39c8b04a6f19bc57263",
+				"dweb:/ipfs/QmYQHXp2K4goar9c6ZVuiatTmk7BLfFaKE5v8Sb4HNfrdF"
 			]
 		}
 	},

@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 contract NestedMappingExample {
     // Nested mapping: Mapping from uint => (Mapping from address => bool)
     mapping(uint => mapping(address => bool)) public permissions;
+           //row           column      value
 
     // Function to set permission
     function setPermission(uint roleId, address user, bool status) public {

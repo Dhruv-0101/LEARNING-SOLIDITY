@@ -1,133 +1,99 @@
 // SPDX-License-Identifier: MIT
 
-
-
-
 pragma solidity ^0.8.26;
 
-
-
-
 contract Vote {
-
-
     struct Voter {
         string name;
-        uint age;
-        uint voterId;
+        uint256 age;
+        uint256 voterId;
         Gender gender;
-        uint voteCandidateId;
+        uint256 voteCandidateId;
         address voterAddress;
     }
-
 
     struct Candidate {
         string name;
         string party;
-        uint age;
+        uint256 age;
         Gender gender;
-        uint candidateId;
+        uint256 candidateId;
         address candidateAddress;
-        uint votes;
+        uint256 votes;
     }
-
 
     address electionCommission;
     address public winner;
-    uint nextVoterId = 1;
-    uint nextCandidateId = 1;
-    uint startTime;
-    uint endTime;
+    uint256 nextVoterId = 1;
+    uint256 nextCandidateId = 1;
+    uint256 startTime;
+    uint256 endTime;
     bool stopVoting;
 
+    mapping(uint256 => Voter) voterDetails;
+    mapping(uint256 => Candidate) candidateDetails;
 
-    mapping(uint => Voter) voterDetails;
-    mapping(uint => Candidate) candidateDetails;
-
-
-    enum VotingStatus {NotStarted, InProgress, Ended}
-    enum Gender {NotSpecified, Male, Female, Other}
-
-
-    constructor() {
+    enum VotingStatus {
+        NotStarted,
+        InProgress,
+        Ended
+    }
+    enum Gender {
+        NotSpecified,
+        Male,
+        Female,
+        Other
     }
 
+    constructor() {}
 
     modifier isVotingOver() {
-      _;
+        _;
     }
-
 
     modifier onlyCommissioner() {
         _;
     }
 
-
     function registerCandidate(
         string calldata _name,
         string calldata _party,
-        uint _age,
+        uint256 _age,
         Gender _gender
-    ) external {
-       
-    }
+    ) external {}
 
+    function isCandidateNotRegistered(address _person)
+        internal
+        view
+        returns (bool)
+    {}
 
-    function isCandidateNotRegistered(address _person) internal view returns (bool) {
-           
-    }
+    function getCandidateList() public view returns (Candidate[] memory) {}
 
-
-    function getCandidateList() public view returns (Candidate[] memory) {
-     
-    }
-
-
-    function isVoterNotRegistered(address _person) internal view returns (bool) {
-         
-    }
-
+    function isVoterNotRegistered(address _person)
+        internal
+        view
+        returns (bool)
+    {}
 
     function registerVoter(
         string calldata _name,
-        uint _age,
+        uint256 _age,
         Gender _gender
-    ) external {
+    ) external {}
 
+    function getVoterList() public view returns (Voter[] memory) {}
 
+    function castVote(uint256 _voterId, uint256 _id) external {}
 
+    function setVotingPeriod(uint256 _startTime, uint256 _endTime)
+        external
+        onlyCommissioner
+    {}
 
-    }
+    function getVotingStatus() public view returns (VotingStatus) {}
 
+    function announceVotingResult() external onlyCommissioner {}
 
-    function getVoterList() public view returns (Voter[] memory) {
-   
-    }
-
-
-    function castVote(uint _voterId, uint _id) external {
-   
-    }
-
-
-    function setVotingPeriod(uint _startTime, uint _endTime) external onlyCommissioner() {
-   
-    }
-
-
-    function getVotingStatus() public view returns (VotingStatus) {
-   
-    }
-
-
-    function announceVotingResult() external onlyCommissioner() {
-   
-    }
-
-
-    function emergencyStopVoting() public onlyCommissioner() {
-       
-    }
+    function emergencyStopVoting() public onlyCommissioner {}
 }
-
-

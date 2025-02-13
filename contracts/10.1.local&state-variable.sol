@@ -15,7 +15,7 @@ contract demo {
         return state_var;
     }
 
-    function pureFunction() public pure returns(uint256){
+    function pureFunction() public pure returns (uint256) {
         // neither reading nor writing on the state variable
         uint256 local_var; //local variable
         local_var = 1;

@@ -6,34 +6,22 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "getBlockTime",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "_value",
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "startTime",
+				"name": "doSomething",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -50,7 +38,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/block.timestampl.sol": "Example"
+			"contracts/10.10.modifiers2.sol": "Example"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -64,11 +52,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/block.timestampl.sol": {
-			"keccak256": "0x021972ce9b99412319012529f8100c99a42ac8d44216e4a63a14de722ea260d9",
+		"contracts/10.10.modifiers2.sol": {
+			"keccak256": "0x045a46afa5eddac00418f8184c45e7dcf304d3bf7603e9adf0680526c758502d",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://dfdeedd052542cbbb5b28a127292c12eecde6b30171361b77761c7050eb5bed3",
-				"dweb:/ipfs/QmcG2FihBwfnCjvghd782piN7hTZu9WYzH6e6rcyDRiroZ"
+				"bzz-raw://06da3ead2619f081f7a9472de2006f3fb2c43c70eb379a1423b8405e342cc816",
+				"dweb:/ipfs/QmTm7xQnCUpFTBBKbfqHATDZcsMevbsbnxzuScuDuDFsSf"
 			]
 		}
 	},
