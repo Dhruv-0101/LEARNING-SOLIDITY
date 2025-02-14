@@ -21,4 +21,11 @@ contract demo {
         local_var = 1;
         return local_var;
     }
+
+    //etherjs concept
+
+    function setter1(uint256 _value) public {
+        // Updating the state variable with the input value
+        state_var = _value;
+    }
 }
