@@ -399,7 +399,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.44.tokenmarketplacetemplate.sol": "TokenMarketPlace"
+			"contracts/10.44.tokenmarketplace.sol": "TokenMarketPlace"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -485,7 +485,7 @@
 				"dweb:/ipfs/QmVTooKWcLkJ9W68yNX4MgdrbAKiAXwuRN9A7f4NkdcdtQ"
 			]
 		},
-		"contracts/10.44.tokenmarketplacetemplate.sol": {
+		"contracts/10.44.tokenmarketplace.sol": {
 			"keccak256": "0x4e6cc2a7326f1ecc17912002df5527095205f99124afbfdf010dd671dd34fa70",
 			"license": "MIT",
 			"urls": [
