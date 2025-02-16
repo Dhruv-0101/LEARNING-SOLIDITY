@@ -13,7 +13,7 @@
 // function addNumbers(uint256 a, uint256 b) public pure returns (uint256) {
 //     return a + b; // Uses the stack
 // }
-//🔹 Here, a and b are stored in the stack because they are temporary and disappear after function execution.
+// 🔹 Here, a and b are stored in the stack because they are temporary and disappear after function execution.
 
 
 
@@ -66,7 +66,7 @@
 // ✔️ Use stack for temporary small variables.
 // ✔️ Use memory for dynamic arrays, structs, and function variables.
 // ✔️ Use storage ONLY when necessary (because it costs gas).
-//stack and memory both till fucntion execution
+// stack and memory both till fucntion execution
 
 
 

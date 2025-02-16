@@ -38,7 +38,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/structinstorage.sol": "StorageExample"
+			"contracts/evm/5.structinstorage.sol": "StorageExample"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -52,7 +52,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/structinstorage.sol": {
+		"contracts/evm/5.structinstorage.sol": {
 			"keccak256": "0xc7a4dc90fd1c935b94b280f1fa6c67b116d19e7f6d98d45208d5a31db9a4965d",
 			"license": "MIT",
 			"urls": [
