@@ -103,8 +103,9 @@ contract SimpleWallet {
     }
 
     /**User related functions**/
+    //direct to user
     function transferToUserViaMsgValue(address _to) external payable {
-        require(address(this).balance >= msg.value, "Insufficient Balance");
+        // require(address(this).balance >= msg.value, "Insufficient Balance");
         require(_to != address(0), "Adress format incorrect");
         payable(_to).transfer(msg.value);
         transactionHistory.push(

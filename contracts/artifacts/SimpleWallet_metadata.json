@@ -355,11 +355,11 @@
 	},
 	"sources": {
 		"contracts/10.28.wallet_project.sol": {
-			"keccak256": "0x1ae04def62d4b717d06443d1125825827566c65a70507959bce444797b82e03f",
+			"keccak256": "0x8c14cb54a2a7361509d55fe1d47c6d0a69238ccf673fd2b260e8541a5e0c8a83",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a295efdff957c758c04294efb05f4ec868133e84e6aeb33235ca6ba05e76b273",
-				"dweb:/ipfs/QmcaWcFehXg7vWyCR2g3fPRpVNJV4i5YkVvn3CpTMJdV2r"
+				"bzz-raw://6d49dcec1b1fe78d053dedb41f44a9bd03001a461289f42a43b76a849aa5eeda",
+				"dweb:/ipfs/QmTBk3UmWtTExSdqEaq6Yp7z6YKQJewwjycREF9eFuf5tH"
 			]
 		}
 	},
