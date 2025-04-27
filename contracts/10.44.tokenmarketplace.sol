@@ -151,3 +151,9 @@ Just like you can check balance, send money, or receive money using your card, t
 //buyerCount.mul(1e18).div(sellerCount) = 510^18 /1 = 510^18
 //adjustedRatio = (510^18 + 110^18)/2 = (6 * 10^18)/2 = 3 * 10^18
 // newTokenPrice = //(2 * 10^16 * 3 * 10^18) / 10^18 = (6 * 10^34)/10^18 = 6*10^16 wei = 0.06 ether
+
+
+
+
+
+
