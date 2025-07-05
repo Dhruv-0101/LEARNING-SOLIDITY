@@ -5,6 +5,7 @@ pragma solidity >=0.8.2 <0.9.0;
 contract demo {
     modifier onlytrue() {
         require(false == true, "_a is not equal to true");
+        //agar yeh nahi hua to
         _;
     }
 

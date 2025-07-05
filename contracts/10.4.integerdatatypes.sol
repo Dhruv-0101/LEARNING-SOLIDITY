@@ -42,3 +42,5 @@ contract IntegerExample {
         return a / b;
     }
 }
+//-2^(n-1) to 2^(n-1)-1
+//0 to 2^(n)-1

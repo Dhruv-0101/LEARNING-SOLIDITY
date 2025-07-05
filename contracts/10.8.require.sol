@@ -21,7 +21,7 @@ contract demo {
     }
 }
 
-//error throw in require check
-//statement return in conditionals
+//error throw in require check     -- revert
+//statement return in conditionals -- passed
 
 //function require check reverse ho jayega

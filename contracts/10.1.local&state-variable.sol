@@ -3,6 +3,7 @@
 pragma solidity >=0.8.2 <0.9.0;
 
 contract demo {
+    //fucntion ke andar bane woh local variabble and fucntion ke bahar contract scope me bane woh state variable
     uint256 public state_var; //state variable
 
     function setter() public {

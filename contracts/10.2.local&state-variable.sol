@@ -32,7 +32,7 @@ contract Demo {
     }
 
     function writeStateVariableLocalVariable() public returns (bool) {
-        counter = 20;
+        counter = 30;
         bool value = true;
         return value;
     }
