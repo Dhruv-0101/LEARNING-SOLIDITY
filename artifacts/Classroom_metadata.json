@@ -1,0 +1,99 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "insert",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "roll",
+								"type": "uint256"
+							},
+							{
+								"internalType": "bool",
+								"name": "pass",
+								"type": "bool"
+							}
+						],
+						"internalType": "struct Classroom.Student",
+						"name": "",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "s1",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "roll",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "pass",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/10.17.simplestruct.sol": "Classroom"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/10.17.simplestruct.sol": {
+			"keccak256": "0xea1247b804cc28d85f1d90b846fefbb5bfb713513ca57b32b73e03ea0d0f6d3d",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://097fcfb8e3f89f21dfb170b4134302e5548d83e4a189aeb0775e7a6f9f212c33",
+				"dweb:/ipfs/Qmau9XmrUP8LR1nJ6Xos7CQUvZszjdTWNhJc4d4gAx8buq"
+			]
+		}
+	},
+	"version": 1
+}
