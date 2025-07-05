@@ -36,3 +36,4 @@ contract LoopExamples {
         return sum;
     }
 }
+
