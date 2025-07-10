@@ -18,7 +18,7 @@ contract SimpleWallet {
     bool public stop;
     event Transfer(address receiver, uint256 amount);
     event Receive(address sender, uint256 amonut);
-    event ReceiveUser(address sender, address receiver, uint256 amount); 
+    event ReceiveUser(address sender, address receiver, uint256 amount);
 
     constructor() {
         owner = msg.sender;
@@ -77,7 +77,7 @@ contract SimpleWallet {
         _to.transfer(_weiAmount);
         transactionHistory.push(
             Transaction({
-                from: msg.sender,
+                from: address(this),
                 to: _to,
                 timestamp: block.timestamp,
                 amount: _weiAmount
@@ -119,7 +119,7 @@ contract SimpleWallet {
         );
     }
 
-    //event - sender,receiver, amount
+     //jisko bhejna hai woh call karega
     function receiveFromUser() external payable {
         require(msg.value > 0, "Wei Value must be greater than zero");
         payable(owner).transfer(msg.value);
