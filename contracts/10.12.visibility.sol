@@ -9,6 +9,7 @@ contract demo {
     }
 
     function f2() private pure returns (uint256) {
+        // f4();
         return 2;
     }
 
