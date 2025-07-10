@@ -7,12 +7,12 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "a",
+				"name": "counter",
 				"outputs": [
 					{
-						"internalType": "uint8",
+						"internalType": "int256",
 						"name": "",
-						"type": "uint8"
+						"type": "int256"
 					}
 				],
 				"stateMutability": "view",
@@ -20,12 +20,25 @@
 			},
 			{
 				"inputs": [],
-				"name": "b",
+				"name": "readAndWriteStateVariable",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "int256",
 						"name": "",
-						"type": "uint256"
+						"type": "int256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "readStateVariable",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
 					}
 				],
 				"stateMutability": "view",
@@ -33,7 +46,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "c",
+				"name": "readStateVariableLocalVariable",
 				"outputs": [
 					{
 						"internalType": "bool",
@@ -46,34 +59,35 @@
 			},
 			{
 				"inputs": [],
-				"name": "d",
+				"name": "returnLocalVariable",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "bool",
 						"name": "",
-						"type": "string"
+						"type": "bool"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "slot",
-						"type": "uint256"
-					}
-				],
-				"name": "getSlotValue",
+				"inputs": [],
+				"name": "writeStateVariable",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "writeStateVariableLocalVariable",
 				"outputs": [
 					{
-						"internalType": "bytes32",
+						"internalType": "bool",
 						"name": "",
-						"type": "bytes32"
+						"type": "bool"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -90,7 +104,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/4.whatisintheslots.sol": "Demo"
+			"contracts/10.2.local&state-variable.sol": "Demo"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -104,12 +118,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/4.whatisintheslots.sol": {
-			"keccak256": "0xd641ae5e7101d4ef4c8e195a806640299be45f6a58787fe6da89b167146863b0",
-			"license": "MIT",
+		"contracts/10.2.local&state-variable.sol": {
+			"keccak256": "0xedd7b8ee7ab4aef39611e9d16d70a9473699b6465c60110b37278ae30a2110d6",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://a255013cd1f20f7243668e0a801ae2cfb1a85afc5c6fbc2aeeb4e5b504f9e335",
-				"dweb:/ipfs/QmPMAZb13ZwETTn2PKrMeesJBW2m3PhepGpqM74yP2veLE"
+				"bzz-raw://3000101d39f5e730204a3fd93d832b10b01a09bd6fd1f7a62d9ef22262ce3325",
+				"dweb:/ipfs/QmbY6DxR9SyQQqGWPtEZXvwGVz2ebWYD9h1CfttoQWq9mT"
 			]
 		}
 	},
