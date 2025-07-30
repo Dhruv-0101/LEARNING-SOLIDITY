@@ -33,7 +33,7 @@ contract Bob {
         Alice alice = Alice(_addr);
         alice.setter(_x);
     }
-
+    //doubt
     function payableSetter(Alice _alice, uint256 _x) public payable {
         _alice.payableSetter{value: msg.value}(_x);
     }

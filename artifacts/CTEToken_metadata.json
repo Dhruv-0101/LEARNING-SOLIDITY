@@ -428,7 +428,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.46.gldtoken.sol": "CTEToken"
+			"contracts/10.37.openzeplinerc20.sol": "CTEToken"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -482,12 +482,12 @@
 				"dweb:/ipfs/Qmax9WHBnVsZP46ZxEMNRQpLQnrdE4dK8LehML1Py8FowF"
 			]
 		},
-		"contracts/10.46.gldtoken.sol": {
-			"keccak256": "0x3e9bbd0a63796992442a5da3d714df5309235501035da95882e6b0d0847a9745",
+		"contracts/10.37.openzeplinerc20.sol": {
+			"keccak256": "0x9058f3c489d415996dcc0dd56966618fe5fb97aff025930d1d2f3053de98ef59",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://bf44c4e627ddfbcedfadb31b6d33aa0802c5277e32cad860a64ea5ec963467e3",
-				"dweb:/ipfs/QmTjCz8uQiv2YPc3wceQ4GkGhG54etKCijLD2MaQiu6HJM"
+				"bzz-raw://39072b05aba4a4f6ab47d8dc2d0b8b666479bcabb865fb032bee2460953ab3f9",
+				"dweb:/ipfs/QmawkFi9kdLY2h7Umi46PSzbNWgryh9pXwvZN5wj3TXAMB"
 			]
 		}
 	},
