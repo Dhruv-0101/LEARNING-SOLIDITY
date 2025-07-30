@@ -37,3 +37,5 @@ contract Demo {
         return value;
     }
 }
+//agar state me change hai to button is orange
+//agar sirf state ko read kar rahe ho to normal dark blue button and also for public state variable one getter button is there that is normal dark blue button
