@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.26;
 
-//is msg.data empty? means low level interaction with smart contract woh bhi ethersend ke sath(in fallback vs receive tree)
+//is msg.data empty? means low level interaction with smart contract woh bhi ether send ke sath(in fallback vs receive tree)
 //Transaction - from,to,timings,amount
 contract SimpleWallet {
     struct Transaction {
