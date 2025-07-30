@@ -14,6 +14,7 @@ contract demo {
     }
 
     function f3() internal pure returns (uint256) {
+        f2();
         return 3;
     }
 

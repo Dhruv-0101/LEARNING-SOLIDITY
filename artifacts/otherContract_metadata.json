@@ -47,11 +47,11 @@
 	},
 	"sources": {
 		"contracts/10.12.visibility.sol": {
-			"keccak256": "0xb1fe25fe323407bb8273eb96a0ac0cbd1430978b6e1a8b4c850572f3550955b1",
+			"keccak256": "0x78a6c23ca7dea0479859759d4186b4a28b02827d8678c385c7212afe4b284f51",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b5f85b17a5fba2fe5663e43e9e6463c6fe105b76ae49303d01d9701c9a45ae1a",
-				"dweb:/ipfs/Qma5UpXiaUYTAU8wmpxAbWK7VCiaYfQ3askWzaahQtVi56"
+				"bzz-raw://65b2eedf5b15888bced3d4e575b708dfbdbdd055d1b4dbb969bc18a4826e97f9",
+				"dweb:/ipfs/QmfMQM8JFvSVdxYYMYY58d22DBFkBFvMwD8x2SJFYTypz7"
 			]
 		}
 	},
