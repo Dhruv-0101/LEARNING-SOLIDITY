@@ -1,0 +1,50 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "OnlySimulatedBackend",
+				"type": "error"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/chainlink/customlogictrigger_flattened.sol": "AutomationBase"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/chainlink/customlogictrigger_flattened.sol": {
+			"keccak256": "0x2d3ebfa7a6c16ea084f8dc9e2c3d5321ab0552a9e491b2eab7daa14edae81aa6",
+			"urls": [
+				"bzz-raw://4e14d429c8dad152eba3f9eb460ef29be58945de567da9e7e08b48c9b5bc6c21",
+				"dweb:/ipfs/QmWm2cfqXAzY4Kuobc3qGe28fc3vcryaDYAnPR2j6md2Cq"
+			]
+		}
+	},
+	"version": 1
+}
