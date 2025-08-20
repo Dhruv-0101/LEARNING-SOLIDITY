@@ -1,0 +1,93 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "6080604052348015600e575f80fd5b5060ad80601a5f395ff3fe6080604052348015600e575f80fd5b50600436106026575f3560e01c80633ebca8e114602a575b5f80fd5b60306032565b005b3373ffffffffffffffffffffffffffffffffffffffff167fe3cba3b68882650dc76730e77105080229f9f61f5c33b10e9aa239ff26d01d9460405160405180910390a256fea2646970667358221220815988b015bb006e7ad6d489eb486b376c7e404965dfe4a18b05477e506040a264736f6c634300081a0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 DUP1 REVERT JUMPDEST POP PUSH1 0xAD DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x26 JUMPI PUSH0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x3EBCA8E1 EQ PUSH1 0x2A JUMPI JUMPDEST PUSH0 DUP1 REVERT JUMPDEST PUSH1 0x30 PUSH1 0x32 JUMP JUMPDEST STOP JUMPDEST CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH32 0xE3CBA3B68882650DC76730E77105080229F9F61F5C33B10E9AA239FF26D01D94 PUSH1 0x40 MLOAD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG2 JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 DUP2 MSIZE DUP9 0xB0 ISZERO 0xBB STOP PUSH15 0x7AD6D489EB486B376C7E404965DFE4 LOG1 DUP12 SDIV SELFBALANCE PUSH31 0x506040A264736F6C634300081A003300000000000000000000000000000000 ",
+			"sourceMap": "321:1223:0:-:0;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"functionDebugData": {
+				"@emitCountLog_17": {
+					"entryPoint": 50,
+					"id": 17,
+					"parameterSlots": 0,
+					"returnSlots": 0
+				}
+			},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "6080604052348015600e575f80fd5b50600436106026575f3560e01c80633ebca8e114602a575b5f80fd5b60306032565b005b3373ffffffffffffffffffffffffffffffffffffffff167fe3cba3b68882650dc76730e77105080229f9f61f5c33b10e9aa239ff26d01d9460405160405180910390a256fea2646970667358221220815988b015bb006e7ad6d489eb486b376c7e404965dfe4a18b05477e506040a264736f6c634300081a0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x26 JUMPI PUSH0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x3EBCA8E1 EQ PUSH1 0x2A JUMPI JUMPDEST PUSH0 DUP1 REVERT JUMPDEST PUSH1 0x30 PUSH1 0x32 JUMP JUMPDEST STOP JUMPDEST CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH32 0xE3CBA3B68882650DC76730E77105080229F9F61F5C33B10E9AA239FF26D01D94 PUSH1 0x40 MLOAD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 LOG2 JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 DUP2 MSIZE DUP9 0xB0 ISZERO 0xBB STOP PUSH15 0x7AD6D489EB486B376C7E404965DFE4 LOG1 DUP12 SDIV SELFBALANCE PUSH31 0x506040A264736F6C634300081A003300000000000000000000000000000000 ",
+			"sourceMap": "321:1223:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1138:404;;;:::i;:::-;;;1524:10;1511:24;;;;;;;;;;;;1138:404::o"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "34600",
+				"executionCost": "85",
+				"totalCost": "34685"
+			},
+			"external": {
+				"emitCountLog()": "1281"
+			}
+		},
+		"methodIdentifiers": {
+			"emitCountLog()": "3ebca8e1"
+		}
+	},
+	"abi": [
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": true,
+					"internalType": "address",
+					"name": "eventEmitter",
+					"type": "address"
+				}
+			],
+			"name": "WantsToCount",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "emitCountLog",
+			"outputs": [],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

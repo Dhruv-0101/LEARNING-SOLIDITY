@@ -1,0 +1,84 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "eventEmitter",
+						"type": "address"
+					}
+				],
+				"name": "WantsToCount",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "emitCountLog",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"events": {
+				"WantsToCount(address)": {
+					"params": {
+						"eventEmitter": "The address that emitted this event."
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {},
+			"title": "EventEmitter",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"WantsToCount(address)": {
+					"notice": "This is the event that will trigger the LogTrigger contract."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"emitCountLog()": {
+					"notice": "When called, this function emits the WantsToCount event."
+				}
+			},
+			"notice": "This contract's only job is to emit an event that a Log Trigger automation can listen for.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/chainlink/EventEmitter.sol": "EventEmitter"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/chainlink/EventEmitter.sol": {
+			"keccak256": "0x2466d8170573722d3199d0c26bc3cd41d254c94afc83f9f6c1a64d11a1097b4b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f981a16b6b353a3171abc0a85171e5974b533632616cb003297cd9189480a695",
+				"dweb:/ipfs/QmSVDZ2HFJ8XwBqQNPX2pePPkxA76reS29u1AbixZe8Kza"
+			]
+		}
+	},
+	"version": 1
+}
