@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "A library for populating CBOR encoded payload in Solidity. https://datatracker.ietf.org/doc/html/rfc7049 The library offers various write* and start* methods to encode values of different types. The resulted buffer can be obtained with data() method. Encoding of primitive types is staightforward, whereas encoding of sequences can result in an invalid CBOR if start/write/end flow is violated. For the purpose of gas saving, the library does not verify start/write/end flow internally, except for nested start/end pairs.",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/chainlink/function_flattened.sol": "CBOR"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/chainlink/function_flattened.sol": {
+			"keccak256": "0x83e37b717763f47904daa25c263c846f4cd728e798c12790f73d71fca6259445",
+			"urls": [
+				"bzz-raw://e2910e5832271786df745c4d977a724ca419ab4624fd835ddcf4c413bb5cf8f8",
+				"dweb:/ipfs/QmUCz55iacEcjBTfzN7znGuDpJ3YQk2RPoziG1SnDzkYvK"
+			]
+		}
+	},
+	"version": 1
+}

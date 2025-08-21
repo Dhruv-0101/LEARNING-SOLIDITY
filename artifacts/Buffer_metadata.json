@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "A library for working with mutable byte buffers in Solidity. Byte buffers are mutable and expandable, and provide a variety of primitives for appending to them. At any time you can fetch a bytes object containing the current contents of the buffer. The bytes object should not be stored between operations, as it may change due to resizing of the buffer.",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/chainlink/function_flattened.sol": "Buffer"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/chainlink/function_flattened.sol": {
+			"keccak256": "0x83e37b717763f47904daa25c263c846f4cd728e798c12790f73d71fca6259445",
+			"urls": [
+				"bzz-raw://e2910e5832271786df745c4d977a724ca419ab4624fd835ddcf4c413bb5cf8f8",
+				"dweb:/ipfs/QmUCz55iacEcjBTfzN7znGuDpJ3YQk2RPoziG1SnDzkYvK"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,93 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "6055604b600b8282823980515f1a607314603f577f4e487b71000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b305f52607381538281f3fe730000000000000000000000000000000000000000301460806040525f80fdfea2646970667358221220281ec5d87c6550b710b3f23d2180b06ea228e99e59289f2def0e253aa65d7d5364736f6c634300081a0033",
+			"opcodes": "PUSH1 0x55 PUSH1 0x4B PUSH1 0xB DUP3 DUP3 DUP3 CODECOPY DUP1 MLOAD PUSH0 BYTE PUSH1 0x73 EQ PUSH1 0x3F JUMPI PUSH32 0x4E487B7100000000000000000000000000000000000000000000000000000000 PUSH0 MSTORE PUSH0 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH0 REVERT JUMPDEST ADDRESS PUSH0 MSTORE PUSH1 0x73 DUP2 MSTORE8 DUP3 DUP2 RETURN INVALID PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x28 0x1E 0xC5 0xD8 PUSH29 0x6550B710B3F23D2180B06EA228E99E59289F2DEF0E253AA65D7D536473 PUSH16 0x6C634300081A00330000000000000000 ",
+			"sourceMap": "19161:6764:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "730000000000000000000000000000000000000000301460806040525f80fdfea2646970667358221220281ec5d87c6550b710b3f23d2180b06ea228e99e59289f2def0e253aa65d7d5364736f6c634300081a0033",
+			"opcodes": "PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x28 0x1E 0xC5 0xD8 PUSH29 0x6550B710B3F23D2180B06EA228E99E59289F2DEF0E253AA65D7D536473 PUSH16 0x6C634300081A00330000000000000000 ",
+			"sourceMap": "19161:6764:0:-:0;;;;;;;;"
+		},
+		"gasEstimates": {
+			"creation": {
+				"codeDepositCost": "17000",
+				"executionCost": "92",
+				"totalCost": "17092"
+			},
+			"internal": {
+				"create(uint256)": "infinite",
+				"data(struct CBOR.CBORBuffer memory)": "infinite",
+				"endSequence(struct CBOR.CBORBuffer memory)": "infinite",
+				"startArray(struct CBOR.CBORBuffer memory)": "infinite",
+				"startFixedArray(struct CBOR.CBORBuffer memory,uint64)": "infinite",
+				"startFixedMap(struct CBOR.CBORBuffer memory,uint64)": "infinite",
+				"startMap(struct CBOR.CBORBuffer memory)": "infinite",
+				"writeBool(struct CBOR.CBORBuffer memory,bool)": "infinite",
+				"writeBytes(struct CBOR.CBORBuffer memory,bytes memory)": "infinite",
+				"writeContentFree(struct CBOR.CBORBuffer memory,uint8)": "infinite",
+				"writeDefiniteLengthType(struct CBOR.CBORBuffer memory,uint8,uint64)": "infinite",
+				"writeFixedNumeric(struct CBOR.CBORBuffer memory,uint8,uint64)": "infinite",
+				"writeIndefiniteLengthType(struct CBOR.CBORBuffer memory,uint8)": "infinite",
+				"writeInt256(struct CBOR.CBORBuffer memory,int256)": "infinite",
+				"writeInt64(struct CBOR.CBORBuffer memory,int64)": "infinite",
+				"writeKVArray(struct CBOR.CBORBuffer memory,string memory)": "infinite",
+				"writeKVBool(struct CBOR.CBORBuffer memory,string memory,bool)": "infinite",
+				"writeKVBytes(struct CBOR.CBORBuffer memory,string memory,bytes memory)": "infinite",
+				"writeKVInt256(struct CBOR.CBORBuffer memory,string memory,int256)": "infinite",
+				"writeKVInt64(struct CBOR.CBORBuffer memory,string memory,int64)": "infinite",
+				"writeKVMap(struct CBOR.CBORBuffer memory,string memory)": "infinite",
+				"writeKVNull(struct CBOR.CBORBuffer memory,string memory)": "infinite",
+				"writeKVString(struct CBOR.CBORBuffer memory,string memory,string memory)": "infinite",
+				"writeKVUInt256(struct CBOR.CBORBuffer memory,string memory,uint256)": "infinite",
+				"writeKVUInt64(struct CBOR.CBORBuffer memory,string memory,uint64)": "infinite",
+				"writeKVUndefined(struct CBOR.CBORBuffer memory,string memory)": "infinite",
+				"writeNull(struct CBOR.CBORBuffer memory)": "infinite",
+				"writeString(struct CBOR.CBORBuffer memory,string memory)": "infinite",
+				"writeUInt256(struct CBOR.CBORBuffer memory,uint256)": "infinite",
+				"writeUInt64(struct CBOR.CBORBuffer memory,uint64)": "infinite",
+				"writeUndefined(struct CBOR.CBORBuffer memory)": "infinite"
+			}
+		},
+		"methodIdentifiers": {}
+	},
+	"abi": []
+}

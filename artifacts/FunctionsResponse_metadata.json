@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"title": "Library of types that are used for fulfillment of a Functions request",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/chainlink/function_flattened.sol": "FunctionsResponse"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/chainlink/function_flattened.sol": {
+			"keccak256": "0x83e37b717763f47904daa25c263c846f4cd728e798c12790f73d71fca6259445",
+			"urls": [
+				"bzz-raw://e2910e5832271786df745c4d977a724ca419ab4624fd835ddcf4c413bb5cf8f8",
+				"dweb:/ipfs/QmUCz55iacEcjBTfzN7znGuDpJ3YQk2RPoziG1SnDzkYvK"
+			]
+		}
+	},
+	"version": 1
+}

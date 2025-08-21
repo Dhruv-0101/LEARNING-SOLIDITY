@@ -1,0 +1,509 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "response",
+						"type": "bytes"
+					},
+					{
+						"internalType": "bytes",
+						"name": "err",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint96",
+						"name": "juelsPerGas",
+						"type": "uint96"
+					},
+					{
+						"internalType": "uint96",
+						"name": "costWithoutFulfillment",
+						"type": "uint96"
+					},
+					{
+						"internalType": "address",
+						"name": "transmitter",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"internalType": "bytes32",
+								"name": "requestId",
+								"type": "bytes32"
+							},
+							{
+								"internalType": "address",
+								"name": "coordinator",
+								"type": "address"
+							},
+							{
+								"internalType": "uint96",
+								"name": "estimatedTotalCostJuels",
+								"type": "uint96"
+							},
+							{
+								"internalType": "address",
+								"name": "client",
+								"type": "address"
+							},
+							{
+								"internalType": "uint64",
+								"name": "subscriptionId",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint32",
+								"name": "callbackGasLimit",
+								"type": "uint32"
+							},
+							{
+								"internalType": "uint72",
+								"name": "adminFee",
+								"type": "uint72"
+							},
+							{
+								"internalType": "uint72",
+								"name": "donFee",
+								"type": "uint72"
+							},
+							{
+								"internalType": "uint40",
+								"name": "gasOverheadBeforeCallback",
+								"type": "uint40"
+							},
+							{
+								"internalType": "uint40",
+								"name": "gasOverheadAfterCallback",
+								"type": "uint40"
+							},
+							{
+								"internalType": "uint32",
+								"name": "timeoutTimestamp",
+								"type": "uint32"
+							}
+						],
+						"internalType": "struct FunctionsResponse.Commitment",
+						"name": "commitment",
+						"type": "tuple"
+					}
+				],
+				"name": "fulfill",
+				"outputs": [
+					{
+						"internalType": "enum FunctionsResponse.FulfillResult",
+						"name": "",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint96",
+						"name": "",
+						"type": "uint96"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAdminFee",
+				"outputs": [
+					{
+						"internalType": "uint72",
+						"name": "adminFee",
+						"type": "uint72"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllowListId",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "id",
+						"type": "bytes32"
+					}
+				],
+				"name": "getContractById",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "id",
+						"type": "bytes32"
+					}
+				],
+				"name": "getProposedContractById",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getProposedContractSet",
+				"outputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "",
+						"type": "address[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subscriptionId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint32",
+						"name": "callbackGasLimit",
+						"type": "uint32"
+					}
+				],
+				"name": "isValidCallbackGasLimit",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32[]",
+						"name": "proposalSetIds",
+						"type": "bytes32[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "proposalSetAddresses",
+						"type": "address[]"
+					}
+				],
+				"name": "proposeContractsUpdate",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subscriptionId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint16",
+						"name": "dataVersion",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint32",
+						"name": "callbackGasLimit",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "donId",
+						"type": "bytes32"
+					}
+				],
+				"name": "sendRequest",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint64",
+						"name": "subscriptionId",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					},
+					{
+						"internalType": "uint16",
+						"name": "dataVersion",
+						"type": "uint16"
+					},
+					{
+						"internalType": "uint32",
+						"name": "callbackGasLimit",
+						"type": "uint32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "donId",
+						"type": "bytes32"
+					}
+				],
+				"name": "sendRequestToProposed",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "allowListId",
+						"type": "bytes32"
+					}
+				],
+				"name": "setAllowListId",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unpause",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "updateContracts",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"fulfill(bytes,bytes,uint96,uint96,address,(bytes32,address,uint96,address,uint64,uint32,uint72,uint72,uint40,uint40,uint32))": {
+					"details": "Only callable by the Coordinator contract that is saved in the commitment",
+					"params": {
+						"commitment": "- The parameters of the request that must be held consistent between request and response time",
+						"costWithoutFulfillment": "- The cost of processing the request (in Juels of LINK ), without fulfillment",
+						"err": "error from DON consensus",
+						"juelsPerGas": "- current rate of juels/gas",
+						"response": "response data from DON consensus",
+						"transmitter": "- The Node that transmitted the OCR report"
+					},
+					"returns": {
+						"_0": "fulfillResult -",
+						"_1": "callbackGasCostJuels -"
+					}
+				},
+				"getAdminFee()": {
+					"returns": {
+						"adminFee": "adminFee"
+					}
+				},
+				"getAllowListId()": {
+					"returns": {
+						"_0": "id - bytes32 id that can be passed to the \"getContractById\" of the Router"
+					}
+				},
+				"getContractById(bytes32)": {
+					"params": {
+						"id": "A bytes32 identifier for the route"
+					},
+					"returns": {
+						"_0": "contract The current contract address"
+					}
+				},
+				"getProposedContractById(bytes32)": {
+					"params": {
+						"id": "A bytes32 identifier for the route"
+					},
+					"returns": {
+						"_0": "contract The current or proposed contract address"
+					}
+				},
+				"getProposedContractSet()": {
+					"returns": {
+						"_0": "ids The identifiers of the contracts to update",
+						"_1": "to The addresses of the contracts that will be updated to"
+					}
+				},
+				"isValidCallbackGasLimit(uint64,uint32)": {
+					"params": {
+						"callbackGasLimit": "desired callback gas limit",
+						"subscriptionId": "subscription ID"
+					}
+				},
+				"pause()": {
+					"details": "Puts the system into an emergency stopped state.Only callable by owner"
+				},
+				"proposeContractsUpdate(bytes32[],address[])": {
+					"details": "Only callable by owner"
+				},
+				"sendRequest(uint64,bytes,uint16,uint32,bytes32)": {
+					"params": {
+						"callbackGasLimit": "- Gas limit for the fulfillment callback",
+						"data": "- CBOR encoded Chainlink Functions request data, use FunctionsClient API to encode a request",
+						"dataVersion": "- Gas limit for the fulfillment callback",
+						"donId": "- An identifier used to determine which route to send the request along",
+						"subscriptionId": "- A unique subscription ID allocated by billing system, a client can make requests from different contracts referencing the same subscription"
+					},
+					"returns": {
+						"_0": "requestId - A unique request identifier"
+					}
+				},
+				"sendRequestToProposed(uint64,bytes,uint16,uint32,bytes32)": {
+					"params": {
+						"callbackGasLimit": "- Gas limit for the fulfillment callback",
+						"data": "- CBOR encoded Chainlink Functions request data, use FunctionsClient API to encode a request",
+						"dataVersion": "- Gas limit for the fulfillment callback",
+						"donId": "- An identifier used to determine which route to send the request along",
+						"subscriptionId": "- A unique subscription ID allocated by billing system, a client can make requests from different contracts referencing the same subscription"
+					},
+					"returns": {
+						"_0": "requestId - A unique request identifier"
+					}
+				},
+				"unpause()": {
+					"details": "Takes the system out of an emergency stopped state.Only callable by owner"
+				},
+				"updateContracts()": {
+					"details": "Only callable by owner"
+				}
+			},
+			"title": "Chainlink Functions Router interface.",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"fulfill(bytes,bytes,uint96,uint96,address,(bytes32,address,uint96,address,uint64,uint32,uint72,uint72,uint40,uint40,uint32))": {
+					"notice": "Fulfill the request by: - calling back the data that the Oracle returned to the client contract - pay the DON for processing the request"
+				},
+				"getAdminFee()": {
+					"notice": "Get the flat fee (in Juels of LINK) that will be paid to the Router owner for operation of the network"
+				},
+				"getAllowListId()": {
+					"notice": "The identifier of the route to retrieve the address of the access control contract The access control contract controls which accounts can manage subscriptions"
+				},
+				"getContractById(bytes32)": {
+					"notice": "Get the current contract given an ID"
+				},
+				"getProposedContractById(bytes32)": {
+					"notice": "Get the proposed next contract given an ID"
+				},
+				"getProposedContractSet()": {
+					"notice": "Return the latest proprosal set"
+				},
+				"isValidCallbackGasLimit(uint64,uint32)": {
+					"notice": "Validate requested gas limit is below the subscription max."
+				},
+				"proposeContractsUpdate(bytes32[],address[])": {
+					"notice": "Proposes one or more updates to the contract routes"
+				},
+				"sendRequest(uint64,bytes,uint16,uint32,bytes32)": {
+					"notice": "Sends a request using the provided subscriptionId"
+				},
+				"sendRequestToProposed(uint64,bytes,uint16,uint32,bytes32)": {
+					"notice": "Sends a request to the proposed contracts"
+				},
+				"setAllowListId(bytes32)": {
+					"notice": "Set the identifier of the route to retrieve the address of the access control contract The access control contract controls which accounts can manage subscriptions"
+				},
+				"updateContracts()": {
+					"notice": "Updates the current contract routes to the proposed contracts"
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/chainlink/function_flattened.sol": "IFunctionsRouter"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/chainlink/function_flattened.sol": {
+			"keccak256": "0x83e37b717763f47904daa25c263c846f4cd728e798c12790f73d71fca6259445",
+			"urls": [
+				"bzz-raw://e2910e5832271786df745c4d977a724ca419ab4624fd835ddcf4c413bb5cf8f8",
+				"dweb:/ipfs/QmUCz55iacEcjBTfzN7znGuDpJ3YQk2RPoziG1SnDzkYvK"
+			]
+		}
+	},
+	"version": 1
+}
