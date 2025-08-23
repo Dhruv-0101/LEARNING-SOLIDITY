@@ -229,7 +229,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/chainlink/ccip.sol": "Sender"
+			"contracts/chainlink/sender.sol": "Sender"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -299,7 +299,7 @@
 				"dweb:/ipfs/QmcE3Hef9XLSbthiS3DKQFF1ZpYDZsPLHwW1DY5iUGAfcd"
 			]
 		},
-		"contracts/chainlink/ccip.sol": {
+		"contracts/chainlink/sender.sol": {
 			"keccak256": "0xb2e44caa1309447547adb0ed167bb6552a91802e8c099534723a0440fb261271",
 			"license": "MIT",
 			"urls": [
