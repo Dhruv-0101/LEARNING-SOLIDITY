@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -27,31 +27,13 @@
 			}
 		],
 		"devdoc": {
-			"events": {
-				"WantsToCount(address)": {
-					"params": {
-						"eventEmitter": "The address that emitted this event."
-					}
-				}
-			},
 			"kind": "dev",
 			"methods": {},
-			"title": "EventEmitter",
 			"version": 1
 		},
 		"userdoc": {
-			"events": {
-				"WantsToCount(address)": {
-					"notice": "This is the event that will trigger the LogTrigger contract."
-				}
-			},
 			"kind": "user",
-			"methods": {
-				"emitCountLog()": {
-					"notice": "When called, this function emits the WantsToCount event."
-				}
-			},
-			"notice": "This contract's only job is to emit an event that a Log Trigger automation can listen for.",
+			"methods": {},
 			"version": 1
 		}
 	},
@@ -72,11 +54,11 @@
 	},
 	"sources": {
 		"contracts/chainlink/EventEmitter.sol": {
-			"keccak256": "0x2466d8170573722d3199d0c26bc3cd41d254c94afc83f9f6c1a64d11a1097b4b",
+			"keccak256": "0x2a1bb33de15b76c471786d9756ef059bda16ec8b0039e87881dfecdbb4a55dc0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f981a16b6b353a3171abc0a85171e5974b533632616cb003297cd9189480a695",
-				"dweb:/ipfs/QmSVDZ2HFJ8XwBqQNPX2pePPkxA76reS29u1AbixZe8Kza"
+				"bzz-raw://54cdb05c54e80ea8b6a021f64152f76ebc202d86486ad9b51df89325b1980441",
+				"dweb:/ipfs/QmPsciExB9svjznYQyDhdMs5KCCKhptqB8tndZjPzjUpG3"
 			]
 		}
 	},

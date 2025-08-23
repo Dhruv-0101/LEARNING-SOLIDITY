@@ -994,7 +994,7 @@ pragma solidity 0.8.26;
 // - ConfirmedOwner: A security feature that restricts certain functions to the contract deployer.
 contract GettingStartedFunctionsConsumer is FunctionsClient, ConfirmedOwner {
     // This line allows us to use the FunctionsRequest library's functions on the Request struct.
-    using FunctionsRequest for FunctionsRequest.Request;
+    using FunctionsRequest for FunctionsRequest.Request;//send request
 
     // --- STATE VARIABLES ---
     // These variables store the results of our last API call.
@@ -1017,7 +1017,7 @@ contract GettingStartedFunctionsConsumer is FunctionsClient, ConfirmedOwner {
     // --- CHAINLINK CONFIGURATION (Hardcoded for Sepolia Testnet) ---
 
     // The address of the main Chainlink Functions contract that manages all requests.
-    address router = 0xb83E47C2bC239B3bf370bc41e1459A34b41238D0;
+    address router = 0xb83E47C2bC239B3bf370bc41e1459A34b41238D0;//sepolia
 
     // This is the JavaScript code that will be executed off-chain by a Chainlink node.
     string source =

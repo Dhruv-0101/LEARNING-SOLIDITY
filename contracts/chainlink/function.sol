@@ -4,8 +4,8 @@ pragma solidity 0.8.26;
 // Defines the Solidity compiler version.
 
 // Import necessary contracts from the Chainlink library.
-import {FunctionsClient} from "@chainlink/contracts@1.4.0/src/v0.8/functions/v1_0_0/FunctionsClient.sol";
-import {ConfirmedOwner} from "@chainlink/contracts@1.4.0/src/v0.8/shared/access/ConfirmedOwner.sol";
+import {FunctionsClient} from "@chainlink/contracts@1.4.0/src/v0.8/functions/v1_0_0/FunctionsClient.sol";//fulfill request
+import {ConfirmedOwner} from "@chainlink/contracts@1.4.0/src/v0.8/shared/access/ConfirmedOwner.sol";//mere behalf pe woh call karega aur me usse token dunga. 
 import {FunctionsRequest} from "@chainlink/contracts@1.4.0/src/v0.8/functions/v1_0_0/libraries/FunctionsRequest.sol";
 
 /**
@@ -17,7 +17,7 @@ import {FunctionsRequest} from "@chainlink/contracts@1.4.0/src/v0.8/functions/v1
 // - ConfirmedOwner: A security feature that restricts certain functions to the contract deployer.
 contract GettingStartedFunctionsConsumer is FunctionsClient, ConfirmedOwner {
     // This line allows us to use the FunctionsRequest library's functions on the Request struct.
-    using FunctionsRequest for FunctionsRequest.Request;
+    using FunctionsRequest for FunctionsRequest.Request;//send request
 
     // --- STATE VARIABLES ---
     // These variables store the results of our last API call.
@@ -40,7 +40,7 @@ contract GettingStartedFunctionsConsumer is FunctionsClient, ConfirmedOwner {
     // --- CHAINLINK CONFIGURATION (Hardcoded for Sepolia Testnet) ---
 
     // The address of the main Chainlink Functions contract that manages all requests.
-    address router = 0xb83E47C2bC239B3bf370bc41e1459A34b41238D0;
+    address router = 0xb83E47C2bC239B3bf370bc41e1459A34b41238D0;//sepolia
 
     // This is the JavaScript code that will be executed off-chain by a Chainlink node.
     string source =
