@@ -67,11 +67,11 @@
 			]
 		},
 		"contracts/chainlink/pricefeed.sol": {
-			"keccak256": "0x54fab6ef561dbbb4fde8725f3406235e04975b5764541f6e837c522d4159fee6",
+			"keccak256": "0x93dd5eca9dd95d967c6936e91e1128162d82aacd47471e3cdac60f852bb21bea",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://70891fde41f677d2c470f14f5b1dfd7b5243fab1ffd6e272d9f4691ce64966f3",
-				"dweb:/ipfs/QmQsgvsEj4Sm4ERFyvowWrmioEAiUkLL2ttsko7aNxjouJ"
+				"bzz-raw://67c4c5471c7fa8ab7ba0bd773e70f6a4824eeb41ebbf159dc8403b4c9344f89d",
+				"dweb:/ipfs/QmfXLhnEVxXnEDBrzkhf2SSacK3udEMdfgy8BUVXqJRLZ9"
 			]
 		}
 	},
