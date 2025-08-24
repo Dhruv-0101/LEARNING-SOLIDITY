@@ -300,11 +300,11 @@
 			]
 		},
 		"contracts/chainlink/sender.sol": {
-			"keccak256": "0xb2e44caa1309447547adb0ed167bb6552a91802e8c099534723a0440fb261271",
+			"keccak256": "0x59df6846ce31b3a0b0107fbf39cd177b8c189fb50fbee2897d8231289dceb0f1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://344009646544d492f8600c9c05d66d8d80971c8a76652df48211163bde5918dd",
-				"dweb:/ipfs/QmehzYrodAjdVVrKNjHmrPupdfo9NCAcKoByguXwkGpEhx"
+				"bzz-raw://d0c38291864bdd6b53a511e0bd9670d95c1416abd83cd9ff42f7fcf2e258c157",
+				"dweb:/ipfs/QmSPbpvKFr7fgDu9ZTh3zb9bqEmaBDhZLQuFLNtchTwryL"
 			]
 		}
 	},
