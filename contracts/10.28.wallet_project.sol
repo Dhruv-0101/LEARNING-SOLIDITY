@@ -2,6 +2,7 @@
 pragma solidity ^0.8.26;
 
 //is msg.data empty? means low level interaction with smart contract woh bhi ether send ke sath(in fallback vs receive tree)
+//ether never waste in any case----⚡ Summary://Agar contract me payable function nahi hai aur fallback() bhi non-payable hai, to Ether kabhi bhi contract me store nahi hoga. Transaction revert hogi aur Ether wapas sender ke paas rahega. Waste sirf gas hoti hai.
 //Transaction - from,to,timings,amount
 contract SimpleWallet {
     struct Transaction {
@@ -119,7 +120,7 @@ contract SimpleWallet {
         );
     }
 
-     //jisko bhejna hai woh call karega
+    //jisko bhejna hai woh call karega
     function receiveFromUser() external payable {
         require(msg.value > 0, "Wei Value must be greater than zero");
         payable(owner).transfer(msg.value);
