@@ -34,7 +34,7 @@
 		"compilationTarget": {
 			"contracts/10.35_solidity_oops_interface.sol": "IGreeter"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

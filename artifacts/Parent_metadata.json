@@ -60,7 +60,7 @@
 		"compilationTarget": {
 			"contracts/10.34.solidity_oops_abstract.sol": "Parent"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

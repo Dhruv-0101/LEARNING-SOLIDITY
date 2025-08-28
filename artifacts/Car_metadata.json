@@ -86,7 +86,7 @@
 		"compilationTarget": {
 			"contracts/10.33.solidty_oops_inheritance.sol": "Car"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

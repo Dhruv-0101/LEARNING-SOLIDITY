@@ -59,7 +59,7 @@
 		"compilationTarget": {
 			"contracts/10.30.memoryvscalldata.sol": "MemoryVsCalldata"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

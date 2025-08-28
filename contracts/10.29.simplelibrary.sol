@@ -11,6 +11,7 @@ library MathLibrary {
         return a * b;
     }
 }
+//no separate deployment is needed.
 
 // Using Library in a Contract
 contract Calculator {

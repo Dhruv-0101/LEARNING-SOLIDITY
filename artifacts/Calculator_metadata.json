@@ -45,7 +45,7 @@
 		"compilationTarget": {
 			"contracts/10.29.simplelibrary.sol": "Calculator"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -58,11 +58,11 @@
 	},
 	"sources": {
 		"contracts/10.29.simplelibrary.sol": {
-			"keccak256": "0x7870612836b0d47b93d15e6701fe9127470c6f70651472f36e0e21f1c931cad4",
+			"keccak256": "0xe7bee0cdea34c093b0d28acc8ed9a3b3f6502229829f833b31b2ad100087a6ba",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://877fe0efd4d97ac6f042b8b9d4254d53bce0afd8520dc78dbf088a929d173c1c",
-				"dweb:/ipfs/QmPNV73icEKLsNykR384pUGuRqYJdGH6u4UQu6FKJ1TRLu"
+				"bzz-raw://23b4a152c04cf671b114ccb77fdbd773f9dac89e8c7a14f4a2deff08677e7dc0",
+				"dweb:/ipfs/QmQACZSdbhwsADkPSKTcbgrptF4vPiyn5wNCMdy9hbqaVM"
 			]
 		}
 	},
