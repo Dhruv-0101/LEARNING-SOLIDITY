@@ -1,8 +1,8 @@
 {
-	"id": "8762510aadd9525a910a067c11950c0b",
+	"id": "b1b4e2a9c1c25ab215720ee076daf6fb",
 	"_format": "hh-sol-build-info-1",
-	"solcVersion": "0.8.30",
-	"solcLongVersion": "0.8.30+commit.73712a01",
+	"solcVersion": "0.8.24",
+	"solcLongVersion": "0.8.24+commit.e11b9ed9",
 	"input": {
 		"language": "Solidity",
 		"sources": {
@@ -35,7 +35,8 @@
 					]
 				}
 			},
-			"remappings": []
+			"remappings": [],
+			"evmVersion": "cancun"
 		}
 	},
 	"output": {
