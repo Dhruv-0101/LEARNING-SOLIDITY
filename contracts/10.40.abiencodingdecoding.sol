@@ -54,9 +54,6 @@ contract enocdedata {
 | ----------- | ---------------------------------------- | -------------------- | ---------------------------------------------------------------- |
 | `0x200`     | (free memory starts here)                |                      | `0x40` pointer now points here                                   |
 
-
-At 0xA0 → it stores 0x60, meaning "go 0x60 bytes forward from 0x80" → 0x80 + 0x60 = 0xE0 + 0x60 = 0x140, where "abc" begins.
-
 At 0x100 → it stores 0x100, meaning "go 0x100 bytes forward from 0x80" → 0x80 + 0x100 = 0x180, where [1,2,3] begins.
 
 ❓Your core question:

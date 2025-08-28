@@ -86,7 +86,7 @@
 		"compilationTarget": {
 			"contracts/10.39.callinganothercontract.sol": "Alice"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

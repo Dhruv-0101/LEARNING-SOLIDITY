@@ -1,5 +1,5 @@
 {
-	"id": "d99982e9c6ed40730c856496152cb830",
+	"id": "4c6cab99075f7981988a92106f7b163b",
 	"_format": "hh-sol-build-info-1",
 	"solcVersion": "0.8.30",
 	"solcLongVersion": "0.8.30+commit.73712a01",
@@ -35,7 +35,8 @@
 					]
 				}
 			},
-			"remappings": []
+			"remappings": [],
+			"evmVersion": "cancun"
 		}
 	},
 	"output": {

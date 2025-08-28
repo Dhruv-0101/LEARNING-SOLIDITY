@@ -89,7 +89,7 @@
 		"compilationTarget": {
 			"contracts/10.40.abiencodingdecoding.sol": "enocdedata"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

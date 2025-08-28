@@ -94,7 +94,7 @@
 		"compilationTarget": {
 			"contracts/10.39.callinganothercontract.sol": "Bob"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

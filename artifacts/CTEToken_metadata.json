@@ -430,7 +430,7 @@
 		"compilationTarget": {
 			"contracts/10.37.openzeplinerc20.sol": "CTEToken"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "cancun",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
