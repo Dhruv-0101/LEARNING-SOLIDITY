@@ -200,6 +200,25 @@ contract Vote {
     //     endTime = startTime + 3600; // 1 hour voting period after start time
     // }
     //If you call setVotingPeriod(7200), voting will start 2 hours from now and last for 1 hour.
+    /*
+    Whatever number you pass to _startInSeconds means:
+
+    Wait that many seconds from now (block.timestamp).
+
+    After that wait, voting starts.
+
+    Then, in your code, voting will last 1 hour (because of + 3600).
+
+    👉 Example timeline:
+
+    You call setVotingPeriod(7200) at 10:00 AM.
+
+    Voting will start at 12:00 PM (2 hours later).
+
+    Voting will end at 1:00 PM (1 hour after it starts).
+
+    So yes — the number you pass is the delay until voting begins.
+    */
 
     function getVotingStatus() public view returns (VotingStatus) {
         if (startTime == 0) {

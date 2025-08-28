@@ -26,13 +26,26 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "_id",
+						"name": "_candidateId",
 						"type": "uint256"
 					}
 				],
 				"name": "castVote",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "electionCommission",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -205,12 +218,12 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_startTime",
+						"name": "_startTimeDuration",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_endTime",
+						"name": "_endTimeDuration",
 						"type": "uint256"
 					}
 				],
@@ -246,7 +259,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.26.voting_project_template.sol": "Vote"
+			"contracts/10.27.voting_project.sol": "Vote"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -260,12 +273,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.26.voting_project_template.sol": {
-			"keccak256": "0xde9abe90b45516f39b2e8eb100a0680820dc3aa158c1a616c87b58469dcad48e",
+		"contracts/10.27.voting_project.sol": {
+			"keccak256": "0xb00ceedc6b62a2d5db001ef48d1f8530a4655d61a452f7a75bc9225eb1780e16",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://e2d9fdb3ec7ae2f522e417acebd1b18062ddb6391a53267a69437d3e79dbea6a",
-				"dweb:/ipfs/QmWuAQ6CXTnrVqzrZoF7VeHL7B417C6AN9DmmJo7bEhL7z"
+				"bzz-raw://20117cf90e4d611f4e46b20eb5761ad79392f54261d1f1206565bfdd63e6ed36",
+				"dweb:/ipfs/QmRtaZQC1bcZPuXvi74BC7VAMTkvwa4FVbC6G3Xamva9sH"
 			]
 		}
 	},
