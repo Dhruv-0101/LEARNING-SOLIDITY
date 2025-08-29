@@ -45,7 +45,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.42.delegatecall.sol": "CalledContract"
+			"contracts/10.43.delegatecall2.sol": "CalledContract"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -59,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.42.delegatecall.sol": {
-			"keccak256": "0xc92282e54d8a0f713888a24927cd57a8a946bcbc2afadd6980bbc1d6d6a5f138",
+		"contracts/10.43.delegatecall2.sol": {
+			"keccak256": "0x0cec42c04ffd299551127e03fb09a33c0dea9fd1a298a1383bdd04f0c7394a3a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0e14505c894d24aebc6678f6e9e3a04fa38a65652f64ad1b4febe970d1ab41b8",
-				"dweb:/ipfs/QmV2QqiTRSeioZ2eSHyawcLdSSmTHzviWKpjDBKT9pkoep"
+				"bzz-raw://2d309c5de98c0d78622aae11c3c8904e65ac41d5d6309ec6d404d05e72bf4296",
+				"dweb:/ipfs/QmQEBC7RrruFBGJngrJLPyUMPt5RFEErYEvcVE1ToUiVnz"
 			]
 		}
 	},

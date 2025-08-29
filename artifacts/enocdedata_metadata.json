@@ -89,7 +89,7 @@
 		"compilationTarget": {
 			"contracts/10.40.abiencodingdecoding.sol": "enocdedata"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -102,11 +102,11 @@
 	},
 	"sources": {
 		"contracts/10.40.abiencodingdecoding.sol": {
-			"keccak256": "0x67e5b7b2fb217ad194231ab1d8c0233db314f66ef45bf2d5a9188f4445ce7c1e",
+			"keccak256": "0x7596185e08f96b91de163dc4724fc8c4d6d8ce50481c75637201d5ec813a75d2",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://f50c0ff5803826ea28204d4d92c70acdd544651c79edb6f03ca844f5bf45901f",
-				"dweb:/ipfs/QmRhdWT8tmv1qi9KGugVGzhRbrqneop5aRp9baX2dGWdbC"
+				"bzz-raw://a178ee672e494a0fe3ac9b87db3a6750b2c4814a085e1fc6318a6a00fc23a6d3",
+				"dweb:/ipfs/QmcGXbkANLJZwTX8ssffBggEuHrz3RQUVsy3RYfcZxeMEt"
 			]
 		}
 	},

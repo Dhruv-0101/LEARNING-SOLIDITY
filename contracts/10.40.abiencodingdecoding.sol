@@ -187,11 +187,6 @@ Memory starts storing arguments from address 0x80 onward.
 Dynamic types use offsets from 0x80 (the base memory position of arguments).
 */
 
-
-
-
-
-
 /*
 and one more thing that this memory and call data simple measn when we use fucntions in our contract then suppose i pass data like 2,abc.[1,2],[1,2,3](dynamic) 
 then it stores this data in memory until fucntion execution ends with offset of 0x80 and same as calldata store this same data with offset of 0x00 until fucntion execution ends am i right?
@@ -259,6 +254,44 @@ Dynamic parts (like strings, dynamic arrays) are placed further ahead in memory,
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 🔄 Quick Restate of Your Observation
 You're asking:
 
@@ -309,4 +342,3 @@ Second Table (real EVM memory layout):
 
 
 */
-

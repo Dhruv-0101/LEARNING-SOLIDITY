@@ -77,7 +77,7 @@
 		"compilationTarget": {
 			"contracts/10.38.transfervssendvscall.sol": "TransferExample"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
