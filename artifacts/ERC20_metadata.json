@@ -291,7 +291,7 @@
 		"compilationTarget": {
 			"contracts/10.36.ERC20token.sol": "ERC20"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
