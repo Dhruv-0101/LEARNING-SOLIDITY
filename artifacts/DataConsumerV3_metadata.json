@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.24+commit.e11b9ed9"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -46,7 +46,7 @@
 		"compilationTarget": {
 			"contracts/chainlink/pricefeed.sol": "DataConsumerV3"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -67,11 +67,11 @@
 			]
 		},
 		"contracts/chainlink/pricefeed.sol": {
-			"keccak256": "0x93dd5eca9dd95d967c6936e91e1128162d82aacd47471e3cdac60f852bb21bea",
+			"keccak256": "0xf807972da6d0468565113fdd2be22e1bee35e4d641624f591efee668f4796b5a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://67c4c5471c7fa8ab7ba0bd773e70f6a4824eeb41ebbf159dc8403b4c9344f89d",
-				"dweb:/ipfs/QmfXLhnEVxXnEDBrzkhf2SSacK3udEMdfgy8BUVXqJRLZ9"
+				"bzz-raw://90f1558eb7f30081ada316f994760406199d9773ba8fae666f495c813a2aab30",
+				"dweb:/ipfs/Qmewo1vrAxMPKDuiPbMW4WNyYzhzoCWB9Mkchrh6HoT162"
 			]
 		}
 	},

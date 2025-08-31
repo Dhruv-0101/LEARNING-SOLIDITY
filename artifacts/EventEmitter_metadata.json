@@ -41,7 +41,7 @@
 		"compilationTarget": {
 			"contracts/chainlink/EventEmitter.sol": "EventEmitter"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

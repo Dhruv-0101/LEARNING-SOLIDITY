@@ -108,7 +108,7 @@
 		"compilationTarget": {
 			"contracts/chainlink/customlogictrigger.sol": "CustomLogic"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

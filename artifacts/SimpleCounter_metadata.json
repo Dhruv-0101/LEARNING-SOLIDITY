@@ -122,7 +122,7 @@
 		"compilationTarget": {
 			"contracts/chainlink/timebasedtrigger.sol": "SimpleCounter"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

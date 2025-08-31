@@ -121,3 +121,6 @@ contract GettingStartedFunctionsConsumer is FunctionsClient, ConfirmedOwner {
         emit Response(requestId, character, s_lastResponse, s_lastError);
     }
 }
+//next dino setup folder and all that
+//git clone https://github.com/smartcontractkit/smart-contract-examples.git && \
+// cd ./smart-contract-examples/functions-examples/

@@ -163,7 +163,7 @@
 		"compilationTarget": {
 			"contracts/chainlink/Logtrigger.sol": "LogTrigger"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
