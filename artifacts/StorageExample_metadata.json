@@ -53,11 +53,11 @@
 	},
 	"sources": {
 		"contracts/evm/5.structinstorage.sol": {
-			"keccak256": "0xc7a4dc90fd1c935b94b280f1fa6c67b116d19e7f6d98d45208d5a31db9a4965d",
+			"keccak256": "0x1e6ede511d0f49564677bef5aca37845c054e49e4dab6df8e6ccf8f9c634bc5d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9c074960c8878e8dce66f8b8264feb19ba5749b1affd1520dd9f5a2bc0e6c106",
-				"dweb:/ipfs/QmW5qma6vVabn65bDJbCSJJuy3PtfkXrfVEgLi914ppjpo"
+				"bzz-raw://55ee86283543887502e966db0bd456c21a4d43fdc402d1648075573bf670368c",
+				"dweb:/ipfs/QmYFLEfQsqLtBjaECY9tJQZ4dpEM3Qjvv2tZamUYTzTEqD"
 			]
 		}
 	},

@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "x",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/evm/9.c3linearizedorder.sol": "A"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/evm/9.c3linearizedorder.sol": {
+			"keccak256": "0xacb4bb10039616ee6a3e219866e3333dadb5608cd6db8cdc6b104f859c8b5e3a",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4466d93b830b3307b0b08b3def5c3a2755bc46e5b20bebd17889892d25882c45",
+				"dweb:/ipfs/QmSwjewkmxz6TCJRK48swU7TMCicuJipG1gGD28dCfsPcU"
+			]
+		}
+	},
+	"version": 1
+}

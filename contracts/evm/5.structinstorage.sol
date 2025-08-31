@@ -21,12 +21,4 @@ contract StorageExample {
         return value;
     }
 }
-//1️⃣ Why Can’t c[0] Fit into Slot 1?
-// Your Slot 1 contains uint8 b, which takes only 1 byte. Theoretically, there are 31 empty bytes left in Slot 1. So, why does Solidity not use this leftover space for c[0]?
 
-// Reason: Arrays Start in a Fresh Slot
-// Even if there is space left in Slot 1, Solidity does not mix array elements with individual variables because:
-
-// Fixed-size arrays and structs always start at a fresh storage slot.
-// This ensures sequential storage and predictable access patterns.
-// Solidity does not "backfill" leftover space with array elements.

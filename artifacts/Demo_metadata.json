@@ -1,93 +1,56 @@
 {
 	"compiler": {
-		"version": "0.8.24+commit.e11b9ed9"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [],
-				"name": "counter",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "readAndWriteStateVariable",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
 				"stateMutability": "nonpayable",
-				"type": "function"
+				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "readStateVariable",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
+						"internalType": "uint256",
+						"name": "key",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "mappingSlot",
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "readStateVariableLocalVariable",
+				"name": "getMappingValue",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "uint256",
 						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "returnLocalVariable",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "writeStateVariable",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "writeStateVariableLocalVariable",
-				"outputs": [
+				"inputs": [
 					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
+						"internalType": "uint256",
+						"name": "slot",
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"name": "getSlotValue",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			}
 		],
@@ -104,9 +67,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.2.local&state-variable.sol": "Demo"
+			"contracts/evm/8.mappingslots.sol": "Demo"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -118,12 +81,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.2.local&state-variable.sol": {
-			"keccak256": "0xd53ba12398e1337a8d42cf41b57c54796e6e6950f96ee83f5819c4b63013e6e1",
-			"license": "GPL-3.0",
+		"contracts/evm/8.mappingslots.sol": {
+			"keccak256": "0x5ca0f7477f72e9462c0810ce3e0124dae1fa60ba46ed359b8170af67e8a50c4f",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://243cb932da427e7da1085af9bd2fc1c316b055ecfdb0d4fd927816c0bab44aa7",
-				"dweb:/ipfs/Qmdj8BYkmbwSgYtSZtum5tjBb6SxcgQaEgeE5VAGVQGUR4"
+				"bzz-raw://67f76e1a8212707e8770a1aba063661b583e4e69d4b418f91aec07e2e3a24de3",
+				"dweb:/ipfs/QmeZydqftjW113skTyGqDQGTUZbv2A167oaWgo9QLSkAv8"
 			]
 		}
 	},
