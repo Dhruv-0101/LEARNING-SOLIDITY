@@ -6,35 +6,6 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "key",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "mappingSlot",
-						"type": "uint256"
-					}
-				],
-				"name": "getMappingValue",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "pure",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -67,7 +38,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/8.mappingslots.sol": "Demo"
+			"contracts/evm/storage/6.statictype.sol": "Demo"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -81,12 +52,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/8.mappingslots.sol": {
-			"keccak256": "0x5ca0f7477f72e9462c0810ce3e0124dae1fa60ba46ed359b8170af67e8a50c4f",
+		"contracts/evm/storage/6.statictype.sol": {
+			"keccak256": "0xebd33aac9df61c040eb94baf113b64f40c99734702a05cb8c2984fd05a049b9d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://67f76e1a8212707e8770a1aba063661b583e4e69d4b418f91aec07e2e3a24de3",
-				"dweb:/ipfs/QmeZydqftjW113skTyGqDQGTUZbv2A167oaWgo9QLSkAv8"
+				"bzz-raw://0b464ef2ab1de1ea558fd342963ec1afacff15963d6bcf34691844d5885b4ac7",
+				"dweb:/ipfs/QmfEScxAGpXRYVS8X4eDXkQaKoS2i3DWtGZv4Rut2BtiPg"
 			]
 		}
 	},
