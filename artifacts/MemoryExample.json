@@ -34,32 +34,32 @@
 			"functionDebugData": {},
 			"generatedSources": [],
 			"linkReferences": {},
-			"object": "6080604052348015600e575f5ffd5b5060bd80601a5f395ff3fe6080604052348015600e575f5ffd5b50600436106026575f3560e01c806344a4972514602a575b5f5ffd5b60306044565b604051603b91906070565b60405180910390f35b5f5f600190505f815f535f519050809250505090565b5f819050919050565b606a81605a565b82525050565b5f60208201905060815f8301846063565b9291505056fea2646970667358221220e35c927e926a28a44d1eebab77e22be45ac47909d72b3b55cb139be45a6ab1f064736f6c634300081e0033",
-			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0xBD DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x26 JUMPI PUSH0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x44A49725 EQ PUSH1 0x2A JUMPI JUMPDEST PUSH0 PUSH0 REVERT JUMPDEST PUSH1 0x30 PUSH1 0x44 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x3B SWAP2 SWAP1 PUSH1 0x70 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH0 PUSH0 PUSH1 0x1 SWAP1 POP PUSH0 DUP2 PUSH0 MSTORE8 PUSH0 MLOAD SWAP1 POP DUP1 SWAP3 POP POP POP SWAP1 JUMP JUMPDEST PUSH0 DUP2 SWAP1 POP SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x6A DUP2 PUSH1 0x5A JUMP JUMPDEST DUP3 MSTORE POP POP JUMP JUMPDEST PUSH0 PUSH1 0x20 DUP3 ADD SWAP1 POP PUSH1 0x81 PUSH0 DUP4 ADD DUP5 PUSH1 0x63 JUMP JUMPDEST SWAP3 SWAP2 POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 CALLF 0x5C92 PUSH31 0x926A28A44D1EEBAB77E22BE45AC47909D72B3B55CB139BE45A6AB1F064736F PUSH13 0x634300081E0033000000000000 ",
-			"sourceMap": "341:399:0:-:0;;;;;;;;;;;;;;;;;;;"
+			"object": "6080604052348015600e575f5ffd5b5060b580601a5f395ff3fe6080604052348015600e575f5ffd5b50600436106026575f3560e01c8063f58c2e9a14602a575b5f5ffd5b60306044565b604051603b91906068565b60405180910390f35b5f5f60405190508091505090565b5f819050919050565b6062816052565b82525050565b5f60208201905060795f830184605b565b9291505056fea26469706673582212200d0eb50a942f1215eb69179204af4e322bc3512f0611c763a0fe9d4525f9a4eb64736f6c634300081e0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0xB5 DUP1 PUSH1 0x1A PUSH0 CODECOPY PUSH0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x26 JUMPI PUSH0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0xF58C2E9A EQ PUSH1 0x2A JUMPI JUMPDEST PUSH0 PUSH0 REVERT JUMPDEST PUSH1 0x30 PUSH1 0x44 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x3B SWAP2 SWAP1 PUSH1 0x68 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH0 PUSH0 PUSH1 0x40 MLOAD SWAP1 POP DUP1 SWAP2 POP POP SWAP1 JUMP JUMPDEST PUSH0 DUP2 SWAP1 POP SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x62 DUP2 PUSH1 0x52 JUMP JUMPDEST DUP3 MSTORE POP POP JUMP JUMPDEST PUSH0 PUSH1 0x20 DUP3 ADD SWAP1 POP PUSH1 0x79 PUSH0 DUP4 ADD DUP5 PUSH1 0x5B JUMP JUMPDEST SWAP3 SWAP2 POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xD 0xE 0xB5 EXP SWAP5 0x2F SLT ISZERO 0xEB PUSH10 0x179204AF4E322BC3512F MOD GT 0xC7 PUSH4 0xA0FE9D45 0x25 EXTDELEGATECALL LOG4 0xEB PUSH5 0x736F6C6343 STOP ADDMOD 0x1E STOP CALLER ",
+			"sourceMap": "60:300:0:-:0;;;;;;;;;;;;;;;;;;;"
 		},
 		"deployedBytecode": {
 			"functionDebugData": {
-				"@storeAndRetrieveMemory_17": {
+				"@storeAndLoad_13": {
 					"entryPoint": 68,
-					"id": 17,
+					"id": 13,
 					"parameterSlots": 0,
 					"returnSlots": 1
 				},
-				"abi_encode_t_uint256_to_t_uint256_fromStack": {
-					"entryPoint": 99,
+				"abi_encode_t_bytes32_to_t_bytes32_fromStack": {
+					"entryPoint": 91,
 					"id": null,
 					"parameterSlots": 2,
 					"returnSlots": 0
 				},
-				"abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed": {
-					"entryPoint": 112,
+				"abi_encode_tuple_t_bytes32__to_t_bytes32__fromStack_reversed": {
+					"entryPoint": 104,
 					"id": null,
 					"parameterSlots": 2,
 					"returnSlots": 1
 				},
-				"cleanup_t_uint256": {
-					"entryPoint": 90,
+				"cleanup_t_bytes32": {
+					"entryPoint": 82,
 					"id": null,
 					"parameterSlots": 1,
 					"returnSlots": 1
@@ -99,7 +99,7 @@
 										}
 									]
 								},
-								"name": "cleanup_t_uint256",
+								"name": "cleanup_t_bytes32",
 								"nativeSrc": "7:77:1",
 								"nodeType": "YulFunctionDefinition",
 								"parameters": [
@@ -147,7 +147,7 @@
 															}
 														],
 														"functionName": {
-															"name": "cleanup_t_uint256",
+															"name": "cleanup_t_bytes32",
 															"nativeSrc": "177:17:1",
 															"nodeType": "YulIdentifier",
 															"src": "177:17:1"
@@ -173,7 +173,7 @@
 										}
 									]
 								},
-								"name": "abi_encode_t_uint256_to_t_uint256_fromStack",
+								"name": "abi_encode_t_bytes32_to_t_bytes32_fromStack",
 								"nativeSrc": "90:118:1",
 								"nodeType": "YulFunctionDefinition",
 								"parameters": [
@@ -278,7 +278,7 @@
 													}
 												],
 												"functionName": {
-													"name": "abi_encode_t_uint256_to_t_uint256_fromStack",
+													"name": "abi_encode_t_bytes32_to_t_bytes32_fromStack",
 													"nativeSrc": "358:43:1",
 													"nodeType": "YulIdentifier",
 													"src": "358:43:1"
@@ -293,7 +293,7 @@
 										}
 									]
 								},
-								"name": "abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed",
+								"name": "abi_encode_tuple_t_bytes32__to_t_bytes32__fromStack_reversed",
 								"nativeSrc": "214:222:1",
 								"nodeType": "YulFunctionDefinition",
 								"parameters": [
@@ -325,7 +325,7 @@
 							}
 						]
 					},
-					"contents": "{\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function abi_encode_t_uint256_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value0,  add(headStart, 0))\n\n    }\n\n}\n",
+					"contents": "{\n\n    function cleanup_t_bytes32(value) -> cleaned {\n        cleaned := value\n    }\n\n    function abi_encode_t_bytes32_to_t_bytes32_fromStack(value, pos) {\n        mstore(pos, cleanup_t_bytes32(value))\n    }\n\n    function abi_encode_tuple_t_bytes32__to_t_bytes32__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_bytes32_to_t_bytes32_fromStack(value0,  add(headStart, 0))\n\n    }\n\n}\n",
 					"id": 1,
 					"language": "Yul",
 					"name": "#utility.yul"
@@ -333,33 +333,33 @@
 			],
 			"immutableReferences": {},
 			"linkReferences": {},
-			"object": "6080604052348015600e575f5ffd5b50600436106026575f3560e01c806344a4972514602a575b5f5ffd5b60306044565b604051603b91906070565b60405180910390f35b5f5f600190505f815f535f519050809250505090565b5f819050919050565b606a81605a565b82525050565b5f60208201905060815f8301846063565b9291505056fea2646970667358221220e35c927e926a28a44d1eebab77e22be45ac47909d72b3b55cb139be45a6ab1f064736f6c634300081e0033",
-			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x26 JUMPI PUSH0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x44A49725 EQ PUSH1 0x2A JUMPI JUMPDEST PUSH0 PUSH0 REVERT JUMPDEST PUSH1 0x30 PUSH1 0x44 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x3B SWAP2 SWAP1 PUSH1 0x70 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH0 PUSH0 PUSH1 0x1 SWAP1 POP PUSH0 DUP2 PUSH0 MSTORE8 PUSH0 MLOAD SWAP1 POP DUP1 SWAP3 POP POP POP SWAP1 JUMP JUMPDEST PUSH0 DUP2 SWAP1 POP SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x6A DUP2 PUSH1 0x5A JUMP JUMPDEST DUP3 MSTORE POP POP JUMP JUMPDEST PUSH0 PUSH1 0x20 DUP3 ADD SWAP1 POP PUSH1 0x81 PUSH0 DUP4 ADD DUP5 PUSH1 0x63 JUMP JUMPDEST SWAP3 SWAP2 POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 CALLF 0x5C92 PUSH31 0x926A28A44D1EEBAB77E22BE45AC47909D72B3B55CB139BE45A6AB1F064736F PUSH13 0x634300081E0033000000000000 ",
-			"sourceMap": "341:399:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;371:366;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;426:7;446:20;469:1;446:24;;481:22;552:12;546:4;538:27;638:4;632:11;614:29;;696:14;689:21;;;;371:366;:::o;7:77:1:-;44:7;73:5;62:16;;7:77;;;:::o;90:118::-;177:24;195:5;177:24;:::i;:::-;172:3;165:37;90:118;;:::o;214:222::-;307:4;345:2;334:9;330:18;322:26;;358:71;426:1;415:9;411:17;402:6;358:71;:::i;:::-;214:222;;;;:::o"
+			"object": "6080604052348015600e575f5ffd5b50600436106026575f3560e01c8063f58c2e9a14602a575b5f5ffd5b60306044565b604051603b91906068565b60405180910390f35b5f5f60405190508091505090565b5f819050919050565b6062816052565b82525050565b5f60208201905060795f830184605b565b9291505056fea26469706673582212200d0eb50a942f1215eb69179204af4e322bc3512f0611c763a0fe9d4525f9a4eb64736f6c634300081e0033",
+			"opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xE JUMPI PUSH0 PUSH0 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x26 JUMPI PUSH0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0xF58C2E9A EQ PUSH1 0x2A JUMPI JUMPDEST PUSH0 PUSH0 REVERT JUMPDEST PUSH1 0x30 PUSH1 0x44 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x3B SWAP2 SWAP1 PUSH1 0x68 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH0 PUSH0 PUSH1 0x40 MLOAD SWAP1 POP DUP1 SWAP2 POP POP SWAP1 JUMP JUMPDEST PUSH0 DUP2 SWAP1 POP SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x62 DUP2 PUSH1 0x52 JUMP JUMPDEST DUP3 MSTORE POP POP JUMP JUMPDEST PUSH0 PUSH1 0x20 DUP3 ADD SWAP1 POP PUSH1 0x79 PUSH0 DUP4 ADD DUP5 PUSH1 0x5B JUMP JUMPDEST SWAP3 SWAP2 POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xD 0xE 0xB5 EXP SWAP5 0x2F SLT ISZERO 0xEB PUSH10 0x179204AF4E322BC3512F MOD GT 0xC7 PUSH4 0xA0FE9D45 0x25 EXTDELEGATECALL LOG4 0xEB PUSH5 0x736F6C6343 STOP ADDMOD 0x1E STOP CALLER ",
+			"sourceMap": "60:300:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;90:267;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;135:7;155:25;299:4;293:11;272:32;;332:17;325:24;;;90:267;:::o;7:77:1:-;44:7;73:5;62:16;;7:77;;;:::o;90:118::-;177:24;195:5;177:24;:::i;:::-;172:3;165:37;90:118;;:::o;214:222::-;307:4;345:2;334:9;330:18;322:26;;358:71;426:1;415:9;411:17;402:6;358:71;:::i;:::-;214:222;;;;:::o"
 		},
 		"gasEstimates": {
 			"creation": {
-				"codeDepositCost": "37800",
+				"codeDepositCost": "36200",
 				"executionCost": "85",
-				"totalCost": "37885"
+				"totalCost": "36285"
 			},
 			"external": {
-				"storeAndRetrieveMemory()": "infinite"
+				"storeAndLoad()": "325"
 			}
 		},
 		"methodIdentifiers": {
-			"storeAndRetrieveMemory()": "44a49725"
+			"storeAndLoad()": "f58c2e9a"
 		}
 	},
 	"abi": [
 		{
 			"inputs": [],
-			"name": "storeAndRetrieveMemory",
+			"name": "storeAndLoad",
 			"outputs": [
 				{
-					"internalType": "uint256",
+					"internalType": "bytes32",
 					"name": "",
-					"type": "uint256"
+					"type": "bytes32"
 				}
 			],
 			"stateMutability": "pure",

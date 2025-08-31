@@ -1,0 +1,77 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "getPointersBeforeAndAfter",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "pointerBefore",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "pointerAfter",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Demonstrates reading the free memory pointer before and after allocation in a single function call.",
+			"kind": "dev",
+			"methods": {
+				"getPointersBeforeAndAfter()": {
+					"returns": {
+						"pointerAfter": "The free memory pointer after allocation (e.g., 0x100).",
+						"pointerBefore": "The free memory pointer before allocation (e.g., 0x80)."
+					}
+				}
+			},
+			"title": "MemoryDemo",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"getPointersBeforeAndAfter()": {
+					"notice": "Captures the free memory pointer's value, then allocates memory for two arrays, and captures the pointer's new value."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/evm/memory/3.freememorypointer2.sol": "MemoryDemo"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/evm/memory/3.freememorypointer2.sol": {
+			"keccak256": "0x929aadcd304554a27792794fab7d1ecc1ecda47486ff112ba2d475eb32919e60",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5b8f8b3c64d168315accdf3e6b636facfdafbedc8cb8579e08a6fcf6e8b8049e",
+				"dweb:/ipfs/QmfL9ReXSFXvrUit2MNxvjyMU4WzdyffFbAHUZgq6VoWbG"
+			]
+		}
+	},
+	"version": 1
+}

@@ -7,12 +7,12 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "storeAndRetrieveMemory",
+				"name": "storeAndLoad",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "bytes32",
 						"name": "",
-						"type": "uint256"
+						"type": "bytes32"
 					}
 				],
 				"stateMutability": "pure",
@@ -32,7 +32,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/memoryevm.sol": "MemoryExample"
+			"contracts/evm/memory/1.mload.sol": "MemoryExample"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -46,12 +46,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/memoryevm.sol": {
-			"keccak256": "0xb36e0b87a13c478b02070aaf3aa7106581153747ac176de9a19697cf610b8fc9",
+		"contracts/evm/memory/1.mload.sol": {
+			"keccak256": "0x1701a2ad419b2c6a172209e83c03c4431c667f81daa73550074354a2b28b3aba",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a4c0ed94b13e776c80e01048b82fc4fdef25c1aae58b117bc8dd3bb774ad252e",
-				"dweb:/ipfs/QmcB68LC2X8Wm5MHw9vMaafikVuK6PBgPA4EgCXbrEydhf"
+				"bzz-raw://3d07230474604d2a9fec1f446ed7fc14542e4d2672f61a02619181cc4649ee8b",
+				"dweb:/ipfs/QmRXzyaipr6vUSW5t3P5dVARyzKsbwtwYiorZByTLY1rJF"
 			]
 		}
 	},
