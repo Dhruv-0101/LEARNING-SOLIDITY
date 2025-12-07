@@ -40,7 +40,7 @@
 		"compilationTarget": {
 			"contracts/10.30.memoryvscalldata.sol": "CallDataExample"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

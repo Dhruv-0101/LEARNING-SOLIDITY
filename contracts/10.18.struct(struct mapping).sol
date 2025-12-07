@@ -19,15 +19,15 @@ contract StudentRecords {
         string memory _name,
         uint256 _age
     ) public {
-        students[_id] = Student(_id, _name, _age);
+        students[_id] = Student(_id, _name, _age);      
     }
 
     // Function to get a student by ID
-    function getStudent(uint256 _id)
+    function getStudent(uint256 _id)        
         public
         view
         returns (
-            uint256,
+            uint256,    
             string memory,
             uint256
         )

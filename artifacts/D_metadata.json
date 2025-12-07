@@ -80,7 +80,7 @@
 		"compilationTarget": {
 			"contracts/10.32.solidity_oops_obj.sol": "D"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

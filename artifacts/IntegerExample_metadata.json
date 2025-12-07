@@ -195,7 +195,7 @@
 		"compilationTarget": {
 			"contracts/10.4.integerdatatypes.sol": "IntegerExample"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

@@ -6,22 +6,88 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "slot",
-						"type": "uint256"
-					}
-				],
-				"name": "getSlotValue",
+				"inputs": [],
+				"name": "counter",
 				"outputs": [
 					{
-						"internalType": "bytes32",
+						"internalType": "int256",
 						"name": "",
-						"type": "bytes32"
+						"type": "int256"
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "readAndWriteStateVariable",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "readStateVariable",
+				"outputs": [
+					{
+						"internalType": "int256",
+						"name": "",
+						"type": "int256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "readStateVariableLocalVariable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "returnLocalVariable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "writeStateVariable",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "writeStateVariableLocalVariable",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -38,7 +104,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/storage/6.statictype.sol": "Demo"
+			"contracts/10.2.local&state-variable.sol": "Demo"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -52,12 +118,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/storage/6.statictype.sol": {
-			"keccak256": "0xebd33aac9df61c040eb94baf113b64f40c99734702a05cb8c2984fd05a049b9d",
-			"license": "MIT",
+		"contracts/10.2.local&state-variable.sol": {
+			"keccak256": "0xd53ba12398e1337a8d42cf41b57c54796e6e6950f96ee83f5819c4b63013e6e1",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://0b464ef2ab1de1ea558fd342963ec1afacff15963d6bcf34691844d5885b4ac7",
-				"dweb:/ipfs/QmfEScxAGpXRYVS8X4eDXkQaKoS2i3DWtGZv4Rut2BtiPg"
+				"bzz-raw://243cb932da427e7da1085af9bd2fc1c316b055ecfdb0d4fd927816c0bab44aa7",
+				"dweb:/ipfs/Qmdj8BYkmbwSgYtSZtum5tjBb6SxcgQaEgeE5VAGVQGUR4"
 			]
 		}
 	},

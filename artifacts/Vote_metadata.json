@@ -6,13 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_gldToken",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -32,26 +26,13 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "_candidateId",
+						"name": "_id",
 						"type": "uint256"
 					}
 				],
 				"name": "castVote",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "electionCommission",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -170,19 +151,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "gldToken",
-				"outputs": [
-					{
-						"internalType": "contract IERC20",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -237,12 +205,12 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_startTimeDuration",
+						"name": "_startTime",
 						"type": "uint256"
 					},
 					{
 						"internalType": "uint256",
-						"name": "_endTimeDuration",
+						"name": "_endTime",
 						"type": "uint256"
 					}
 				],
@@ -278,7 +246,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.45.votingintegratedwitherc20.sol": "Vote"
+			"contracts/10.26.voting_project_template.sol": "Vote"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -292,20 +260,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-			"keccak256": "0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7",
+		"contracts/10.26.voting_project_template.sol": {
+			"keccak256": "0xde9abe90b45516f39b2e8eb100a0680820dc3aa158c1a616c87b58469dcad48e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db",
-				"dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9"
-			]
-		},
-		"contracts/10.45.votingintegratedwitherc20.sol": {
-			"keccak256": "0x8d64e6ee10b59fbdcab3f4e533c89fbb015aa591fad4798a7b18dedec1ae6889",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://39830dcc8e0f9ac08e90a18e21d8b0aaeacf3e4e4f52e0957d5684804625cb00",
-				"dweb:/ipfs/QmPdLBtiWtrXS5ZRkcT2KGHJrqTveUZSo5kCt849BtJuZ5"
+				"bzz-raw://e2d9fdb3ec7ae2f522e417acebd1b18062ddb6391a53267a69437d3e79dbea6a",
+				"dweb:/ipfs/QmWuAQ6CXTnrVqzrZoF7VeHL7B417C6AN9DmmJo7bEhL7z"
 			]
 		}
 	},

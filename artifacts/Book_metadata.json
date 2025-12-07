@@ -67,7 +67,7 @@
 		"compilationTarget": {
 			"contracts/10.32.solidity_oops_obj.sol": "Book"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
