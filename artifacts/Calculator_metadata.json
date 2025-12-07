@@ -45,7 +45,7 @@
 		"compilationTarget": {
 			"contracts/10.29.simplelibrary.sol": "Calculator"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

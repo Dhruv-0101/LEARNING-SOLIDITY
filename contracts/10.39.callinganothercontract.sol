@@ -38,3 +38,4 @@ contract Bob {
         _alice.payableSetter{value: msg.value}(_x);
     }
 }
+//here i can control alice contract threw bob contract
