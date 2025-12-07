@@ -342,7 +342,7 @@
 		"compilationTarget": {
 			"contracts/10.28.wallet_project.sol": "SimpleWallet"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
