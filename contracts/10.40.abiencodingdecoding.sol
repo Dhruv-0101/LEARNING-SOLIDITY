@@ -56,6 +56,72 @@ contract enocdedata {
 
 At 0x100 → it stores 0x100, meaning "go 0x100 bytes forward from 0x80" → 0x80 + 0x100 = 0x180, where [1,2,3] begins.
 
+How to access values in your table (worked examples)
+
+Context: base = 0x80.
+
+1) Read the string "abc"
+
+Head slot at 0xA0 contains 0xC0 (an offset).
+
+Compute target: 0x80 + 0xC0 = 0x140.
+=> At 0x140 we find the string length: 3.
+
+String bytes are at 0x140 + 0x20 = 0x160. There you find 0x616263 (ASCII "abc") padded to 32 bytes.
+
+So algorithmically:
+
+read head: off = mload(0xA0) → 0xC0
+
+target = base + off = 0x80 + 0xC0 = 0x140
+
+len = mload(target) → 3
+
+data = bytes at target + 0x20 (and if len > 32 read further slots)
+
+2) Read the dynamic array [1,2,3]
+
+Head slot at 0x100 contains 0x100 (offset).
+
+Compute target: 0x80 + 0x100 = 0x180.
+=> At 0x180 is length 3.
+
+Elements:
+
+element 0 at 0x180 + 0x20 = 0x1A0 → 1
+
+element 1 at 0x180 + 0x40 = 0x1C0 → 2
+
+element 2 at 0x180 + 0x60 = 0x1E0 → 3
+
+Steps:
+
+off = mload(0x100) → 0x100
+
+target = base + off = 0x180
+
+len = mload(target) → 3
+
+for i in 0..len-1: value = mload(target + 0x20*(1+i)).
+
+3) Read the fixed-size array (the [1,2] embedded in head)
+
+Fixed arrays are inline. If the head region contains two slots for the array, you directly read them from their absolute memory addresses:
+
+value at 0xC0 → 1
+
+value at 0xE0 → 2
+
+No indirection needed: just mload(0xC0), mload(0xE0).
+
+4) Free memory pointer usage
+
+mload(0x40) contains 0x200 (next free).
+
+If you need to allocate N bytes, round N up to a multiple of 32, use memory starting at 0x200, then mstore(0x40, 0x200 + size) to update the pointer.
+
+Always keep 32-byte alignment.
+
 ❓Your core question:
 When Solidity is placing static data step-by-step, and it encounters a dynamic value (e.g., a string or dynamic array), it needs to place an offset there.
 But since the dynamic content isn't placed yet, and the offset isn't known yet —
