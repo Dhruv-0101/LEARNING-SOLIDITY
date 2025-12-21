@@ -7,30 +7,19 @@
 		"abi": [
 			{
 				"inputs": [],
+				"name": "test",
+				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "getName",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "name",
+				"name": "val",
 				"outputs": [
 					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "v",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -50,7 +39,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/shadowing.sol": "C"
+			"contracts/otherconceptsofsolidity/transeintstorage.sol": "TestTransientStorage"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -64,12 +53,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/shadowing.sol": {
-			"keccak256": "0x66b2346ce625192fe8be300053e961eb20c9d2ccc69929f4a72e3a9347df0093",
+		"contracts/otherconceptsofsolidity/transeintstorage.sol": {
+			"keccak256": "0xb1bb787d6c4178165371eb46a09359620c55f5844097c0a89f68f302715a6ece",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9a745fecdb17be76df0bc7d4feb3c6f4bccb28ed41f4e08eb6203d24f14d100f",
-				"dweb:/ipfs/QmPbnEPG7JdTMBEcZz1q4HQZxQBAXNci7MwkBQXPgpythy"
+				"bzz-raw://bd2f537e5e0e0cd86cff201f7971449222084bdf4b53811f584a8e6cc0a69cfd",
+				"dweb:/ipfs/QmXNnNpdX9FsdyacBkSBGSopb3qP99SiCPG8Dz6Q3rJ7Fg"
 			]
 		}
 	},

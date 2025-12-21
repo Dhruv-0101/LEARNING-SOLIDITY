@@ -1,18 +1,31 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.31+commit.fd3a2265"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [],
-				"name": "x",
+				"name": "getName",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "string",
 						"name": "",
-						"type": "uint256"
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -32,9 +45,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/9.c3linearizedorder.sol": "A"
+			"contracts/evm/shadowing.sol": "A"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -46,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/9.c3linearizedorder.sol": {
-			"keccak256": "0xacb4bb10039616ee6a3e219866e3333dadb5608cd6db8cdc6b104f859c8b5e3a",
+		"contracts/evm/shadowing.sol": {
+			"keccak256": "0x66b2346ce625192fe8be300053e961eb20c9d2ccc69929f4a72e3a9347df0093",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4466d93b830b3307b0b08b3def5c3a2755bc46e5b20bebd17889892d25882c45",
-				"dweb:/ipfs/QmSwjewkmxz6TCJRK48swU7TMCicuJipG1gGD28dCfsPcU"
+				"bzz-raw://9a745fecdb17be76df0bc7d4feb3c6f4bccb28ed41f4e08eb6203d24f14d100f",
+				"dweb:/ipfs/QmPbnEPG7JdTMBEcZz1q4HQZxQBAXNci7MwkBQXPgpythy"
 			]
 		}
 	},

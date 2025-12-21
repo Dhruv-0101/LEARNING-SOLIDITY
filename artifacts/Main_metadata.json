@@ -7,33 +7,34 @@
 		"abi": [
 			{
 				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "getName",
+				"name": "readTransient",
 				"outputs": [
 					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
+						"internalType": "uint256",
+						"name": "v",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "name",
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "friend",
+						"type": "address"
+					}
+				],
+				"name": "run",
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "",
+						"name": "reply",
 						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
@@ -50,7 +51,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/shadowing.sol": "C"
+			"contracts/otherconceptsofsolidity/transeintstorage.sol": "Main"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -64,12 +65,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/shadowing.sol": {
-			"keccak256": "0x66b2346ce625192fe8be300053e961eb20c9d2ccc69929f4a72e3a9347df0093",
+		"contracts/otherconceptsofsolidity/transeintstorage.sol": {
+			"keccak256": "0xb8047bc449a9a539f4218a14069c14953a88837853d9f8a0a2478fd2f8424fbf",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9a745fecdb17be76df0bc7d4feb3c6f4bccb28ed41f4e08eb6203d24f14d100f",
-				"dweb:/ipfs/QmPbnEPG7JdTMBEcZz1q4HQZxQBAXNci7MwkBQXPgpythy"
+				"bzz-raw://f9c4b410122cdd689843938b50a7ec7616c003993f8a86cd711472605d631d1a",
+				"dweb:/ipfs/QmeXmLnh9iNqWzAKZkV8juRo1HkBixDkgRCcpP4Xqv8rd5"
 			]
 		}
 	},

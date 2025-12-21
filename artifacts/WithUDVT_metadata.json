@@ -1,0 +1,116 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "age",
+				"outputs": [
+					{
+						"internalType": "Age",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAge",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getWeight",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "Age",
+						"name": "_age",
+						"type": "uint64"
+					},
+					{
+						"internalType": "Weight",
+						"name": "_weight",
+						"type": "uint64"
+					}
+				],
+				"name": "setDetails",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "weight",
+				"outputs": [
+					{
+						"internalType": "Weight",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/otherconceptsofsolidity/userdefinedvaluetypes.sol": "WithUDVT"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/otherconceptsofsolidity/userdefinedvaluetypes.sol": {
+			"keccak256": "0x5aea96901dda63194a3af90c50f6ae56a57317ca94101f153fc4eb3d9a1ec4ce",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a9a142e4107752b5c8d3ed5ba9403b4b0a6bf59b1e3765d0155fc092ab493f18",
+				"dweb:/ipfs/QmRUxsG9SW5f7xmiXGx5sq3aCd4KMjk6JxfovzvpNZe9hi"
+			]
+		}
+	},
+	"version": 1
+}
