@@ -776,7 +776,7 @@
 		"compilationTarget": {
 			"contracts/chainlink/receiveDataToekn.sol": "ProgrammableTokenTransfers"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

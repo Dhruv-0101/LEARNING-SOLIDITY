@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.24+commit.e11b9ed9"
 	},
 	"language": "Solidity",
 	"output": {
@@ -33,7 +33,7 @@
 			"kind": "user",
 			"methods": {
 				"constructor": {
-					"notice": "Network: Sepolia Aggregator: BTC/USD Address: 0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43"
+					"notice": "Network: Sepolia Aggregator: BTC/USD//btc ka price usd me lakar de raha hai Address: 0x1b44F3514812d835EB1BDB0acB33d3fA3351Ee43//pair ka address"
 				},
 				"getChainlinkDataFeedLatestAnswer()": {
 					"notice": "Returns the latest answer."
@@ -46,7 +46,7 @@
 		"compilationTarget": {
 			"contracts/chainlink/pricefeed.sol": "DataConsumerV3"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -67,11 +67,11 @@
 			]
 		},
 		"contracts/chainlink/pricefeed.sol": {
-			"keccak256": "0xf807972da6d0468565113fdd2be22e1bee35e4d641624f591efee668f4796b5a",
+			"keccak256": "0x0ba2d4eb54eb2d4ccaf4a394b9de7a0104071683aeca9d0b00ff4608b0617070",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://90f1558eb7f30081ada316f994760406199d9773ba8fae666f495c813a2aab30",
-				"dweb:/ipfs/Qmewo1vrAxMPKDuiPbMW4WNyYzhzoCWB9Mkchrh6HoT162"
+				"bzz-raw://5d262590419698378aa5f46625c3dae5eeea19ddf21a631a1ca30e5d2f1c54b1",
+				"dweb:/ipfs/QmbA2zdB4oXnuNiLJ67HKSKULMAVVN6zdDJVNm4qg4Hx55"
 			]
 		}
 	},

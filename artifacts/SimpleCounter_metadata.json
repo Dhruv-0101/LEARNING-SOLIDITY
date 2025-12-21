@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.33+commit.64118f21"
 	},
 	"language": "Solidity",
 	"output": {
@@ -120,9 +120,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/chainlink/timebasedtrigger.sol": "SimpleCounter"
+			"contracts/chainlink/2_timebasedtrigger.sol": "SimpleCounter"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -134,7 +134,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/chainlink/timebasedtrigger.sol": {
+		"contracts/chainlink/2_timebasedtrigger.sol": {
 			"keccak256": "0x70e01ff8c8c80a5696af50be996c7538832e0102ba44cf5c1b2840b14bd3b925",
 			"license": "MIT",
 			"urls": [

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.33+commit.64118f21"
 	},
 	"language": "Solidity",
 	"output": {
@@ -39,9 +39,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/chainlink/EventEmitter.sol": "EventEmitter"
+			"contracts/chainlink/4_4_EventEmitter.sol": "EventEmitter"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -53,7 +53,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/chainlink/EventEmitter.sol": {
+		"contracts/chainlink/4_4_EventEmitter.sol": {
 			"keccak256": "0x2a1bb33de15b76c471786d9756ef059bda16ec8b0039e87881dfecdbb4a55dc0",
 			"license": "MIT",
 			"urls": [
