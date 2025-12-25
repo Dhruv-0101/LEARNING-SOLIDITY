@@ -1,20 +1,32 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.31+commit.fd3a2265"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"name": "InvalidInitialization",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NotInitializing",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_gldToken",
-						"type": "address"
+						"indexed": false,
+						"internalType": "uint64",
+						"name": "version",
+						"type": "uint64"
 					}
 				],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
+				"name": "Initialized",
+				"type": "event"
 			},
 			{
 				"inputs": [],
@@ -171,12 +183,32 @@
 			},
 			{
 				"inputs": [],
-				"name": "gldToken",
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextCandidateId",
 				"outputs": [
 					{
-						"internalType": "contract IERC20",
+						"internalType": "uint256",
 						"name": "",
-						"type": "address"
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextVoterId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -237,12 +269,7 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_startTimeDuration",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "_endTimeDuration",
+						"name": "_startInSeconds",
 						"type": "uint256"
 					}
 				],
@@ -266,6 +293,23 @@
 			}
 		],
 		"devdoc": {
+			"errors": {
+				"InvalidInitialization()": [
+					{
+						"details": "The contract is already initialized."
+					}
+				],
+				"NotInitializing()": [
+					{
+						"details": "The contract is not initializing."
+					}
+				]
+			},
+			"events": {
+				"Initialized(uint64)": {
+					"details": "Triggered when the contract has been initialized or reinitialized."
+				}
+			},
 			"kind": "dev",
 			"methods": {},
 			"version": 1
@@ -278,9 +322,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.45.votingintegratedwitherc20.sol": "Vote"
+			"contracts/votingdeploy.sol": "Vote"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -292,20 +336,19 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-			"keccak256": "0xe06a3f08a987af6ad2e1c1e774405d4fe08f1694b67517438b467cecf0da0ef7",
+		"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
+			"keccak256": "0xdb4d24ee2c087c391d587cd17adfe5b3f9d93b3110b1388c2ab6c7c0ad1dcd05",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://df6f0c459663c9858b6cba2cda1d14a7d05a985bed6d2de72bd8e78c25ee79db",
-				"dweb:/ipfs/QmeTTxZ7qVk9rjEv2R4CpCwdf8UMCcRqDNMvzNxHc3Fnn9"
+				"bzz-raw://ab7b6d5b9e2b88176312967fe0f0e78f3d9a1422fa5e4b64e2440c35869b5d08",
+				"dweb:/ipfs/QmXKYWWyzcLg1B2k7Sb1qkEXgLCYfXecR9wYW5obRzWP1Q"
 			]
 		},
-		"contracts/10.45.votingintegratedwitherc20.sol": {
-			"keccak256": "0x8d64e6ee10b59fbdcab3f4e533c89fbb015aa591fad4798a7b18dedec1ae6889",
-			"license": "MIT",
+		"contracts/votingdeploy.sol": {
+			"keccak256": "0x79b73c900a0790607ad87fcc3d639fa7fff94b9c9633f24f29d471ebf2fa794a",
 			"urls": [
-				"bzz-raw://39830dcc8e0f9ac08e90a18e21d8b0aaeacf3e4e4f52e0957d5684804625cb00",
-				"dweb:/ipfs/QmPdLBtiWtrXS5ZRkcT2KGHJrqTveUZSo5kCt849BtJuZ5"
+				"bzz-raw://d4273c8e3ecff88a8af5affa68ad73fb6946466ce14f4c211a5c3894d3e577d2",
+				"dweb:/ipfs/QmQSfC99SAKJqusq9qvegUGLDw4effLiwbAMDBqPcJavAV"
 			]
 		}
 	},

@@ -225,7 +225,7 @@
 		"compilationTarget": {
 			"contracts/chainlink/receiver.sol": "Receiver"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"

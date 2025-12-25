@@ -44,7 +44,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/chainlink/pricefeed.sol": "DataConsumerV3"
+			"contracts/chainlink/1_pricefeed.sol": "DataConsumerV3"
 		},
 		"evmVersion": "shanghai",
 		"libraries": {},
@@ -66,7 +66,7 @@
 				"dweb:/ipfs/QmaG6vz6W6iEUBsbHSBob5mdcitYxWjoygxREHpsJHfWrS"
 			]
 		},
-		"contracts/chainlink/pricefeed.sol": {
+		"contracts/chainlink/1_pricefeed.sol": {
 			"keccak256": "0x0ba2d4eb54eb2d4ccaf4a394b9de7a0104071683aeca9d0b00ff4608b0617070",
 			"license": "MIT",
 			"urls": [
