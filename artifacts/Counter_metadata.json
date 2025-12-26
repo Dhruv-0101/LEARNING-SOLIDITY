@@ -10,9 +10,9 @@
 				"name": "count",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "int256",
 						"name": "",
-						"type": "uint256"
+						"type": "int256"
 					}
 				],
 				"stateMutability": "view",
@@ -20,12 +20,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "decrement",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "getCount",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "int256",
 						"name": "",
-						"type": "uint256"
+						"type": "int256"
 					}
 				],
 				"stateMutability": "view",
@@ -52,7 +59,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/AA.sol": "Counter"
+			"contracts/reownwagmiview.sol": "Counter"
 		},
 		"evmVersion": "osaka",
 		"libraries": {},
@@ -66,12 +73,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/AA.sol": {
-			"keccak256": "0x9c5bd9ac7f46339bbb6197b739e0fbc98147924c5ce55071df5a6b4b9e54a74c",
+		"contracts/reownwagmiview.sol": {
+			"keccak256": "0x0baff7bc5f59ae93cd2aa94eaa4d19d409c467be47a6d52f00dffa4e3e16ba19",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ea46f14ccca85d2f5b74cf913cf3540006abffc0e12fa00e5b67f7020cea63d0",
-				"dweb:/ipfs/QmWYWXknSJYdseA3qoh51NhBCwdg5jzkthQzX5QuakA9FR"
+				"bzz-raw://ab404aaf86912779e704187d6e5128e1ba76fd5feaad175fb8e7f547a89aadf6",
+				"dweb:/ipfs/QmTye9yj88eiCYVyTvAbZpzh1ZETSc7pYjkRDcdHdxpri8"
 			]
 		}
 	},
