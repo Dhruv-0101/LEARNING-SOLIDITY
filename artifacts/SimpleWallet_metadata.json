@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.30+commit.73712a01"
+		"version": "0.8.31+commit.fd3a2265"
 	},
 	"language": "Solidity",
 	"output": {
@@ -14,7 +14,7 @@
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
+						"indexed": true,
 						"internalType": "address",
 						"name": "sender",
 						"type": "address"
@@ -22,11 +22,73 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amonut",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
 						"type": "uint256"
 					}
 				],
-				"name": "Receive",
+				"name": "ContractFunded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "ContractToUserTransfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "DirectUserTransfer",
 				"type": "event"
 			},
 			{
@@ -34,14 +96,21 @@
 				"inputs": [
 					{
 						"indexed": false,
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					},
+						"internalType": "bool",
+						"name": "stop",
+						"type": "bool"
+					}
+				],
+				"name": "EmergencyToggled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
 					{
-						"indexed": false,
+						"indexed": true,
 						"internalType": "address",
-						"name": "receiver",
+						"name": "owner",
 						"type": "address"
 					},
 					{
@@ -51,16 +120,35 @@
 						"type": "uint256"
 					}
 				],
-				"name": "ReceiveUser",
+				"name": "EmergencyWithdrawal",
 				"type": "event"
 			},
 			{
 				"anonymous": false,
 				"inputs": [
 					{
-						"indexed": false,
+						"indexed": true,
 						"internalType": "address",
-						"name": "receiver",
+						"name": "oldOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnerChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
 						"type": "address"
 					},
 					{
@@ -68,9 +156,65 @@
 						"internalType": "uint256",
 						"name": "amount",
 						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
 					}
 				],
-				"name": "Transfer",
+				"name": "OwnerWithdraw",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "count",
+						"type": "uint256"
+					}
+				],
+				"name": "SuspiciousActivityDetected",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "UserToOwnerTransfer",
 				"type": "event"
 			},
 			{
@@ -186,19 +330,6 @@
 						"internalType": "bool",
 						"name": "",
 						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "str",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
 					}
 				],
 				"stateMutability": "view",
@@ -327,22 +458,15 @@
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {
-				"transferToContract(uint256)": {
-					"notice": "Contract related functions*"
-				},
-				"transferToUserViaMsgValue(address)": {
-					"notice": "User related functions*"
-				}
-			},
+			"methods": {},
 			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.28.wallet_project.sol": "SimpleWallet"
+			"contracts/walletgraphql.sol": "SimpleWallet"
 		},
-		"evmVersion": "prague",
+		"evmVersion": "osaka",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -354,12 +478,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.28.wallet_project.sol": {
-			"keccak256": "0xb98320cbbab4c860c18ac3107db1b1b8911a0da782ac69e78057223ffb03b05f",
+		"contracts/walletgraphql.sol": {
+			"keccak256": "0xb27b3c937d0a91f84c345f61cdfcbfea00ad37200f5aaca79b231d50ff24b6c9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://22795801980e3f20c45ef5bc4eb59f6231dc82d79ed7dc028fa762f50eb15431",
-				"dweb:/ipfs/QmW8nAKwRjjq4aKFfnhiQHJYSkBpdGTg7foTpVNgoSVKFW"
+				"bzz-raw://e12534505a5cb708f361f8c453566d898a34b6aa1b6ef447a85d73b3a28476aa",
+				"dweb:/ipfs/QmfDSvKinymdVP3Q4Am62gWxQ5uoPhPZNTCxqbmjFKdXvE"
 			]
 		}
 	},
