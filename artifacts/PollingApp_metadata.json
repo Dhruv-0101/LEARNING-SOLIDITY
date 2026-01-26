@@ -1,0 +1,332 @@
+{
+	"compiler": {
+		"version": "0.8.31+commit.fd3a2265"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "questionId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "ipfsHash",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "enum PollingApp.QuestionType",
+						"name": "qType",
+						"type": "uint8"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint8",
+						"name": "category",
+						"type": "uint8"
+					}
+				],
+				"name": "QuestionCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "questionId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "upvoter",
+						"type": "address"
+					}
+				],
+				"name": "Upvoted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "questionId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "selectedOptions",
+						"type": "uint256[]"
+					}
+				],
+				"name": "Voted",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_ipfsHash",
+						"type": "string"
+					},
+					{
+						"internalType": "enum PollingApp.QuestionType",
+						"name": "_qType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "_category",
+						"type": "uint8"
+					}
+				],
+				"name": "createQuestion",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "hasUpvoted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "hasVoted",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextQuestionId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "questions",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "ipfsHash",
+						"type": "string"
+					},
+					{
+						"internalType": "enum PollingApp.QuestionType",
+						"name": "qType",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint8",
+						"name": "category",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "voteCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "upvoteCount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "exists",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_questionId",
+						"type": "uint256"
+					}
+				],
+				"name": "upvote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_questionId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_selectedOptions",
+						"type": "uint256[]"
+					}
+				],
+				"name": "vote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Decentralized Polling Smart Contract",
+			"kind": "dev",
+			"methods": {
+				"createQuestion(string,uint8,uint256,uint8)": {
+					"details": "Create a new poll/question",
+					"params": {
+						"_category": "Predefined category ID",
+						"_deadline": "Timestamp when voting ends",
+						"_ipfsHash": "CID from IPFS containing question text and options",
+						"_qType": "Type of the question (YesNo, Single, Multiple)"
+					}
+				},
+				"upvote(uint256)": {
+					"details": "Upvote a specific question",
+					"params": {
+						"_questionId": "ID of the question"
+					}
+				},
+				"vote(uint256,uint256[])": {
+					"details": "Vote on a specific question",
+					"params": {
+						"_questionId": "ID of the question",
+						"_selectedOptions": "Array of selected option indices"
+					}
+				}
+			},
+			"title": "PollingApp",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/onchain.sol": "PollingApp"
+		},
+		"evmVersion": "osaka",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/onchain.sol": {
+			"keccak256": "0x58be2a627d2ac8c30d7fc3a7ee9eefd391450e2f87c9eba8e89c7187290e1f8e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8778cf8315ffd4e089a6e95ad6fe5290872676f276d610586b0d07a4a0cc5715",
+				"dweb:/ipfs/QmQbA983pFNxr6UAKy1AVjK11L1Fjz75krADQFyhjp7X9E"
+			]
+		}
+	},
+	"version": 1
+}
