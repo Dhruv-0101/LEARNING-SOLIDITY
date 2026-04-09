@@ -125,7 +125,7 @@
 		"compilationTarget": {
 			"contracts/10.33.solidty_oops_inheritance.sol": "SuperCar"
 		},
-		"evmVersion": "cancun",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
