@@ -7,64 +7,12 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "counter",
+				"name": "f1",
 				"outputs": [
 					{
-						"internalType": "int256",
+						"internalType": "uint256",
 						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "readAndWriteStateVariable",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "readStateVariable",
-				"outputs": [
-					{
-						"internalType": "int256",
-						"name": "",
-						"type": "int256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "readStateVariableLocalVariable",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "returnLocalVariable",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "pure",
@@ -72,22 +20,15 @@
 			},
 			{
 				"inputs": [],
-				"name": "writeStateVariable",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "writeStateVariableLocalVariable",
+				"name": "f4",
 				"outputs": [
 					{
-						"internalType": "bool",
+						"internalType": "uint256",
 						"name": "",
-						"type": "bool"
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "nonpayable",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -104,7 +45,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.2.local&state-variable.sol": "Demo"
+			"contracts/10.12.visibility.sol": "demo"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -118,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.2.local&state-variable.sol": {
-			"keccak256": "0x03f100c80c476a1eedd7a35347cc125965de5a7b6b5dd9bc2780603c723dd583",
-			"license": "GPL-3.0",
+		"contracts/10.12.visibility.sol": {
+			"keccak256": "0xfd36f71b9c9da387cd58e5401cd0d9bf37c469bf437523ec11b24f2bfe29c43a",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://d9bd465ffe14943dd85ee7665381adaf42074c1311eb4212cc9329776e54686c",
-				"dweb:/ipfs/QmazjsPchj6zDgtFY1daUxKVnwPBuT5dNRNCZUhmQEQBFS"
+				"bzz-raw://2d218bc16a431c2596752ceee44c0739d445048ab3d80d47b097b64057df4673",
+				"dweb:/ipfs/QmdqZgbtxa8yFNmhUqDmj2tZTvnZkeihc6RLrkPGmakWw5"
 			]
 		}
 	},

@@ -7,41 +7,28 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "manager",
+				"name": "f1",
 				"outputs": [
 					{
-						"internalType": "address",
+						"internalType": "uint256",
 						"name": "",
-						"type": "address"
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "string",
-						"name": "_str",
-						"type": "string"
-					}
-				],
-				"name": "setter",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "str",
+				"name": "f4",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "uint256",
 						"name": "",
-						"type": "string"
+						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
@@ -71,7 +58,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.34.solidity_oops_abstract.sol": "Child"
+			"contracts/10.12.visibility.sol": "child"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -85,12 +72,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.34.solidity_oops_abstract.sol": {
-			"keccak256": "0x680f75c8f2051fe490c6ad1166a633c7385451f54198491f308bb5c9b86158b9",
-			"license": "GPL-3.0",
+		"contracts/10.12.visibility.sol": {
+			"keccak256": "0xbf7f3537e84f07792a036234e6288c629b302d679b1736e2a7c8858b551d709c",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://985cce101231a20f090799a5385f5eab58e0023615a6bbc4e18003747b6a270a",
-				"dweb:/ipfs/QmZzLtjJ3nwtby4xzA1QXadZWZBncm8p9dvWrwwM64sWzF"
+				"bzz-raw://b3b72692a37a5e8cbba149901fc5a2ee4c51c6c38f2713718fd60398fbc08c9c",
+				"dweb:/ipfs/QmURRXMzJXuKd4xp4AAU11fmvzHJbSUtTGKB2EnPnzoEoc"
 			]
 		}
 	},

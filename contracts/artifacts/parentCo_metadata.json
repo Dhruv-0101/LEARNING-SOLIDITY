@@ -71,7 +71,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/1.25.inheritance.sol": "parentCo"
+			"contracts/1.25.inheritance.sol": "parentco"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -86,11 +86,11 @@
 	},
 	"sources": {
 		"contracts/1.25.inheritance.sol": {
-			"keccak256": "0x82403af8ec809ad335305ecb41fef19ac204e97c384dcfee7a29823197adba08",
+			"keccak256": "0x1790eceb64b3325551a861144a91ef64934ca407a8a6e960998d3c948eaed3d0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9ffca0e512e62e950225c2d59d5630f05522669f0f4cf8c3c4146b4e78ca4dad",
-				"dweb:/ipfs/QmPr4R31hskhP7xHG2gfhgGAhSv9QytaRAAmaDzPukWfjC"
+				"bzz-raw://0b7c22227e2d3a65d02a68a75ff2a78ff2edb249d87d0c5f52b67b9d940526bc",
+				"dweb:/ipfs/Qmf2CPuX952yZcWPsSVXPv7dHVwsRNT2fZUYcYKjtaHXT7"
 			]
 		}
 	},

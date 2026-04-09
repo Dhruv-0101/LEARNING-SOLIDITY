@@ -7,33 +7,20 @@
 		"abi": [
 			{
 				"inputs": [],
-				"name": "manager",
+				"name": "funA",
 				"outputs": [
 					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "string",
-						"name": "_str",
+						"name": "",
 						"type": "string"
 					}
 				],
-				"name": "setter",
-				"outputs": [],
-				"stateMutability": "nonpayable",
+				"stateMutability": "pure",
 				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "str",
+				"name": "funB",
 				"outputs": [
 					{
 						"internalType": "string",
@@ -41,7 +28,33 @@
 						"type": "string"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "funC",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "funD",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -58,7 +71,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.34.solidity_oops_abstract.sol": "Parent"
+			"contracts/1.25.inheritance.sol": "parent"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -72,12 +85,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.34.solidity_oops_abstract.sol": {
-			"keccak256": "0x680f75c8f2051fe490c6ad1166a633c7385451f54198491f308bb5c9b86158b9",
-			"license": "GPL-3.0",
+		"contracts/1.25.inheritance.sol": {
+			"keccak256": "0x07a04c1631d7c36138afb111e374ee08f4b6ce30631a4576b522e8b22a582f0a",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://985cce101231a20f090799a5385f5eab58e0023615a6bbc4e18003747b6a270a",
-				"dweb:/ipfs/QmZzLtjJ3nwtby4xzA1QXadZWZBncm8p9dvWrwwM64sWzF"
+				"bzz-raw://40a91d2fec0e5a3cae8fafb6b47d0afae6d2037965ecfcb00fb11a7a37cd82c5",
+				"dweb:/ipfs/QmXe4h1o4My93xZRsiWr1hSGRB4ETyP2w9zet97pUx84os"
 			]
 		}
 	},
