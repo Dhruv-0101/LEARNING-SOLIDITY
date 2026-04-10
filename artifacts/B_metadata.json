@@ -6,13 +6,26 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_cAddress",
+						"type": "address"
+					}
+				],
+				"name": "delegateLog",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
-				"name": "x",
+				"name": "sender",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "address",
 						"name": "",
-						"type": "uint256"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -20,7 +33,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "y",
+				"name": "value",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -45,7 +58,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/9.c3linearizedorder.sol": "B"
+			"contracts/newdelegateextra.sol": "B"
 		},
 		"evmVersion": "prague",
 		"libraries": {},
@@ -59,12 +72,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/9.c3linearizedorder.sol": {
-			"keccak256": "0xacb4bb10039616ee6a3e219866e3333dadb5608cd6db8cdc6b104f859c8b5e3a",
-			"license": "MIT",
+		"contracts/newdelegateextra.sol": {
+			"keccak256": "0x3af3fd5c8fb4ef3d724063d795869c43fe980c0c5798f616c10f6c958e3cfc41",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://4466d93b830b3307b0b08b3def5c3a2755bc46e5b20bebd17889892d25882c45",
-				"dweb:/ipfs/QmSwjewkmxz6TCJRK48swU7TMCicuJipG1gGD28dCfsPcU"
+				"bzz-raw://5043c06002705de7e37bf8414a0d0f4d94ed6b04f4493ff3a703a96d9d3a3e27",
+				"dweb:/ipfs/QmXSmJ8zwocVSKrhPD5mLkBDz7TWfFPWscawJ2k7qgXTzR"
 			]
 		}
 	},

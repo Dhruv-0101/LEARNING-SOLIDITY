@@ -1,23 +1,25 @@
 {
 	"compiler": {
-		"version": "0.8.31+commit.fd3a2265"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
+				"name": "log",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
 			},
 			{
 				"inputs": [],
-				"name": "getName",
+				"name": "sender",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "address",
 						"name": "",
-						"type": "string"
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -25,12 +27,12 @@
 			},
 			{
 				"inputs": [],
-				"name": "name",
+				"name": "value",
 				"outputs": [
 					{
-						"internalType": "string",
+						"internalType": "uint256",
 						"name": "",
-						"type": "string"
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -50,9 +52,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/evm/shadowing.sol": "C"
+			"contracts/newdelegateextra.sol": "C"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -64,12 +66,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/evm/shadowing.sol": {
-			"keccak256": "0x66b2346ce625192fe8be300053e961eb20c9d2ccc69929f4a72e3a9347df0093",
-			"license": "MIT",
+		"contracts/newdelegateextra.sol": {
+			"keccak256": "0x3af3fd5c8fb4ef3d724063d795869c43fe980c0c5798f616c10f6c958e3cfc41",
+			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://9a745fecdb17be76df0bc7d4feb3c6f4bccb28ed41f4e08eb6203d24f14d100f",
-				"dweb:/ipfs/QmPbnEPG7JdTMBEcZz1q4HQZxQBAXNci7MwkBQXPgpythy"
+				"bzz-raw://5043c06002705de7e37bf8414a0d0f4d94ed6b04f4493ff3a703a96d9d3a3e27",
+				"dweb:/ipfs/QmXSmJ8zwocVSKrhPD5mLkBDz7TWfFPWscawJ2k7qgXTzR"
 			]
 		}
 	},

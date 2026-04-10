@@ -1,17 +1,22 @@
 {
 	"compiler": {
-		"version": "0.8.31+commit.fd3a2265"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [],
-				"name": "readTransient",
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "balance",
 				"outputs": [
 					{
 						"internalType": "uint256",
-						"name": "v",
+						"name": "",
 						"type": "uint256"
 					}
 				],
@@ -22,20 +27,98 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "friend",
+						"name": "moduleC",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_new",
 						"type": "address"
 					}
 				],
-				"name": "run",
+				"name": "changeOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "moduleA",
+						"type": "address"
+					}
+				],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "module",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "execute",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
 				"outputs": [
 					{
 						"internalType": "string",
-						"name": "reply",
+						"name": "",
 						"type": "string"
 					}
 				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "moduleB",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					}
+				],
+				"name": "setName",
+				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
 			}
 		],
 		"devdoc": {
@@ -51,9 +134,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/otherconceptsofsolidity/transeintstorage.sol": "Main"
+			"contracts/newdelegatemodularity.sol": "Main"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -65,12 +148,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/otherconceptsofsolidity/transeintstorage.sol": {
-			"keccak256": "0xb8047bc449a9a539f4218a14069c14953a88837853d9f8a0a2478fd2f8424fbf",
+		"contracts/newdelegatemodularity.sol": {
+			"keccak256": "0x622fef16d9e130e66291656ea6f30f9aff83a4a3c0caa523bf1e6feaf8a0f2c9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f9c4b410122cdd689843938b50a7ec7616c003993f8a86cd711472605d631d1a",
-				"dweb:/ipfs/QmeXmLnh9iNqWzAKZkV8juRo1HkBixDkgRCcpP4Xqv8rd5"
+				"bzz-raw://6d26390b459794e7cb0b10cffc2761e9d7e35e7ea5005d6b4970de699d3709e1",
+				"dweb:/ipfs/QmZi1PgzVgp46RKSMNKBzKFKwfuVzUe2gocMYSV3uoNFw5"
 			]
 		}
 	},

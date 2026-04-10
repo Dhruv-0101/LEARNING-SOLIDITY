@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.31+commit.fd3a2265"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -117,7 +117,7 @@
 		"compilationTarget": {
 			"contracts/10.5.addressdatatype.sol": "AddressExample"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -130,11 +130,11 @@
 	},
 	"sources": {
 		"contracts/10.5.addressdatatype.sol": {
-			"keccak256": "0x27586fb8c01cc82eb55423cb66dcb106f743d7b15879304fb3a47051cd760853",
+			"keccak256": "0x0449d634c0cf4cc1894736a2ef052ef169fc0705d87fc422d60e03d242f7eb4a",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://e690b2feadec5b087e50fed6815359e7d0eef635d85153a3207740c71cc81be9",
-				"dweb:/ipfs/QmSM1rESfeDXNp1sNnanUXicnyFK1hoTvfydBLc8ZZcsLH"
+				"bzz-raw://7d98505ab3ea9cd4a975a024a63770185aeb0661d8bd30ee58979fb7a656ab73",
+				"dweb:/ipfs/QmR9zBGNw96PWBA4HWaRS67ccHsXhriaqWaJP5aiyDrSQW"
 			]
 		}
 	},

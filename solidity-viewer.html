@@ -1,0 +1,4646 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solidity Files Viewer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0d0f14;
+        --sidebar-bg: #12151c;
+        --panel-bg: #161b25;
+        --border: #1e2535;
+        --accent: #00e5ff;
+        --accent2: #7c3aed;
+        --text: #c9d1e0;
+        --text-dim: #5a6380;
+        --text-bright: #eef2ff;
+        --active-bg: #0d2a35;
+        --active-border: #00e5ff;
+        --header-h: 58px;
+        --sidebar-w: 275px;
+
+        --c-comment: #546e8a;
+        --c-keyword: #c792ea;
+        --c-type: #82aaff;
+        --c-string: #c3e88d;
+        --c-number: #f78c6c;
+        --c-function: #82e0ff;
+        --c-operator: #89ddff;
+        --c-pragma: #ffcb6b;
+        --c-plain: #c9d1e0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: "Syne", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        overflow: hidden;
+      }
+
+      /* HEADER */
+      header {
+        height: var(--header-h);
+        background: var(--sidebar-bg);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        padding: 0 28px;
+        gap: 14px;
+        flex-shrink: 0;
+      }
+      .logo-icon {
+        width: 34px;
+        height: 34px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -1px;
+        flex-shrink: 0;
+      }
+      header h1 {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--text-bright);
+        letter-spacing: 0.3px;
+      }
+      header h1 span {
+        color: var(--accent);
+      }
+
+      .back-btn {
+        display: none;
+        align-items: center;
+        gap: 7px;
+        font-family: "Syne", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--text-dim);
+        background: var(--border);
+        border: none;
+        padding: 6px 14px;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: all 0.15s;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+      .back-btn:hover {
+        background: rgba(0, 229, 255, 0.12);
+        color: var(--accent);
+      }
+      .back-btn.visible {
+        display: flex;
+      }
+
+      .header-right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .file-count-badge {
+        font-size: 12px;
+        color: var(--text-dim);
+        background: var(--border);
+        padding: 3px 12px;
+        border-radius: 20px;
+      }
+
+      /* APP SHELL */
+      .app {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - var(--header-h));
+        overflow: hidden;
+      }
+
+      /* ══════ HOME PAGE ══════ */
+      #homePage {
+        flex: 1;
+        overflow-y: auto;
+        padding: 48px 40px 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .home-hero {
+        text-align: center;
+        margin-bottom: 46px;
+      }
+      .home-hero-label {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 14px;
+        opacity: 0.8;
+      }
+      .home-hero h2 {
+        font-size: 36px;
+        font-weight: 800;
+        color: var(--text-bright);
+        letter-spacing: -0.5px;
+        line-height: 1.15;
+      }
+      .home-hero h2 span {
+        background: linear-gradient(90deg, var(--accent), #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .home-hero p {
+        margin-top: 14px;
+        font-size: 14px;
+        color: var(--text-dim);
+        line-height: 1.6;
+      }
+
+      .stats-row {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 44px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .stat-card {
+        background: var(--sidebar-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 18px 28px;
+        text-align: center;
+        min-width: 130px;
+      }
+      .stat-num {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--accent);
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 11px;
+        color: var(--text-dim);
+        margin-top: 5px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      .section-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        align-self: flex-start;
+        margin-bottom: 18px;
+      }
+
+      .files-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 16px;
+        width: 100%;
+        max-width: 1100px;
+      }
+
+      .file-card {
+        background: var(--sidebar-bg);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px 24px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+        animation: fadeUp 0.35s ease both;
+      }
+      .file-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .file-card:nth-child(2) {
+        animation-delay: 0.12s;
+      }
+      .file-card:nth-child(3) {
+        animation-delay: 0.19s;
+      }
+      .file-card:nth-child(4) {
+        animation-delay: 0.26s;
+      }
+      .file-card:nth-child(5) {
+        animation-delay: 0.33s;
+      }
+      .file-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), transparent);
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .file-card:hover {
+        border-color: rgba(0, 229, 255, 0.35);
+        background: #14192a;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      }
+      .file-card:hover::before {
+        opacity: 1;
+      }
+
+      .card-top {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+      .card-file-icon {
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 229, 255, 0.12),
+          rgba(124, 58, 237, 0.12)
+        );
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .card-file-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .card-name-wrap {
+        flex: 1;
+        min-width: 0;
+      }
+      .card-filename {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-bright);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+      }
+      .card-type {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        color: var(--accent);
+        margin-top: 4px;
+        background: rgba(0, 229, 255, 0.08);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        padding: 1px 7px;
+        border-radius: 4px;
+        display: inline-block;
+      }
+      .card-preview {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11.5px;
+        line-height: 1.65;
+        color: var(--c-comment);
+        background: rgba(0, 0, 0, 0.25);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 14px;
+        margin-bottom: 16px;
+        white-space: pre;
+        overflow: hidden;
+        max-height: 68px;
+      }
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card-lines {
+        font-size: 11px;
+        color: var(--text-dim);
+      }
+      .card-open-btn {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-family: "Syne", sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .card-open-btn svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      /* ══════ VIEWER PAGE ══════ */
+      #viewerPage {
+        display: none;
+        flex: 1;
+        overflow: hidden;
+        flex-direction: row;
+      }
+      #viewerPage.visible {
+        display: flex;
+      }
+
+      .v-sidebar {
+        width: var(--sidebar-w);
+        background: var(--sidebar-bg);
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        overflow-y: auto;
+      }
+      .sidebar-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        padding: 18px 20px 10px;
+      }
+      .s-file-btn {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 11px 20px;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        width: 100%;
+        text-align: left;
+        border-left: 3px solid transparent;
+        transition: all 0.16s ease;
+      }
+      .s-file-btn:hover {
+        background: rgba(0, 229, 255, 0.05);
+      }
+      .s-file-btn.active {
+        background: var(--active-bg);
+        border-left-color: var(--active-border);
+      }
+      .s-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        background: #1a2035;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .s-icon svg {
+        width: 14px;
+        height: 14px;
+      }
+      .s-file-btn.active .s-icon {
+        background: rgba(0, 229, 255, 0.15);
+      }
+      .s-meta {
+        flex: 1;
+        min-width: 0;
+      }
+      .s-name {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 11.5px;
+        font-weight: 600;
+        color: var(--text);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+      }
+      .s-file-btn.active .s-name {
+        color: var(--accent);
+      }
+      .s-sub {
+        font-size: 10px;
+        color: var(--text-dim);
+        margin-top: 2px;
+        display: block;
+      }
+
+      .v-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .code-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 24px;
+        height: 48px;
+        border-bottom: 1px solid var(--border);
+        background: var(--panel-bg);
+        flex-shrink: 0;
+      }
+      .code-title {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-bright);
+      }
+      .sol-badge {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--accent);
+        background: rgba(0, 229, 255, 0.1);
+        border: 1px solid rgba(0, 229, 255, 0.25);
+        padding: 2px 8px;
+        border-radius: 4px;
+        letter-spacing: 0.5px;
+      }
+      .copy-btn {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: "Syne", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-dim);
+        background: var(--border);
+        border: none;
+        padding: 6px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.15s;
+        letter-spacing: 0.3px;
+      }
+      .copy-btn:hover {
+        background: rgba(0, 229, 255, 0.15);
+        color: var(--accent);
+      }
+      .copy-btn.copied {
+        color: #4caf50;
+        background: rgba(76, 175, 80, 0.12);
+      }
+
+      .code-wrap {
+        flex: 1;
+        overflow: auto;
+        padding: 20px 0;
+      }
+      .code-block {
+        display: table;
+        min-width: 100%;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 13.5px;
+        line-height: 1.75;
+      }
+      .code-line {
+        display: table-row;
+      }
+      .line-num {
+        display: table-cell;
+        user-select: none;
+        text-align: right;
+        padding: 0 16px 0 24px;
+        color: #2e3d55;
+        font-size: 12px;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: top;
+      }
+      .line-code {
+        display: table-cell;
+        padding: 0 32px 0 4px;
+        white-space: pre;
+        color: var(--c-plain);
+        vertical-align: top;
+      }
+      .code-line:hover .line-num {
+        color: var(--text-dim);
+      }
+      .code-line:hover .line-code {
+        background: rgba(255, 255, 255, 0.025);
+      }
+
+      .c-comment {
+        color: var(--c-comment);
+        font-style: italic;
+      }
+      .c-keyword {
+        color: var(--c-keyword);
+        font-weight: 600;
+      }
+      .c-type {
+        color: var(--c-type);
+      }
+      .c-string {
+        color: var(--c-string);
+      }
+      .c-number {
+        color: var(--c-number);
+      }
+      .c-fn {
+        color: var(--c-function);
+      }
+      .c-op {
+        color: var(--c-operator);
+      }
+      .c-pragma {
+        color: var(--c-pragma);
+      }
+      .c-plain {
+        color: var(--c-plain);
+      }
+
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e2535;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #2a3550;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-icon">S</div>
+      <h1>Solidity <span>Viewer</span></h1>
+      <div class="header-right">
+        <button class="back-btn" id="backBtn" onclick="goHome()">
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+          All Files
+        </button>
+        <span class="file-count-badge" id="fileCountBadge">3 files</span>
+      </div>
+    </header>
+
+    <div class="app">
+      <!-- HOME PAGE -->
+      <div id="homePage">
+        <div class="home-hero">
+          <div class="home-hero-label">Solidity Learning Files</div>
+          <h2>Apne <span>Solidity Files</span><br />yahan dekho</h2>
+          <p>
+            Kisi bhi file par click karo — poora code syntax highlighting ke
+            saath khulega.
+          </p>
+        </div>
+        <div class="stats-row" id="statsRow"></div>
+        <div class="section-label">— All Files —</div>
+        <div class="files-grid" id="filesGrid"></div>
+      </div>
+
+      <!-- VIEWER PAGE -->
+      <div id="viewerPage">
+        <div class="v-sidebar">
+          <div class="sidebar-label">Files</div>
+          <div id="sidebarList"></div>
+        </div>
+        <div class="v-main">
+          <div class="code-header">
+            <span class="code-title" id="panelTitle"></span>
+            <span class="sol-badge">.SOL</span>
+            <button class="copy-btn" id="copyBtn" onclick="copyCode()">
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+              >
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                />
+              </svg>
+              Copy Code
+            </button>
+          </div>
+          <div class="code-wrap">
+            <div class="code-block" id="codeBlock"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* FILE DATA — ditto same content */
+      const files = [
+        {
+          name: "10_0_store.sol",
+          lines: 22,
+          type: "Comments / Notes",
+          content: `// 1. Stack (Temporary Execution Space)
+// -->The Stack is the fastest but most limited storage location.
+// -->It is used for small computations and local function variables.
+// -->Solidity functions use the stack to store temporary values during execution.
+// -->It has a strict size limit (1024 slots), so only small values (like uint, bool, address) are stored here.
+// -->It is automatically cleared when the function execution ends.
+// -->No gas cost, as it directly uses CPU registers.
+
+
+// 2. Memory (Temporary, Used Inside Functions)
+// -->Memory is similar to RAM and is used to store temporary variables like arrays, structs, and strings inside a function.
+// --> Data in memory exists only during function execution and is cleared afterward.
+// -->Moderate gas cost—reading is cheap, but writing consumes gas.
+// -->Used when dealing with dynamic data types (arrays, structs, mappings, strings).
+
+
+// 3. Storage (Permanent, Contract-Level Data)
+// -->Storage is the most important type of memory in Solidity.
+// -->It stores contract state variables that persist on the blockchain.
+// -->Expensive gas cost—modifying storage variables is costly since it changes the blockchain state.
+// -->Unlike stack and memory, storage remains even after function execution and transactions.
+// -->Used for permanent contract state data, such as mappings and large arrays.`,
+        },
+        {
+          name: "10_1_local_state-variable.sol",
+          lines: 32,
+          type: "Contract · demo",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract demo {
+    //fucntion ke andar bane woh local variabble and fucntion ke bahar contract scope me bane woh state variable
+    uint256 public state_var; //state variable
+
+    function setter() public {
+        // we are writing to the state variable
+        state_var = 2;
+    }
+
+    function getter() public view returns (uint256) {
+        // reading from the state variable
+        return state_var;
+    }
+
+    function pureFunction() public pure returns (uint256) {
+        // neither reading nor writing on the state variable
+        uint256 local_var; //local variable
+        local_var = 1;
+        return local_var;
+    }
+
+    //etherjs concept
+
+    function setter1(uint256 _value) public {
+        // Updating the state variable with the input value
+        state_var = _value;
+    }
+}`,
+        },
+        {
+          name: "10_2_local_state-variable.sol",
+          lines: 41,
+          type: "Contract · Demo",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract Demo {
+    //this is the place to write code
+    int256 public counter = 10; //state variable
+
+    function writeStateVariable() public {
+        counter = 20; //writing the state variable
+    }
+
+    function readAndWriteStateVariable() public returns (int256) {
+        counter = 100; //writing the state variable
+        return counter; //reading the state variable
+    }
+
+    function readStateVariable() public view returns (int256) {
+        // counter = 100; //writing the state variable
+        return counter; //reading the state variable
+    }
+
+    function returnLocalVariable() public pure returns (bool) {
+        bool value = true;
+        return value;
+    }
+
+    function readStateVariableLocalVariable() public view returns (bool) {
+        int256 localVar = counter;
+        bool value = true;
+        return value;
+    }
+
+    function writeStateVariableLocalVariable() public returns (bool) {
+        counter = 30;
+        bool value = true;
+        return value;
+    }
+}
+//agar state me change hai to button is orange
+//agar sirf state ko read kar rahe ho to normal dark blue button and also for public state variable one getter button is there that is normal dark blue button`,
+        },
+        {
+          name: "10_3_constructor.sol",
+          lines: 45,
+          type: "Contract · Student",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract Student {
+    string public name;
+    uint256 public age;
+    uint256 public id;
+
+    // Constructor to initialize the contract with a student's details
+    constructor(
+        string memory _name,
+        uint256 _age,
+        uint256 _id
+    ) {
+        name = _name;
+        age = _age;
+        id = _id;
+    }
+
+    // Function to update the student's details
+    function updateDetails(
+        string memory _name,
+        uint256 _age,
+        uint256 _id
+    ) public {
+        name = _name;
+        age = _age;
+        id = _id;
+    }
+
+    // Function to get the student's details
+    function getDetails()
+        public
+        view
+        returns (
+            string memory,
+            uint256,
+            uint256
+        )
+    {
+        return (name, age, id);
+    }
+}
+`,
+        },
+        {
+          name: "10_4_integerdatatypes.sol",
+          lines: 47,
+          type: "Contract · IntegerExample",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract IntegerExample {
+    // State variables to store signed integers
+    int256 public smallNumber; // 256-bit signed integer
+    int8 public tinyNumber; // 8-bit signed integer
+
+    // Constructor to initialize the state variables
+    constructor(int256 _smallNumber, int8 _tinyNumber) {
+        smallNumber = _smallNumber;
+        tinyNumber = _tinyNumber;
+    }
+
+    // Function to set new values for the state variables
+    function setNumbers(int256 _smallNumber, int8 _tinyNumber) public {
+        smallNumber = _smallNumber;
+        tinyNumber = _tinyNumber;
+    }
+
+    // Function to get the values of the state variables
+    function getNumbers() public view returns (int256, int8) {
+        return (smallNumber, tinyNumber);
+    }
+
+    // Function to demonstrate arithmetic operations with integers
+    function addNumbers(int256 a, int256 b) public pure returns (int256) {
+        return a + b;
+    }
+
+    function subtractNumbers(int256 a, int256 b) public pure returns (int256) {
+        return a - b;
+    }
+
+    function multiplyNumbers(int256 a, int256 b) public pure returns (int256) {
+        return a * b;
+    }
+
+    function divideNumbers(int256 a, int256 b) public pure returns (int256) {
+        require(b != 0, "Division by zero is not allowed");
+        return a / b;
+    }
+}
+//-2^(n-1) to 2^(n-1)-1
+//0 to 2^(n)-1
+`,
+        },
+        {
+          name: "10_5_addressdatatype.sol",
+          lines: 69,
+          type: "Contract · AddressExample",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract AddressExample {
+    address public owner; // State variable to store the address of the contract owner
+    address public recipient; // State variable to store the recipient address
+
+    // Constructor to initialize the contract with the owner's address
+    constructor() {
+        owner = msg.sender; // Set the owner to the address that deploys the contract
+    }
+
+    // Function to set the recipient's address
+    function setRecipient(address _recipient) public {
+        recipient = _recipient;
+    }
+
+    // Function to send Ether from the contract to the recipient
+    function sendEther(uint256 amount) public payable {
+        require(msg.sender == owner, "Only the owner can send Ether");
+        require(address(this).balance >= amount, "Insufficient balance");
+
+        payable(recipient).transfer(amount);
+    }
+
+    // Function to deposit Ether into the contract
+    function deposit() public payable {
+        // Accepts Ether deposits
+    }
+
+    // Function to get the balance of the contract
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+
+    // Function to get the balance of a specific address
+    function getAddressBalance(address _addr) public view returns (uint256) {
+        return _addr.balance;
+    }
+}
+
+// pragma solidity >=0.8.2 <0.9.0;
+
+// contract SimpleAddressExample {
+//     address public owner; // State variable to store the address of the contract owner
+//     address public otherAddress; // State variable to store another address
+
+//     // Constructor to initialize the contract with the owner's address
+//     constructor() {
+//         owner = msg.sender; // Set the owner to the address that deploys the contract
+//     }
+
+//     // Function to set another address
+//     function setOtherAddress(address _otherAddress) public {
+//         otherAddress = _otherAddress;
+//     }
+
+//     // Function to get the owner's address
+//     function getOwner() public view returns (address) {
+//         return owner;
+//     }
+
+//     // Function to get the other address
+//     function getOtherAddress() public view returns (address) {
+//         return otherAddress;
+//     }
+// }
+`,
+        },
+        {
+          name: "10_6_bytesdatatype.sol",
+          lines: 23,
+          type: "Contract · demo",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract demo {
+    bytes3 public arr1 = "ab1";
+    // So 31 in the output 0x616231 is just the hex code for the character '1' (ASCII 49).
+
+    function returnArray() public view returns (bytes1) {
+        return arr1[0];
+    }
+
+    function returnwholeArray() public view returns (bytes3) {
+        return arr1;
+    }
+}
+// In Solidity, when you assign a string like "ab1" to a fixed-size byte array like bytes3, each character is stored as ASCII bytes.
+// | Character | ASCII (decimal) | Hex      |
+// | --------- | --------------- | -------- |
+// | \`a\`       | 97              | \`0x61\`   |
+// | \`b\`       | 98              | \`0x62\`   |
+// | \`1\`       | 49              | \`0x31\` ✅ |
+`,
+        },
+        {
+          name: "10_7_conditionals.sol",
+          lines: 16,
+          type: "Contract · demo",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract demo {
+    function Conditionals(int256 a) public pure returns (int256) {
+        if (a > 0) {
+            return a;
+        } else if (a < 0) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+}
+`,
+        },
+        {
+          name: "10_8_require.sol",
+          lines: 28,
+          type: "Contract · demo",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract demo {
+    int256 public num;
+
+    function requireCheck(int256 a) public {
+        num = 100;
+        require(a > 0, "a is not greater than zero");
+        num = a;
+    }
+
+    function conditionals(int256 b) public returns (string memory) {
+        num = 200;
+        if (b > 0) {
+            num = b;
+        } else {
+            return "b is not greater than zero";
+        }
+    }
+}
+
+//error throw in require check     -- revert
+//statement return in conditionals -- passed
+
+//function require check reverse ho jayega
+`,
+        },
+        {
+          name: "10_9_modifiers.sol",
+          lines: 24,
+          type: "Contract · demo",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract demo {
+    modifier onlytrue() {
+        require(false == true, "_a is not equal to true");
+        //agar yeh nahi hua to
+        _;
+    }
+
+    function check1() public pure onlytrue returns (uint256) {
+        return 1;
+    }
+
+    function check2() public pure onlytrue returns (uint256) {
+        return 1;
+    }
+
+    function check3() public pure onlytrue returns (uint256) {
+        return 1;
+    }
+}
+`,
+        },
+        {
+          name: "10_10_modifiers2.sol",
+          lines: 26,
+          type: "Contract · Example",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract Example {
+    // Modifier to check if a value is within a specified range
+    modifier valueInRange(
+        uint256 _value,
+        uint256 _min,
+        uint256 _max
+    ) {
+        require(_value >= _min && _value <= _max, "Value out of range");
+        _;
+    }
+
+    // Function that uses the valueInRange modifier
+    function doSomething(uint256 _value)
+        public
+        pure
+        valueInRange(_value, 10, 100)
+        returns (string memory)
+    {
+        return "good";
+    }
+}
+`,
+        },
+        {
+          name: "10_11_loops.sol",
+          lines: 40,
+          type: "Contract · LoopExamples",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract LoopExamples {
+    // For loop example
+    function forLoopExample(uint256 n) public pure returns (uint256) {
+        uint256 sum = 0;
+        for (uint256 i = 0; i <= n; i++) {
+            sum = sum + i;
+        }
+        return sum;
+    }
+
+    // While loop example
+    function whileLoopExample(uint256 n) public pure returns (uint256) {
+        uint256 sum = 0;
+        uint256 i = 0;
+        while (i <= n) {
+            sum += i;
+            i++;
+        }
+        return sum;
+    }
+
+    // Do-while loop example
+    function doWhileLoopExample(uint256 n) public pure returns (uint256) {
+        uint256 sum = 0;
+        uint256 i = 0;
+        if (n > 0) {
+            // Ensuring the do-while loop runs at least once if n is greater than 0
+            do {
+                sum = sum + i;
+                i = i + 1;
+            } while (i <= n);
+        }
+        return sum;
+    }
+}
+`,
+        },
+        {
+          name: "10_12_visibility.sol",
+          lines: 34,
+          type: "Contract · demo",
+          content: `// contracts/GLDToken.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract demo {
+    function f1() public pure returns (uint256) {
+        // f2();
+        return 1;
+    }
+
+    function f2() private pure returns (uint256) {
+        // f4();
+        return 2;
+    }
+
+    function f3() internal pure returns (uint256) {
+        f2();
+        return 3;
+    }
+
+    function f4() external pure returns (uint256) {
+        return 4;
+    }
+}
+
+contract otherContract {
+    demo obj = new demo(); //creating object
+    uint256 public y = obj.f4();
+}
+
+contract child is demo {
+    uint256 public x = f3();
+}
+`,
+        },
+        {
+          name: "10_13_datalocations.sol",
+          lines: 26,
+          type: "Comments / Notes",
+          content: `// contracts/GLDToken.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+// storage-Characteristics:
+// Persistent: Data is stored on the blockchain and persists between function calls and transactions.
+// Expensive: Operations on storage are costly in terms of gas because it involves writing to the blockchain.
+// Default Location: State variables are stored in storage by default.
+
+// memory-Characteristics:
+// Temporary: Data is not saved on the blockchain and exists only while the function is executing.
+// Cheaper: Operations on memory are less expensive compared to storage.
+// Explicitly Specified: You need to explicitly specify memory for dynamic arrays and structs.
+
+// 3. calldata-Definition
+// -calldata is a read-only data location used for function arguments. It is used when dealing with external function calls and is immutable (cannot be modified).
+// Characteristics:
+
+// Read-Only: Data in calldata cannot be modified. It is used for function parameters in external function calls.
+// Efficient: Accessing calldata is more gas-efficient for function arguments compared to copying them into memory.
+// Default for External Functions: Function parameters of external functions use calldata by default.
+
+
+
+
+`,
+        },
+        {
+          name: "10_14_fixedarray.sol",
+          lines: 43,
+          type: "Contract · FixedArrayExample",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract FixedArrayExample {
+    // Define a fixed-size array with 5 elements
+    uint256[5] public fixedArray;
+
+    // Function to set the values of the fixed-size array
+    function setArray(
+        uint256 _array1,
+        uint256 _array2,
+        uint256 _array3,
+        uint256 _array4,
+        uint256 _array5
+    ) public {
+        fixedArray[0] = _array1;
+        fixedArray[1] = _array2;
+
+        fixedArray[2] = _array3;
+        fixedArray[3] = _array4;
+
+        fixedArray[4] = _array5;
+      }
+
+    // Function to get a specific element from the fixed-size array
+    function getElement(uint256 index) public view returns (uint256) {
+        require(index < 5, "Index out of bounds"); // Check index bounds
+        return fixedArray[index];
+    }
+
+    // Function to get the entire fixed-size array
+    function getArray() public view returns (uint256[5] memory) {
+        return fixedArray;
+    }
+
+    // Function to update a specific element in the fixed-size array
+    function updateElement(uint256 index, uint256 value) public {
+        require(index < 5, "Index out of bounds"); // Check index bounds
+        fixedArray[index] = value;
+    }
+}
+`,
+        },
+        {
+          name: "10_15_dynamicarray.sol",
+          lines: 51,
+          type: "Contract · DynamicArrayExample",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract DynamicArrayExample {
+    // Define a dynamic array of uint256
+    uint256[] public dynamicArray;
+
+    // Function to add an element to the end of the dynamic array
+    function addElement(uint256 _element) public {
+        dynamicArray.push(_element);
+    }
+
+    // Function to get the length of the dynamic array
+    function getArrayLength() public view returns (uint256) {
+        return dynamicArray.length;
+    }
+
+    // Function to get a specific element from the dynamic array
+    function getElement(uint256 _index) public view returns (uint256) {
+        require(_index < dynamicArray.length, "Index out of bounds");
+        return dynamicArray[_index];
+    }
+
+    // Function to remove the last element from the dynamic array
+    function removeLastElement() public {
+        require(dynamicArray.length > 0, "Array is empty");
+        dynamicArray.pop();
+    }
+
+    // Function to update an element at a specific index in the dynamic array
+    function updateElement(uint256 _index, uint256 _value) public {
+        require(_index < dynamicArray.length, "Index out of bounds");
+        dynamicArray[_index] = _value;
+    }
+
+    // Function to remove an element at a specific index (by shifting)
+    function removeElementAt(uint256 _index) public {
+        require(_index < dynamicArray.length, "Index out of bounds");
+        for (uint256 i = _index; i < dynamicArray.length - 1; i++) {
+            dynamicArray[i] = dynamicArray[i + 1];
+        }
+        dynamicArray.pop(); // Remove the last duplicate element
+    }
+
+    // Function to get the entire dynamic array
+    function getArray() public view returns (uint256[] memory) {
+        return dynamicArray;
+    }
+}
+`,
+        },
+        {
+          name: "10_16_strings.sol",
+          lines: 19,
+          type: "Contract · StringExample",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract StringExample {
+    // State variable to store a string
+    string public myString;
+
+    // Function to set a new string
+    function setString(string memory newString) public {
+        myString = newString;
+    }
+
+    // Function to get the current string (optional, since we have a public variable)
+    function getString() public view returns (string memory) {
+        return myString;
+    }
+}
+`,
+        },
+        {
+          name: "10_17_simplestruct.sol",
+          lines: 37,
+          type: "Contract · Classroom",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract Classroom {
+    struct Student {
+        string name;
+        uint256 roll;
+        bool pass;
+    }
+
+    Student public s1;
+
+    function insert() public returns (Student memory) {
+        s1.name = "dhruv";
+        s1.roll = 12;
+        s1.pass = true;
+        return s1;
+    }
+}
+
+// contract Classroom {
+//     struct Student {
+//         string name;
+//         uint roll;
+//         bool pass;
+//     }
+
+//     Student public s1;
+
+//     function insert() public returns (Student memory) {
+//         s1 = Student("Kshitij", 12, true);
+//         return s1;
+//     }
+// }
+
+`,
+        },
+        {
+          name: "10_18_struct(struct mapping).sol",
+          lines: 46,
+          type: "Contract · StudentRecords",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract StudentRecords {
+    // Define a struct to represent a student
+    struct Student {
+        uint256 id;
+        string name;
+        uint256 age;
+    }
+
+    // Mapping to store student ID to Student struct
+    mapping(uint256 => Student) private students;
+         //    _id    onestruct        collections
+
+    // Function to add or update a student
+    function addOrUpdateStudent(
+        uint256 _id,
+        string memory _name,
+        uint256 _age
+    ) public {
+        students[_id] = Student(_id, _name, _age);      
+    }
+
+    // Function to get a student by ID
+    function getStudent(uint256 _id)        
+        public
+        view
+        returns (
+            uint256,    
+            string memory,
+            uint256
+        )
+    {
+        require(bytes(students[_id].name).length != 0, "Student not found");
+        Student memory student = students[_id];
+        return (student.id, student.name, student.age);
+    }
+
+    // Function to delete a student by ID
+    function deleteStudent(uint256 _id) public {
+        require(bytes(students[_id].name).length != 0, "Student not found");
+        delete students[_id];
+    }
+}
+`,
+        },
+        {
+          name: "10_19_arrayofstruct.sol",
+          lines: 91,
+          type: "Contract · StudentManagement",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+//index is main here
+contract StudentManagement {
+    // Define a struct to represent a student
+    struct Student {
+        uint256 id;
+        string name;
+        uint256 age;
+    }
+
+    // Array to store students
+    Student[] public students;
+
+    // Mapping to store student ID to array index
+    mapping(uint256 => uint256) public studentIdToIndex;
+    //     studentid  arrayindex        collection
+
+    // Function to add a new student
+    function addStudent(
+        uint256 _id,
+        string memory _name,
+        uint256 _age
+    ) public {
+        // Create a new student struct and add it to the array
+        students.push(Student(_id, _name, _age));
+        // Update the mapping with the new student's index
+        studentIdToIndex[_id] = students.length - 1;
+    }
+
+    // Function to get a student by index
+    function getStudentByIndex(uint256 _index)
+        public
+        view
+        returns (
+            uint256,
+            string memory,
+            uint256
+        )
+    {
+        require(_index < students.length, "Index out of bounds");
+        Student memory student = students[_index];
+        return (student.id, student.name, student.age);
+    }
+
+    // Function to get a student by ID
+    function getStudentById(uint256 _id)
+        public
+        view
+        returns (
+            uint256,
+            string memory,
+            uint256
+        )
+    {
+        uint256 index = studentIdToIndex[_id];
+        require(index < students.length, "Student not found");
+        Student memory student = students[index];
+        return (student.id, student.name, student.age);
+    }
+
+    // Function to update a student's details by ID
+    function updateStudent(
+        uint256 _id,
+        string memory _name,
+        uint256 _age
+    ) public {
+        uint256 index = studentIdToIndex[_id];
+        require(index < students.length, "Student not found");
+        Student storage student = students[index];
+        student.name = _name;
+        student.age = _age;
+    }
+
+    // Function to remove a student by ID
+    function removeStudent(uint256 _id) public {
+        uint256 index = studentIdToIndex[_id];
+        require(index < students.length, "Student not found");
+
+        // Move the last student to the place of the one to be removed
+        students[index] = students[students.length - 1];
+        // Update the index mapping
+        studentIdToIndex[students[index].id] = index;
+
+        // Remove the last student
+        students.pop();
+        // Remove the index mapping
+        delete studentIdToIndex[_id];
+    }
+}
+`,
+        },
+        {
+          name: "10_20_arrayofstruct.sol",
+          lines: 61,
+          type: "Contract · Library",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Library {
+    // Define a struct to represent a book
+    struct Book {
+        uint256 id;
+        string title;
+        string author;
+    }
+
+    // Array to store books
+    Book[] public books;
+
+    // Mapping to store book ID to array index
+    mapping(uint256 => uint256) public bookIdToIndex;
+
+    // Function to add a new book
+    function addBook(
+        uint256 _id,
+        string memory _title,
+        string memory _author
+    ) public {
+        // Create a new book struct and add it to the array
+        books.push(Book(_id, _title, _author));
+        // Update the mapping with the new book's index
+        bookIdToIndex[_id] = books.length - 1;
+    }
+
+    // Function to get a book by index
+    function getBookByIndex(uint256 _index)
+        public
+        view
+        returns (
+            uint256,
+            string memory,
+            string memory
+        )
+    {
+        require(_index < books.length, "Index out of bounds");
+        Book memory book = books[_index];
+        return (book.id, book.title, book.author);
+    }
+
+    // Function to get a book by ID
+    function getBookById(uint256 _id)
+        public
+        view
+        returns (
+            uint256,
+            string memory,
+            string memory
+        )
+    {
+        uint256 index = bookIdToIndex[_id];
+        require(index < books.length, "Book not found");
+        Book memory book = books[index];
+        return (book.id, book.title, book.author);
+    }
+}
+`,
+        },
+        {
+          name: "10_21_mapping.sol",
+          lines: 26,
+          type: "Contract · NameToAddressMapping",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract NameToAddressMapping {
+    // Mapping from string (name) to address
+    mapping(string => address) private nameToAddress;
+
+    // Function to set an address for a given name
+    function setAddress(string memory _name, address _address) public {
+        nameToAddress[_name] = _address;
+    }
+
+    // Function to get the address associated with a given name
+    function getAddress(string memory _name) public view returns (address) {
+        require(nameToAddress[_name] != address(0), "Address not found");
+        return nameToAddress[_name];
+    }
+
+    // Function to delete the address associated with a given name
+    function deleteAddress(string memory _name) public {
+        require(nameToAddress[_name] != address(0), "Address not found");
+        delete nameToAddress[_name];
+    }
+}
+`,
+        },
+        {
+          name: "10_22_mappingwitharray.sol",
+          lines: 42,
+          type: "Contract · AddressToArrayMapping",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract AddressToArrayMapping {
+    // Mapping from an address to an array of uint256 values
+    mapping(address => uint256[]) private addressToValues;
+
+    // Function to add a value to the array for a given address
+    function addValue(address _address, uint256 _value) public {
+        addressToValues[_address].push(_value);
+    }
+
+    // Function to get the array of values for a given address
+    function getValues(address _address)
+        public
+        view
+        returns (uint256[] memory)
+    {
+        return addressToValues[_address];
+    }
+    //overwriting this
+    // Function to remove a value at a specific index for a given address
+    function removeValueAt(address _address, uint256 _index) public {
+        require(
+            _index < addressToValues[_address].length,
+            "Index out of bounds"
+        );
+
+        // Shift elements to the left to overwrite the value at _index
+        for (
+            uint256 i = _index;
+            i < addressToValues[_address].length - 1;
+            i++
+        ) {
+            addressToValues[_address][i] = addressToValues[_address][i + 1];
+        }
+
+        // Remove the last element
+        addressToValues[_address].pop();
+    }
+}
+`,
+        },
+        {
+          name: "10_23_constant.sol",
+          lines: 8,
+          type: "Contract · ConstantsExample",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract ConstantsExample {
+    address public constant add1 = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4; //351 gas
+    address public add2 = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4; //2505 gas
+}
+`,
+        },
+        {
+          name: "10_24_enum.sol",
+          lines: 32,
+          type: "Contract · OrderStatus",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract OrderStatus {
+    // Define an enum to represent the status of an order
+    enum Status {
+        Pending,
+        Shipped,
+        Accepted,
+        Rejected,
+        Cancelled
+    }
+
+    // Variable to store the current status of an order
+    Status public currentStatus;
+
+    // Function to set the status of the order
+    function setStatus(Status _status) public {
+        currentStatus = _status;
+    }
+
+    // Function to get the current status of the order as a string
+    function getStatus() public view returns (string memory) {
+        if (currentStatus == Status.Pending) return "Pending";
+        if (currentStatus == Status.Shipped) return "Shipped";
+        if (currentStatus == Status.Accepted) return "Accepted";
+        if (currentStatus == Status.Rejected) return "Rejected";
+        if (currentStatus == Status.Cancelled) return "Cancelled";
+        return "Unknown";
+    }
+}
+`,
+        },
+        {
+          name: "10_25_nestedmapping.sol",
+          lines: 19,
+          type: "Contract · NestedMappingExample",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract NestedMappingExample {
+    // Nested mapping: Mapping from uint => (Mapping from address => bool)
+    mapping(uint => mapping(address => bool)) public permissions;
+           //row           column      value
+
+    // Function to set permission
+    function setPermission(uint roleId, address user, bool status) public {
+        permissions[roleId][user] = status;
+    }
+
+    // Function to check if a user has a certain role
+    function hasPermission(uint roleId, address user) public view returns (bool) {
+        return permissions[roleId][user];
+    }
+}
+`,
+        },
+        {
+          name: "10_26_voting_project_template.sol",
+          lines: 100,
+          type: "Contract · Vote",
+          content: `// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.26;
+
+contract Vote {
+    struct Voter {
+        string name;
+        uint256 age;
+        uint256 voterId;
+        Gender gender;
+        uint256 voteCandidateId;
+        address voterAddress;
+    }
+
+    struct Candidate {
+        string name;
+        string party;
+        uint256 age;
+        Gender gender;
+        uint256 candidateId;
+        address candidateAddress;
+        uint256 votes;
+    }
+
+    address electionCommission;
+    address public winner;
+    uint256 nextVoterId = 1;
+    uint256 nextCandidateId = 1;
+    uint256 startTime;
+    uint256 endTime;
+    bool stopVoting;
+
+    mapping(uint256 => Voter) voterDetails;
+    mapping(uint256 => Candidate) candidateDetails;
+
+    enum VotingStatus {
+        NotStarted,
+        InProgress,
+        Ended
+    }
+    enum Gender {
+        NotSpecified,
+        Male,
+        Female,
+        Other
+    }
+
+    constructor() {}
+
+    modifier isVotingOver() {
+        _;
+    }
+
+    modifier onlyCommissioner() {
+        _;
+    }
+
+    function registerCandidate(
+        string calldata _name,
+        string calldata _party,
+        uint256 _age,
+        Gender _gender
+    ) external {}
+
+    function isCandidateNotRegistered(address _person)
+        internal
+        view
+        returns (bool)
+    {}
+
+    function getCandidateList() public view returns (Candidate[] memory) {}
+
+    function isVoterNotRegistered(address _person)
+        internal
+        view
+        returns (bool)
+    {}
+
+    function registerVoter(
+        string calldata _name,
+        uint256 _age,
+        Gender _gender
+    ) external {}
+
+    function getVoterList() public view returns (Voter[] memory) {}
+
+    function castVote(uint256 _voterId, uint256 _id) external {}
+
+    function setVotingPeriod(uint256 _startTime, uint256 _endTime)
+        external
+        onlyCommissioner
+    {}
+
+    function getVotingStatus() public view returns (VotingStatus) {}
+
+    function announceVotingResult() external onlyCommissioner {}
+
+    function emergencyStopVoting() public onlyCommissioner {}
+}
+`,
+        },
+        {
+          name: "10_27_voting_project.sol",
+          lines: 498,
+          type: "Contract · Vote",
+          content: `// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.26;
+
+contract Vote {
+    //first entity
+    struct Voter {
+        string name;
+        uint256 age;
+        uint256 voterId;
+        Gender gender;
+        uint256 voteCandidateId; //candidate id to whom the voter has voted
+        address voterAddress; //EOA of the voter
+    }
+
+    //second entity
+    struct Candidate {
+        string name;
+        string party;
+        uint256 age;
+        Gender gender;
+        uint256 candidateId;
+        address candidateAddress; //candidate EOA
+        uint256 votes; //number of votes
+    }
+
+    //third entity
+    address public electionCommission;
+    address public winner;
+    uint256 nextVoterId = 1; //starting
+    uint256 nextCandidateId = 1; //starting
+
+    //voting period
+    uint256 startTime;
+    uint256 endTime;
+    bool stopVoting;
+
+    mapping(uint256 => Voter) voterDetails;
+    mapping(uint256 => Candidate) candidateDetails;
+
+    enum VotingStatus {
+        NotStarted,
+        InProgress,
+        Ended
+    }
+    enum Gender {
+        NotSpecified,
+        Male,
+        Female,
+        Other
+    }
+
+    constructor() {
+        electionCommission = msg.sender; //msg.sender is a global variable
+    }
+
+    modifier isVotingOver() {
+        require(
+            block.timestamp <= endTime && stopVoting == false,
+            "Voting time is over"
+        ); //user is modifier ko call kab karega uspe dependent hai
+        _;
+    }
+
+    modifier onlyCommissioner() {
+        require(msg.sender == electionCommission, "Not authuorized");
+        _;
+    }
+
+    modifier isValidAge(uint256 _age) {
+        require(_age >= 18, "not eligible for voting");
+        _; //agar yeh nai hua to? then send this statement.
+    }
+
+    function isCandidateNotRegistered(address _person)
+        private
+        view
+        returns (bool)
+    {
+        for (uint256 i = 1; i < nextCandidateId; i++) {
+            if (candidateDetails[i].candidateAddress == _person) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function isVoterNotRegistered(address _person) private view returns (bool) {
+        for (uint256 i = 1; i < nextVoterId; i++) {
+            if (voterDetails[i].voterAddress == _person) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function registerCandidate(
+        string calldata _name,
+        string calldata _party,
+        uint256 _age,
+        Gender _gender
+    ) external isValidAge(_age) {
+        require(
+            isCandidateNotRegistered(msg.sender),
+            "You are already registered"
+        );
+        require(nextCandidateId < 3, "Candidate Registration Full");
+        require(
+            msg.sender != electionCommission,
+            "Election Commision not allowed to register"
+        );
+
+        candidateDetails[nextCandidateId] = Candidate({
+            name: _name,
+            party: _party,
+            gender: _gender,
+            age: _age,
+            candidateId: nextCandidateId,
+            candidateAddress: msg.sender,
+            votes: 0
+        });
+        nextCandidateId++;
+    }
+
+    //MOST IMP
+    function getCandidateList() public view returns (Candidate[] memory) {
+        //candidate ka array hai
+        Candidate[] memory candidateList = new Candidate[](nextCandidateId - 1); //initialize an empty array of length = \`nextCandidateId - 1\`
+        for (uint256 i = 0; i < candidateList.length; i++) {
+            candidateList[i] = candidateDetails[i + 1];
+        }
+        return candidateList;
+    }
+
+    function registerVoter(
+        string calldata _name,
+        uint256 _age,
+        Gender _gender
+    ) external isValidAge(_age) {
+        require(isVoterNotRegistered(msg.sender), "You are already registered");
+
+        voterDetails[nextVoterId] = Voter({
+            name: _name,
+            age: _age,
+            voterId: nextVoterId,
+            gender: _gender,
+            voteCandidateId: 0,
+            voterAddress: msg.sender
+        });
+        nextVoterId++;
+    }
+
+    function getVoterList() public view returns (Voter[] memory) {
+        uint256 lengthArr = nextVoterId - 1;
+        Voter[] memory voterList = new Voter[](lengthArr);
+        for (uint256 i = 0; i < voterList.length; i++) {
+            voterList[i] = voterDetails[i + 1];
+        }
+        return voterList;
+    }
+
+    function castVote(uint256 _voterId, uint256 _candidateId)
+        external
+        isVotingOver
+    {
+        require(block.timestamp >= startTime, "Voting has not started yet");
+        require(
+            voterDetails[_voterId].voteCandidateId == 0,
+            "You have already voted"
+        );
+        require(
+            voterDetails[_voterId].voterAddress == msg.sender,
+            "You are not authourized"
+        );
+        require(
+            _candidateId >= 1 && _candidateId < 3,
+            "Candidate Id is not correct"
+        );
+        voterDetails[_voterId].voteCandidateId = _candidateId; //voting to _candidateId
+        candidateDetails[_candidateId].votes++; //increment _candidateId votes
+    }
+
+    function setVotingPeriod(
+        uint256 _startTimeDuration,
+        uint256 _endTimeDuration
+    ) external onlyCommissioner {
+        require(
+            _endTimeDuration > 3600,
+            "_endTimeDuration must be greater than 1 hour"
+        );
+        startTime = 1720799550 + _startTimeDuration; //_startTimeDuration = 3600 , _endTimeDuration = 3600
+        endTime = startTime + _endTimeDuration;
+    }
+
+    // function setVotingPeriod(uint256 _startInSeconds)
+    //     external
+    //     onlyCommissioner
+    // {
+    //     startTime = block.timestamp + _startInSeconds; // Future start time
+    //     endTime = startTime + 3600; // 1 hour voting period after start time
+    // }
+    //If you call setVotingPeriod(7200), voting will start 2 hours from now and last for 1 hour.
+    /*
+    Whatever number you pass to _startInSeconds means:
+
+    Wait that many seconds from now (block.timestamp).
+
+    After that wait, voting starts.
+
+    Then, in your code, voting will last 1 hour (because of + 3600).
+
+    👉 Example timeline:
+
+    You call setVotingPeriod(7200) at 10:00 AM.
+
+    Voting will start at 12:00 PM (2 hours later).
+
+    Voting will end at 1:00 PM (1 hour after it starts).
+
+    So yes — the number you pass is the delay until voting begins.
+    */
+
+    function getVotingStatus() public view returns (VotingStatus) {
+        if (startTime == 0) {
+            return VotingStatus.NotStarted;
+        } else if (endTime > block.timestamp && stopVoting == false) {
+            return VotingStatus.InProgress;
+        } else {
+            return VotingStatus.Ended;
+        }
+    }
+
+    function announceVotingResult() external onlyCommissioner {
+        uint256 max = 0;
+        for (uint256 i = 1; i < nextCandidateId; i++) {
+            if (candidateDetails[i].votes > max) {
+                max = candidateDetails[i].votes;
+                winner = candidateDetails[i].candidateAddress;
+            }
+        }
+    }
+
+    function emergencyStopVoting() public onlyCommissioner {
+        stopVoting = true;
+    }
+
+    //if votingStatus==NotStarted then do this
+    //else if votingStatus==Started then do that
+    //else bla bla
+}
+
+//For Deployment
+/*
+pragma solidity ^0.8.24;
+
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+
+contract Vote is Initializable {
+    //first entity
+
+    address public electionCommission;
+    uint256 public nextVoterId;
+    uint256 public nextCandidateId;
+
+    function initialize() public initializer {
+        electionCommission = msg.sender;
+        nextVoterId = 1;
+        nextCandidateId = 1;
+    }
+
+    struct Voter {
+        string name;
+        uint256 age;
+        uint256 voterId;
+        Gender gender;
+        uint256 voteCandidateId; //candidate id to whom the voter has voted
+        address voterAddress; //EOA of the voter
+    }
+
+    //second entity
+    struct Candidate {
+        string name;
+        string party;
+        uint256 age;
+        Gender gender;
+        uint256 candidateId;
+        address candidateAddress; //candidate EOA
+        uint256 votes; //number of votes
+    }
+
+    //third entity
+    // address public electionCommission;
+    address public winner;
+    // uint256 nextVoterId = 1; //starting
+    // uint256 nextCandidateId = 1; //starting
+
+    //voting period
+    uint256 startTime;
+    uint256 endTime;
+    bool stopVoting;
+
+    mapping(uint256 => Voter) voterDetails;
+    mapping(uint256 => Candidate) candidateDetails;
+
+    enum VotingStatus {
+        NotStarted,
+        InProgress,
+        Ended
+    }
+    enum Gender {
+        NotSpecified,
+        Male,
+        Female,
+        Other
+    }
+
+    // constructor() {
+    //     electionCommission = msg.sender; //msg.sender is a global variable
+    // }
+
+    modifier isVotingOver() {
+        require(
+            block.timestamp <= endTime && stopVoting == false,
+            "Voting time is over"
+        ); //user is modifier ko call kab karega uspe dependent hai
+        _;
+    }
+
+    // end time - 1720540700 - Tuesday, 9 July 2024 21:28:20
+    // current time - 1720540861 - Tuesday, 9 July 2024 21:31:01
+
+    modifier onlyCommissioner() {
+        require(msg.sender == electionCommission, "Not authuorized");
+        _;
+    }
+
+    modifier isValidAge(uint256 _age) {
+        require(_age >= 18, "not eligible for voting");
+        _; //agar yeh nai hua to? then send this statement.
+    }
+
+    function isCandidateNotRegistered(
+        address _person
+    ) private view returns (bool) {
+        for (uint256 i = 1; i < nextCandidateId; i++) {
+            if (candidateDetails[i].candidateAddress == _person) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function isVoterNotRegistered(address _person) private view returns (bool) {
+        for (uint256 i = 1; i < nextVoterId; i++) {
+            if (voterDetails[i].voterAddress == _person) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function registerCandidate(
+        string calldata _name,
+        string calldata _party,
+        uint256 _age,
+        Gender _gender
+    ) external isValidAge(_age) {
+        require(
+            isCandidateNotRegistered(msg.sender),
+            "You are already registered"
+        );
+        require(nextCandidateId < 3, "Candidate Registration Full");
+        require(
+            msg.sender != electionCommission,
+            "Election Commision not allowed to register"
+        );
+
+        candidateDetails[nextCandidateId] = Candidate({
+            name: _name,
+            party: _party,
+            gender: _gender,
+            age: _age,
+            candidateId: nextCandidateId,
+            candidateAddress: msg.sender,
+            votes: 0
+        });
+        nextCandidateId++;
+    }
+
+    //MOST IMP
+    function getCandidateList() public view returns (Candidate[] memory) {
+        Candidate[] memory candidateList = new Candidate[](nextCandidateId - 1); //initialize an empty array of length = \`nextCandidateId - 1\`
+        for (uint256 i = 0; i < candidateList.length; i++) {
+            candidateList[i] = candidateDetails[i + 1];
+        }
+        return candidateList;
+    }
+
+    function registerVoter(
+        string calldata _name,
+        uint256 _age,
+        Gender _gender
+    ) external isValidAge(_age) {
+        require(isVoterNotRegistered(msg.sender), "You are already registered");
+
+        voterDetails[nextVoterId] = Voter({
+            name: _name,
+            age: _age,
+            voterId: nextVoterId,
+            gender: _gender,
+            voteCandidateId: 0,
+            voterAddress: msg.sender
+        });
+        nextVoterId++;
+    }
+
+    function getVoterList() public view returns (Voter[] memory) {
+        uint256 lengthArr = nextVoterId - 1;
+        Voter[] memory voterList = new Voter[](lengthArr);
+        for (uint256 i = 0; i < voterList.length; i++) {
+            voterList[i] = voterDetails[i + 1];
+        }
+        return voterList;
+    }
+
+    function castVote(
+        uint256 _voterId,
+        uint256 _candidateId
+    ) external isVotingOver {
+        require(block.timestamp >= startTime, "Voting has not started yet");
+        require(
+            voterDetails[_voterId].voteCandidateId == 0,
+            "You have already voted"
+        );
+        require(
+            voterDetails[_voterId].voterAddress == msg.sender,
+            "You are not authourized"
+        );
+        require(
+            _candidateId >= 1 && _candidateId < 3,
+            "Candidate Id is not correct"
+        );
+        voterDetails[_voterId].voteCandidateId = _candidateId; //voting to _candidateId
+        candidateDetails[_candidateId].votes++; //increment _candidateId votes
+    }
+
+    // function setVotingPeriod(
+    //     uint256 _startTimeDuration,
+    //     uint256 _endTimeDuration
+    // ) external onlyCommissioner {
+    //     require(
+    //         _endTimeDuration > 3600,
+    //         "_endTimeDuration must be greater than 1 hour"
+    //     );
+    //     startTime = 1720799550 + _startTimeDuration; //_startTimeDuration = 3600 , _endTimeDuration = 3600
+    //     endTime = startTime + _endTimeDuration;
+    // }
+
+    function setVotingPeriod(uint256 _startInSeconds)
+        external
+        onlyCommissioner
+    {
+        startTime = block.timestamp + _startInSeconds; // Future start time
+        endTime = startTime + 3600; // 1 hour voting period after start time
+    }
+    If you call setVotingPeriod(7200), voting will start 2 hours from now and last for 1 hour.
+
+    function getVotingStatus() public view returns (VotingStatus) {
+        if (startTime == 0) {
+            return VotingStatus.NotStarted;
+        } else if (endTime > block.timestamp && stopVoting == false) {
+            return VotingStatus.InProgress;
+        } else {
+            return VotingStatus.Ended;
+        }
+    }
+
+    function announceVotingResult() external onlyCommissioner {
+        uint256 max = 0;
+        for (uint256 i = 1; i < nextCandidateId; i++) {
+            if (candidateDetails[i].votes > max) {
+                max = candidateDetails[i].votes;
+                winner = candidateDetails[i].candidateAddress;
+            }
+        }
+    }
+
+    function emergencyStopVoting() public onlyCommissioner {
+        stopVoting = true;
+    }
+
+    //if votingStatus==NotStarted then do this
+    //else if votingStatus==Started then do that
+    //else bla bla
+}
+
+*/
+`,
+        },
+        {
+          name: "10_28_wallet_project.sol",
+          lines: 183,
+          type: "Contract · SimpleWallet",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.26;
+
+//is msg.data empty? means low level interaction with smart contract woh bhi ether send ke sath(in fallback vs receive tree)
+//ether never waste in any case----⚡ Summary://Agar contract me payable function nahi hai aur fallback() bhi non-payable hai, to Ether kabhi bhi contract me store nahi hoga. Transaction revert hogi aur Ether wapas sender ke paas rahega. Waste sirf gas hoti hai.
+//Transaction - from,to,timings,amount
+contract SimpleWallet {
+    struct Transaction {
+        address from;
+        address to;
+        uint256 timestamp;
+        uint256 amount;
+    }
+
+    Transaction[] public transactionHistory;
+
+    address public owner;
+    string public str;
+    bool public stop;
+    event Transfer(address receiver, uint256 amount);
+    event Receive(address sender, uint256 amonut);
+    event ReceiveUser(address sender, address receiver, uint256 amount);
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "You don't have access");
+        _;
+    }
+    mapping(address => uint256) suspiciousUser;
+
+    modifier getSuspiciousUser(address _sender) {
+        require(
+            suspiciousUser[_sender] < 5,
+            "Activity found suspicious, Try later"
+        );
+        _;
+    }
+
+    modifier isEmergencyDeclared() {
+        require(stop == false, "Emergency declared");
+        _;
+    }
+
+    function toggleStop() external onlyOwner {
+        stop = !stop;
+    }
+
+    function changOwner(address newOwner) public onlyOwner isEmergencyDeclared {
+        owner = newOwner;
+    }
+
+    /**Contract related functions**/
+    function transferToContract(uint256 _startTime)
+        external
+        payable
+        getSuspiciousUser(msg.sender)
+    {
+        require(block.timestamp > _startTime, "send after start time");
+        transactionHistory.push(
+            Transaction({
+                from: msg.sender,
+                to: address(this),
+                timestamp: block.timestamp,
+                amount: msg.value
+            })
+        );
+    }
+
+    function transferToUserViaContract(address payable _to, uint256 _weiAmount)
+        external
+        onlyOwner
+    {
+        require(address(this).balance >= _weiAmount, "Insufficient Balance");
+        require(_to != address(0), "Adress format incorrect");
+        _to.transfer(_weiAmount);
+        transactionHistory.push(
+            Transaction({
+                from: address(this),
+                to: _to,
+                timestamp: block.timestamp,
+                amount: _weiAmount
+            })
+        );
+        emit Transfer(_to, _weiAmount);
+    }
+
+    function withdrawFromContract(uint256 _weiAmount) external onlyOwner {
+        require(address(this).balance >= _weiAmount, "Insuffficient balance");
+        payable(owner).transfer(_weiAmount);
+        transactionHistory.push(
+            Transaction({
+                from: address(this),
+                to: owner,
+                timestamp: block.timestamp,
+                amount: _weiAmount
+            })
+        );
+    }
+
+    function getContractBalanceInWei() external view returns (uint256) {
+        return address(this).balance;
+    }
+
+    /**User related functions**/
+    //direct to user
+    function transferToUserViaMsgValue(address _to) external payable {
+        // require(address(this).balance >= msg.value, "Insufficient Balance");
+        require(_to != address(0), "Adress format incorrect");
+        payable(_to).transfer(msg.value);
+        transactionHistory.push(
+            Transaction({
+                from: msg.sender,
+                to: _to,
+                timestamp: block.timestamp,
+                amount: msg.value
+            })
+        );
+    }
+
+    //jisko bhejna hai woh call karega
+    function receiveFromUser() external payable {
+        require(msg.value > 0, "Wei Value must be greater than zero");
+        payable(owner).transfer(msg.value);
+        emit ReceiveUser(msg.sender, owner, msg.value);
+        transactionHistory.push(
+            Transaction({
+                from: msg.sender,
+                to: owner,
+                timestamp: block.timestamp,
+                amount: msg.value
+            })
+        );
+    }
+
+    function getOwnerBalanceInWei() external view returns (uint256) {
+        return owner.balance;
+    }
+
+    receive() external payable {
+        transactionHistory.push(
+            Transaction({
+                from: msg.sender,
+                to: address(this),
+                timestamp: block.timestamp,
+                amount: msg.value
+            })
+        );
+        emit Receive(msg.sender, msg.value);
+    }
+
+    function suspiciousActivity(address _sender) public {
+        suspiciousUser[_sender] += 1;
+    }
+
+    fallback() external {
+        suspiciousActivity(msg.sender);
+    }
+
+    function getTransactionHistory()
+        external
+        view
+        returns (Transaction[] memory)
+    {
+        return transactionHistory;
+    }
+
+    function emergencyWithdrawl() external {
+        require(stop == true, "Emergency not declared");
+        payable(owner).transfer(address(this).balance);
+    }
+}
+// n Solidity, the require statement is used for input validation and conditional checks. If the first condition (boolean expression) evaluates to false, the transaction is reverted and the provided error message (string) is returned.
+
+//Add the following features
+//1.Setting and Changing Owner done
+//2.Emergency Stop
+//3. Emergency Withdrawl
+//4. Check for invalid address done
+//5. Transaction history - from,to,amount,timestamp done
+`,
+        },
+        {
+          name: "10_29_simplelibrary.sol",
+          lines: 28,
+          type: "Contract · Calculator",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+// Creating a Library
+library MathLibrary {
+    function add(uint a, uint b) internal pure returns (uint) {
+        return a + b;
+    }
+
+    function multiply(uint a, uint b) internal pure returns (uint) {
+        return a * b;
+    }
+}
+//no separate deployment is needed.
+
+// Using Library in a Contract
+contract Calculator {
+    // using MathLibrary for uint;  // Attaching the library to uint type
+
+    function getSum(uint x, uint y) public pure returns (uint) {
+        return MathLibrary.add(x,y); // Uses MathLibrary's add function
+    }
+
+    // function getProduct(uint x, uint y) public pure returns (uint) {
+    //     return x.multiply(y); // Uses MathLibrary's multiply function
+    // }
+}
+`,
+        },
+        {
+          name: "10_30_memoryvscalldata.sol",
+          lines: 42,
+          type: "Contract · CallDataExample",
+          content: `// ✅ Example of calldata in Solidity
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract CallDataExample {
+    function getFirstCharacter(string calldata name)
+        external
+        pure
+        returns (bytes1)
+    {
+        return bytes(name)[0]; // Reads but does not modify calldata
+    }
+}
+
+// Function Parameter (string calldata name)
+
+// The name variable is stored in calldata, meaning it cannot be modified.
+// This is gas-efficient because calldata avoids unnecessary copying.
+
+contract MemoryVsCalldata {
+    // ✅ Function using 'memory' (can modify string)
+    function modifyStringMemory(string memory text)
+        public
+        pure
+        returns (string memory)
+    {
+        text = "Modified String"; // ✅ Allowed: memory variables can be changed
+        return text;
+    }
+
+    // ❌ Function using 'calldata' (cannot modify string)
+    function readOnlyStringCalldata(string calldata text)
+        external
+        pure
+        returns (string calldata)
+    {
+        // text = "Modified"; ❌ Not Allowed: calldata is immutable
+        return text;
+    }
+}
+//hello`,
+        },
+        {
+          name: "10_31_storagevsmemory.sol",
+          lines: 22,
+          type: "Contract · MyContract",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract MyContract {
+    uint[3] public arr = [10, 20, 30];
+
+    // Function using storage (modifies the state variable directly)
+    function storageArr() external returns (uint[3] memory) {
+        uint[3] storage stoArr = arr;
+        stoArr[0] = 1; // Changes reflect in 'arr'
+        return arr; // Returning 'arr' instead of 'stoArr' (storage variables can't be returned)
+    }
+
+    // Function using memory (creates a copy and doesn't modify the original state)
+    function memoryArr() external view returns (uint[3] memory) {
+        uint[3] memory memArr = arr;
+        memArr[0] = 1; // Changes do NOT reflect in 'arr'
+        return memArr;
+    }
+}
+`,
+        },
+        {
+          name: "10_32_solidity_oops_obj.sol",
+          lines: 83,
+          type: "Contract · Book & D",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Book {
+    uint256 length;
+    uint256 breadth;
+    uint256 height;
+
+    function setDimension(
+        uint256 _length,
+        uint256 _breadth,
+        uint256 _height
+    ) public {
+        length = _length;
+        breadth = _breadth;
+        height = _height;
+    }
+
+    function getDimension()
+        public
+        view
+        returns (
+            uint256,
+            uint256,
+            uint256
+        )
+    {
+        return (length, breadth, height);
+    }
+}
+
+contract D {
+    Book obj = new Book();
+
+    function getInstance() public view returns (Book) {
+        return obj;
+    }
+
+    function writeDimension(
+        uint256 _length,
+        uint256 _breadth,
+        uint256 _height
+    ) public {
+        obj.setDimension(_length, _breadth, _height);
+    }
+
+    function readDimension()
+        public
+        view
+        returns (
+            uint256,
+            uint256,
+            uint256
+        )
+    {
+        return obj.getDimension();
+    }
+}
+/*
+🔹 Your Code Summary (with Real-Life Analogy):
+Book contract = A bag 📦 that stores dimensions.
+
+D contract = A person 👤 who uses a bag.
+
+🔸 What Happens:
+Book obj = new Book();
+👉 D creates a new private bag (new Book contract).
+
+writeDimension(...)
+👉 D puts items in its own bag.
+
+readDimension()
+👉 D looks inside its own bag.
+
+getInstance()
+👉 D tells you where the bag is (its address).
+
+🔹 Key Point:
+✅ All changes happen in the new bag created inside D,
+not in any external or main Book contract.
+
+
+*/
+`,
+        },
+        {
+          name: "10_33_solidty_oops_inheritance.sol",
+          lines: 21,
+          type: "Contract · Car & SuperCar",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+
+pragma solidity >=0.7.0 <0.9.0;
+
+
+contract Car {
+    uint public wheels = 4;
+    uint public doors = 4;
+    string public brandName = "CTE";
+    uint public headlights = 2;
+    bool public safetyBag = true;
+}
+
+
+contract SuperCar is Car {
+    uint public speed = 400;
+    uint public modelNumber = 121;
+    string public modelName = "Texxo";
+}
+`,
+        },
+        {
+          name: "10_34_solidity_oops_abstract.sol",
+          lines: 24,
+          type: "Contract · Parent & Child",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.7.0 <0.9.0;
+
+abstract contract Parent {
+    string public str;
+    address public manager;
+
+    constructor() {
+        str = "Hello World";
+        manager = msg.sender;
+    }
+
+    function setter(string memory _str) public virtual;
+}
+
+contract Child is Parent {
+    uint256 public x;
+
+    function setter(string memory _str) public override {
+        str = _str;
+    }
+}
+`,
+        },
+        {
+          name: "10_35_solidity_oops_interface.sol",
+          lines: 32,
+          type: "Contract · IGreeter Implementation",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+// Define the interface
+interface IGreeter {
+    function greet() external view returns (string memory);
+}
+
+// Implement the interface in a contract
+contract Greeter is IGreeter {
+    function greet() external pure override returns (string memory) {
+        return "Hello, world!";
+    }
+}
+
+contract Greet is IGreeter {
+    function greet() external pure override returns (string memory) {
+        return "Hello!";
+    }
+}
+
+// A contract that interacts with the Greeter contract through the interface
+contract GreeterUser {
+    function getGreeting(address _greeter)
+        external
+        view
+        returns (string memory)
+    {
+        return IGreeter(_greeter).greet();
+    }
+}
+`,
+        },
+        {
+          name: "10_36_ERC20token.sol",
+          lines: 107,
+          type: "Contract · ERC20 Implementation",
+          content: `// SPDX-License-Identifier: MIT
+//this is just for show how looks ERC20 that's it.in the next code actual ERC20 is there.
+pragma solidity ^0.8.20;
+
+interface IERC20 {
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(
+        address indexed owner,
+        address indexed spender,
+        uint256 value
+    );
+
+    function totalSupply() external view returns (uint256);
+
+    function balanceOf(address account) external view returns (uint256);
+
+    function transfer(address to, uint256 value) external returns (bool);
+
+    function allowance(address owner, address spender)
+        external
+        view
+        returns (uint256);
+
+    function approve(address spender, uint256 value) external returns (bool);
+
+    function transferFrom(
+        address from,
+        address to,
+        uint256 value
+    ) external returns (bool);
+}
+
+contract ERC20 is IERC20 {
+    uint256 public override totalSupply = 1000;
+    uint8 public decimals = 0;
+    string public name = "TestToken";
+    string public symbol = "TTK";
+
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowances;
+
+    constructor() {
+        balanceOf[msg.sender] = totalSupply;
+    }
+
+    function getBalance(address account) external view returns (uint256) {
+        return balanceOf[account];
+    }
+
+    function transfer(address to, uint256 value)
+        external
+        override
+        returns (bool)
+    {
+        require(balanceOf[msg.sender] >= value, "Insufficient balance");
+        require(to != address(0), "Invalid address");
+
+        balanceOf[msg.sender] -= value;
+        balanceOf[to] += value;
+
+        emit Transfer(msg.sender, to, value);
+        return true;
+    }
+
+    //writing a cheque
+    function approve(address spender, uint256 value)
+        external
+        override
+        returns (bool)
+    {
+        require(spender != address(0), "Invalid address");
+
+        allowances[msg.sender][spender] = value;
+
+        emit Approval(msg.sender, spender, value);
+        return true;
+    }
+    //reading a cheque
+    function allowance(address owner, address spender)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        return allowances[owner][spender];
+    }
+
+    function transferFrom(
+        address from,
+        address to,
+        uint256 value
+    ) external override returns (bool) {
+        require(allowances[from][msg.sender] >= value, "Allowance exceeded");
+        require(balanceOf[from] >= value, "Insufficient balance");
+        require(to != address(0), "Invalid address");
+
+        allowances[from][msg.sender] -= value;
+        balanceOf[from] -= value;
+        balanceOf[to] += value;
+
+        emit Transfer(from, to, value);
+        return true;
+    }
+
+  
+}
+`,
+        },
+        {
+          name: "10_37_openzeplinerc20.sol",
+          lines: 16,
+          type: "Contract · CTEToken (OpenZeppelin)",
+          content: `// contracts/GLDToken.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract CTEToken is ERC20 {
+    constructor(uint256 initialSupply) ERC20("Silver", "Deci1") {
+        _mint(msg.sender, initialSupply);
+    }
+
+    function decimals() public pure override returns (uint8) {
+        return 18;
+    }
+}
+`,
+        },
+        {
+          name: "10_37_tokenvscoin.sol",
+          lines: 44,
+          type: "Educational Content · Token vs Coin",
+          content: `// 🔹 Difference Between Token and Coin in Crypto
+// Definition:
+// Coin: A cryptocurrency that operates on its own blockchain.
+// Token: A digital asset that operates on an existing blockchain.
+
+
+// Blockchain:
+// Coin: Has its own independent blockchain.
+// Token: Uses an existing blockchain (like Ethereum, Binance Smart Chain, etc.).
+
+
+// Purpose:
+// Coin: Used mainly as currency (store of value, medium of exchange).
+// Token: Used for utility (access to services, governance, NFTs, etc.).
+
+
+// Examples:
+// Coin: Bitcoin (BTC), Ethereum (ETH), Binance Coin (BNB).
+// Token: USDT (Tether), Uniswap (UNI), Chainlink (LINK).
+
+// Transaction Fees:
+// Coin: Pays network fees in its own native coin.
+// Token: Pays fees in the native coin of the blockchain (e.g., ERC-20 tokens pay gas fees in ETH).
+
+
+// Creation:
+// Coin: Requires a separate blockchain to be built.
+// Token: Created using smart contracts on an existing blockchain.\\
+
+
+// 🔹 Explanation with Example
+// 1️⃣ Coin Example: Bitcoin (BTC)
+// Bitcoin has its own blockchain and is mainly used for transactions and store of value.
+// Mining and validation occur within the Bitcoin network.
+// Transaction fees are paid in BTC.
+// 2️⃣ Token Example: USDT (Tether) on Ethereum
+// USDT is a stablecoin that runs on Ethereum's blockchain (ERC-20 token).
+// Transactions require ETH for gas fees, not USDT itself.
+// It does not have its own blockchain.
+
+
+// 🔹 Simple Analogy
+// Coin = A country's currency (e.g., USD, INR) → Has its own financial system.
+// Token = A gift card (e.g., Amazon Gift Card) → Runs on an existing system but has a specific use.
+`,
+        },
+        {
+          name: "10_38_transfervssendvscall.sol",
+          lines: 64,
+          type: "Contract · TransferExample",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract TransferExample {
+    function transferEther(address payable recipient) public payable {
+        require(
+            address(this).balance >= 1 ether,
+            "Insufficient contract balance"
+        );
+        recipient.transfer(1 ether);
+    }
+
+    function sendEther(address payable recipient)
+        public
+        payable
+        returns (bool)
+    {
+        require(
+            address(this).balance >= 1 ether,
+            "Insufficient contract balance"
+        );
+        bool sent = recipient.send(1 ether);
+        return sent;
+    }
+
+    function callEther(address payable recipient)
+        public
+        payable
+        returns (bool, bytes memory)
+    {
+        require(
+            address(this).balance >= 1 ether,
+            "Insufficient contract balance"
+        );
+        (bool success, bytes memory data) = recipient.call{value: 1 ether}("");
+        return (success, data);
+    }
+
+    // Allow contract to receive Ether
+    // receive() external payable {}
+}
+
+/*
+Difference Between transfer, send, and call
+transfer
+
+Gas Limit: 2300 gas
+Returns Boolean? ❌ No
+Revert on Failure? ✅ Yes (reverts if fails)
+Security Risk: ✅ Safe (prevents reentrancy)
+send
+
+Gas Limit: 2300 gas
+Returns Boolean? ✅ Yes (returns false on failure)
+Revert on Failure? ❌ No
+Security Risk: ❌ Less secure (must check return value manually)
+call
+
+Gas Limit: No limit (all available gas)
+Returns Boolean? ✅ Yes (returns success & data)
+Revert on Failure? ❌ No
+Security Risk: ⚠️ High risk (prone to reentrancy attacks)
+*/
+`,
+        },
+        {
+          name: "10_39_callinganothercontract.sol",
+          lines: 41,
+          type: "Contract · Alice & Bob",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+contract Alice {
+    uint256 public x;
+    uint256 public value;
+
+    function setter(uint256 _x) public {
+        x = _x;
+    }
+
+    function getter() public view returns (uint256) {
+        return x;
+    }
+
+    function payableSetter(uint256 _x) public payable {
+        x = _x;
+        value = msg.value;
+    }
+}
+
+contract Bob {
+    function setter(Alice _alice, uint256 _x) public {
+        _alice.setter(_x);
+    }
+
+    function getter(Alice _alice) public view returns (uint256) {
+        uint256 item = _alice.getter();
+        return item;
+    }
+
+    function setterViaAddress(address _addr, uint256 _x) public {
+        Alice alice = Alice(_addr);
+        alice.setter(_x);
+    }
+    //doubt
+    function payableSetter(Alice _alice, uint256 _x) public payable {
+        _alice.payableSetter{value: msg.value}(_x);
+    }
+}
+//here i can control alice contract threw bob contract
+`,
+        },
+        {
+          name: "10_40_abiencodingdecoding.sol",
+          lines: 411,
+          type: "Contract · enocdedata (Theory)",
+          content: `// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract enocdedata {
+    function encodeData(
+        uint256 fixedNumber,
+        string memory dynamicString,
+        uint256[2] memory fixedArray,
+        uint256[] memory dynamicArray
+    ) public pure returns (bytes memory) {
+        return abi.encode(fixedNumber, dynamicString, fixedArray, dynamicArray);
+    }
+
+    function decodeData(bytes memory data)
+        public
+        pure
+        returns (
+            uint256,
+            string memory,
+            uint256[2] memory,
+            uint256[] memory
+        )
+    {
+        (
+            uint256 fixedNumber,
+            string memory dynamicString,
+            uint256[2] memory fixedArray,
+            uint256[] memory dynamicArray
+        ) = abi.decode(data, (uint256, string, uint256[2], uint256[]));
+        return (fixedNumber, dynamicString, fixedArray, dynamicArray);
+    }
+}
+/*
+//memory representation
+| Address     | Description                              | Offset from 0x80     | Notes                                                            |
+| ----------- | ---------------------------------------- | -------------------- | ---------------------------------------------------------------- |
+| \`0x00\`      | Reserved                                 |                      | Solidity internal use                                            |
+| \`0x40\`      | Free memory pointer (\`0x200\`)            |                      | Points to next free space in memory                              |
+| ----------- | ---------------------------------------- | -------------------- | ---------------------------------------------------------------- |
+| \`0x80\`      | \`2\` (\`uint256\`)                          | \`0x00\`               | Static value                                                     |
+| \`0xA0\`      | \`0xC0\` → offset to \`"abc"\`               | \`0x20\`               | \`0x140 - 0x80 = 0xC0\`                                            |
+| \`0xC0\`      | \`1\` (first element of \`[1,2]\`)           | \`0x40\`               | Fixed-size array, directly embedded                              |
+| \`0xE0\`      | \`2\` (second element of \`[1,2]\`)          | \`0x60\`               | Fixed-size array, directly embedded                              |
+| \`0x100\`     | \`0x100\` → offset to \`[1,2,3]\`            | \`0x80\`               | \`0x180 - 0x80 = 0x100\`                                           |
+| ----------- | ---------------------------------------- | -------------------- | ---------------------------------------------------------------- |
+| \`0x140\`     | Length of \`"abc"\` = 3                    | \`0xC0\`               | Dynamic string length prefix                                     |
+| \`0x160\`     | \`"abc"\` = \`0x616263\` padded to 32B       | \`0xE0\`               | String data padded with zeros                                    |
+| ----------- | ---------------------------------------- | -------------------- | ---------------------------------------------------------------- |
+| \`0x180\`     | Length of \`[1,2,3]\` = 3                  | \`0x100\`              | Dynamic array starts here (offset target of \`0x100\`)             |
+| \`0x1A0\`     | \`1\` (first element of \`[1,2,3]\`)         | \`0x120\`              | Element 1                                                        |
+| \`0x1C0\`     | \`2\` (second element)                     | \`0x140\`              | Element 2                                                        |
+| \`0x1E0\`     | \`3\` (third element)                      | \`0x160\`              | Element 3                                                        |
+| ----------- | ---------------------------------------- | -------------------- | ---------------------------------------------------------------- |
+| \`0x200\`     | (free memory starts here)                |                      | \`0x40\` pointer now points here                                   |
+
+At 0x100 → it stores 0x100, meaning "go 0x100 bytes forward from 0x80" → 0x80 + 0x100 = 0x180, where [1,2,3] begins.
+
+How to access values in your table (worked examples)
+
+Context: base = 0x80.
+
+1) Read the string "abc"
+
+Head slot at 0xA0 contains 0xC0 (an offset).
+
+Compute target: 0x80 + 0xC0 = 0x140.
+=> At 0x140 we find the string length: 3.
+
+String bytes are at 0x140 + 0x20 = 0x160. There you find 0x616263 (ASCII "abc") padded to 32 bytes.
+
+So algorithmically:
+
+read head: off = mload(0xA0) → 0xC0
+
+target = base + off = 0x80 + 0xC0 = 0x140
+
+len = mload(target) → 3
+
+data = bytes at target + 0x20 (and if len > 32 read further slots)
+
+2) Read the dynamic array [1,2,3]
+
+Head slot at 0x100 contains 0x100 (offset).
+
+Compute target: 0x80 + 0x100 = 0x180.
+=> At 0x180 is length 3.
+
+Elements:
+
+element 0 at 0x180 + 0x20 = 0x1A0 → 1
+
+element 1 at 0x180 + 0x40 = 0x1C0 → 2
+
+element 2 at 0x180 + 0x60 = 0x1E0 → 3
+
+Steps:
+
+off = mload(0x100) → 0x100
+
+target = base + off = 0x180
+
+len = mload(target) → 3
+
+for i in 0..len-1: value = mload(target + 0x20*(1+i)).
+
+3) Read the fixed-size array (the [1,2] embedded in head)
+
+Fixed arrays are inline. If the head region contains two slots for the array, you directly read them from their absolute memory addresses:
+
+value at 0xC0 → 1
+
+value at 0xE0 → 2
+
+No indirection needed: just mload(0xC0), mload(0xE0).
+
+4) Free memory pointer usage
+
+mload(0x40) contains 0x200 (next free).
+
+If you need to allocate N bytes, round N up to a multiple of 32, use memory starting at 0x200, then mstore(0x40, 0x200 + size) to update the pointer.
+
+Always keep 32-byte alignment.
+
+❓Your core question:
+When Solidity is placing static data step-by-step, and it encounters a dynamic value (e.g., a string or dynamic array), it needs to place an offset there.
+But since the dynamic content isn't placed yet, and the offset isn't known yet —
+what is stored temporarily at that position in memory at that time?
+
+✅ Answer:
+Nothing meaningful is stored at that moment.
+Solidity just reserves the 32 bytes, leaves them blank (zero) or uninitialized, and moves on.
+Later, once the dynamic content is written, it goes back and fills in the actual offset.
+
+🧠 So yes, again:
+Offsets are written after static data is placed,
+and they are relative to the beginning of the encoding (0x80).
+
+
+*/
+
+/*
+| **Address** | **Description**             | **Offset from \`0x80\`** | **Bytes (32 bytes)**                                               | **Notes / Offset Calculation**                               |
+| ----------- | --------------------------- | ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------ |
+| \`0x80\`      | \`2\` (\`uint256\`)             | \`0x00\`                 | \`0000000000000000000000000000000000000000000000000000000000000002\` | Direct static value                                          |
+| \`0xA0\`      | Offset to \`"abc"\`           | \`0x20\`                 | \`00000000000000000000000000000000000000000000000000000000000000C0\` | Points to \`0x140\`; so \`0x140 - 0x80 = 0xC0\`                  |
+| \`0xC0\`      | \`[1, 2]\` – first element    | \`0x40\`                 | \`0000000000000000000000000000000000000000000000000000000000000001\` | Fixed array, stored inline                                   |
+| \`0xE0\`      | \`[1, 2]\` – second element   | \`0x60\`                 | \`0000000000000000000000000000000000000000000000000000000000000002\` | Fixed array, stored inline                                   |
+| \`0x100\`     | Offset to \`[1,2,3]\`         | \`0x80\`                 | \`0000000000000000000000000000000000000000000000000000000000000100\` | Points to \`0x180\`; so \`0x180 - 0x80 = 0x100\`                 |
+| \`0x140\`     | Length of \`"abc"\` = 3       | \`0xC0\`                 | \`0000000000000000000000000000000000000000000000000000000000000003\` | String length (dynamic value)                                |
+| \`0x160\`     | \`"abc"\` = \`0x616263\` padded | \`0xE0\`                 | \`6162630000000000000000000000000000000000000000000000000000000000\` | UTF-8 string \`"abc"\`, left-aligned, right-padded to 32 bytes |
+| \`0x180\`     | Length of \`[1,2,3]\` = 3     | \`0x100\`                | \`0000000000000000000000000000000000000000000000000000000000000003\` | Dynamic array length                                         |
+| \`0x1A0\`     | \`[1,2,3]\` – element 1       | \`0x120\`                | \`0000000000000000000000000000000000000000000000000000000000000001\` | Element 1 of dynamic array                                   |
+| \`0x1C0\`     | \`[1,2,3]\` – element 2       | \`0x140\`                | \`0000000000000000000000000000000000000000000000000000000000000002\` | Element 2 of dynamic array                                   |
+| \`0x1E0\`     | \`[1,2,3]\` – element 3       | \`0x160\`                | \`0000000000000000000000000000000000000000000000000000000000000003\` | Element 3 of dynamic array                                   |
+| \`0x200\`     | (Free memory starts here)   |                        | *(unallocated)*                                                    | \`0x40\` memory pointer now points here                        |
+
+| **Offset** | **Description**             | **Bytes (32 bytes)**                                               | **Notes / Offset Calculation**                                |
+| ---------- | --------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------- |
+| \`0x00\`     | \`2\` (\`uint256\`)             | \`0000000000000000000000000000000000000000000000000000000000000002\` | Static value                                                  |
+| \`0x20\`     | Offset to \`"abc"\`           | \`00000000000000000000000000000000000000000000000000000000000000A0\` | Offset to start of string \`"abc"\` = \`0xA0\` from \`0x00\`        |
+| \`0x40\`     | \`[1, 2]\` – element 1        | \`0000000000000000000000000000000000000000000000000000000000000001\` | Fixed-size array, stored inline                               |
+| \`0x60\`     | \`[1, 2]\` – element 2        | \`0000000000000000000000000000000000000000000000000000000000000002\` |                                                               |
+| \`0x80\`     | Offset to \`[1,2,3]\`         | \`00000000000000000000000000000000000000000000000000000000000000E0\` | Offset to dynamic array \`[1,2,3]\` from calldata base (\`0xE0\`) |
+| \`0xA0\`     | Length of \`"abc"\` = 3       | \`0000000000000000000000000000000000000000000000000000000000000003\` | Starts at offset \`0xA0\` (from pointer at \`0x20\`)              |
+| \`0xC0\`     | \`"abc"\` = \`0x616263\` padded | \`6162630000000000000000000000000000000000000000000000000000000000\` | Padded string content                                         |
+| \`0xE0\`     | Length of \`[1,2,3]\` = 3     | \`0000000000000000000000000000000000000000000000000000000000000003\` | Starts at \`0xE0\`, from pointer at \`0x80\`                      |
+| \`0x100\`    | \`[1,2,3]\` – element 1       | \`0000000000000000000000000000000000000000000000000000000000000001\` |                                                               |
+| \`0x120\`    | \`[1,2,3]\` – element 2       | \`0000000000000000000000000000000000000000000000000000000000000002\` |                                                               |
+| \`0x140\`    | \`[1,2,3]\` – element 3       | \`0000000000000000000000000000000000000000000000000000000000000003\` |                                                               |
+
+🧮 Offset Explanation
+📌 Memory Offsets (relative to 0x80):
+Solidity ABI encoder starts at address 0x80 when writing to memory.
+So if your data begins at 0x140, the memory offset is:
+👉 0x140 - 0x80 = 0xC0
+
+
+📌 Calldata Offsets (relative to 0x00):
+Calldata starts at 0x00.
+So if the string content begins at 0xA0, the offset in the selector is simply 0xA0.
+
+| Feature         | Memory              | Calldata                   |
+| --------------- | ------------------- | -------------------------- |
+| Base Address    | \`0x80\`              | \`0x00\`                     |
+| Who uses it?    | Solidity internally | External function input    |
+| Can be changed? | ✅ Yes               | ❌ No                       |
+| Offset Meaning  | From \`0x80\`         | From \`0x00\`                |
+| Purpose         | Internal processing | ABI-encoded function input |
+
+✅ "External function input" means:
+👉 The data sent from outside the contract (like from a wallet, script, or frontend) when calling a function.
+
+🔧 Example:
+You have a smart contract function:
+function f(uint x, string memory s, uint[2] memory arr1, uint[] memory arr2) external { }
+When someone calls this function from outside (e.g. from JavaScript, Web3.js, Ethers.js, or Remix), the parameters are sent to the Ethereum Virtual Machine (EVM) as calldata.
+
+So yes:
+✅ memory is a temporary read/write space used during function execution — erased after the function ends.
+✅ calldata is for external function input — read-only and cheap.
+
+🔍 Calldata is:
+📦 The raw ABI-encoded input data.
+
+📬 Passed along with the transaction.
+
+🧊 Stored temporarily and cannot be modified.
+
+💡 Used only for reading function inputs.
+
+🧠 Why is calldata needed?
+The EVM doesn't understand high-level arguments like "abc" or [1,2,3]. So these are encoded as a sequence of 32-byte values according to the ABI (Application Binary Interface) format, and placed in calldata.
+
+🔹 Step 1: You call an external function
+Like this in Solidity:
+
+solidity
+function f(uint256 a, string memory str, uint256[2] memory arr1, uint256[] memory arr2) external
+And the input is:
+f(2, "abc", [1, 2], [1, 2, 3])
+
+
+
+
+📦 Step 2: Calldata is created and sent to the EVM
+This is a compact read-only byte array.
+
+It starts with the function selector (first 4 bytes)
+
+Then it encodes the values:
+
+Static values go inline (like uint256)
+
+Dynamic values (string, dynamic array) use calldata offsets to point further ahead
+
+✅ So in calldata:
+
+The a = 2 is stored directly.
+
+The string and dynamic array use offsets like 0xA0, 0xE0 to point to their actual locations within the calldata.
+
+
+
+
+🧠 Step 3: EVM decodes calldata and loads it into memory
+When Solidity executes the function body:
+
+It copies and organizes the input into memory.
+
+Memory starts storing arguments from address 0x80 onward.
+
+Dynamic types use offsets from 0x80 (the base memory position of arguments).
+*/
+
+/*
+and one more thing that this memory and call data simple measn when we use fucntions in our contract then suppose i pass data like 2,abc.[1,2],[1,2,3](dynamic) 
+then it stores this data in memory until fucntion execution ends with offset of 0x80 and same as calldata store this same data with offset of 0x00 until fucntion execution ends am i right?
+
+
+
+✅ First: Your Core Understanding
+You said:
+
+"When we use functions in our contract and pass data like 2, "abc", [1,2], [1,2,3] (dynamic), then:
+
+It stores this data in memory until function execution ends (offset from 0x80)
+
+Calldata stores this data with offset from 0x00"
+✔️ Yes — this is correct.
+
+| Concept      | Explanation                                                                                                               |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| **Calldata** | ABI-encoded input sent by external caller (like frontend, Remix, script). It's read-only. Base offset is \`0x00\`.          |
+| **Memory**   | Temporary storage used during function execution inside EVM. Starts at \`0x80\`. Read-write. Destroyed after function ends. |
+
+🧠 Clarification of Offsets
+Let’s say you're calling:
+
+function f(uint x, string memory s, uint[2] memory arr1, uint[] memory arr2) external { }
+Input: f(2, "abc", [1,2], [1,2,3])
+
+📦 Calldata Representation
+Starts from offset 0x00
+
+Format: [static values][offsets to dynamic values][dynamic values]
+
+| Offset | Content                                      |
+| ------ | -------------------------------------------- |
+| 0x00   | \`2\` (x = uint256)                            |
+| 0x20   | Offset to \`"abc"\` (points to e.g., \`0xA0\`)   |
+| 0x40   | \`[1, 2]\` inline                              |
+| 0x60   | Offset to \`[1,2,3]\` (points to e.g., \`0xE0\`) |
+| 0xA0   | Length of string \`"abc"\` = \`3\`               |
+| 0xC0   | \`"abc"\` padded                               |
+| 0xE0   | Length of \`[1,2,3]\` = \`3\`                    |
+| 0x100  | Elements: \`1\`, \`2\`, \`3\`                      |
+
+
+🧠 When Solidity reads calldata → it decodes it into memory
+Solidity copies calldata into memory (starting from 0x80)
+
+Static parts copied directly
+
+Dynamic parts (like strings, dynamic arrays) are placed further ahead in memory, and back-filled offsets are written.
+
+| Address | Description                         |
+| ------- | ----------------------------------- |
+| \`0x80\`  | \`2\`                                 |
+| \`0xA0\`  | Offset to \`"abc"\` → e.g., \`0xC0\`    |
+| \`0xC0\`  | \`[1, 2]\` inline                     |
+| \`0xE0\`  | Offset to \`[1,2,3]\` → e.g., \`0x180\` |
+| \`0x140\` | Length = 3                          |
+| \`0x160\` | \`"abc"\` padded                      |
+| \`0x180\` | Length = 3                          |
+| \`0x1A0\` | Elements: \`1\`, \`2\`, \`3\`             |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+🔄 Quick Restate of Your Observation
+You're asking:
+
+Why does [1,2] (a fixed array) seem to be stored "inline" in one table (0xC0), but shown as two separate entries at 0xC0 and 0xE0 in the second table?
+
+And similarly, why [1,2,3] is represented as a single thing in the first table, but is shown as multiple entries (with length and individual elements) in the second table?
+
+
+
+✅ The Answer: Both Tables Are Describing the SAME Data — Just at Different Levels of Detail
+| Table        | View Level                      | Description                                                                    |
+| ------------ | ------------------------------- | ------------------------------------------------------------------------------ |
+| First Table  | **High-level summary**          | Shows "what" is stored conceptually, not the exact slot-by-slot memory layout. |
+| Second Table | **Low-level EVM memory layout** | Shows "how" exactly it is stored at 32-byte aligned memory locations.          |
+
+
+🧠 Think of It Like This:
+Imagine someone says:
+
+📦 "We stored an array [1, 2] at address 0xC0."
+
+This is true, but high-level — just telling you the start location.
+
+But in low-level EVM memory, that looks like:
+
+0xC0: 000...001   ← 1st element (32 bytes)
+0xE0: 000...002   ← 2nd element (32 bytes)
+Likewise, "abc" is stored at 0x160 padded, but from high-level we just say:
+
+📦 “String "abc" is at offset 0xC0.”
+
+So both tables are accurate — they just focus on different zoom levels.
+
+
+
+
+
+
+✅ Visual Example for [1,2]:
+First Table (summary):
+
+0xC0 → [1, 2]
+Second Table (real EVM memory layout):
+
+0xC0: 000...001  → element 1
+0xE0: 000...002  → element 2
+✅ Both refer to the same data, just one is zoomed out, the other is zoomed in.
+
+
+*/
+`,
+        },
+        {
+          name: "10_41_abiencodingforcalldata.sol",
+          lines: 56,
+          type: "Contract · AbiEncode",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+interface IERC20 {
+    function transfer(address recipient, uint256 amount) external;
+}
+
+contract Token is IERC20 {
+    event Transfer(address recipient, uint256 amount);
+
+    function transfer(address _recipient, uint256 _amount) external override {
+        emit Transfer(_recipient, _amount);
+    }
+}
+
+contract AbiEncode {
+    function callTokenContractFunction(address _contract, bytes calldata data)
+        external
+    {
+        (bool ok, ) = _contract.call(data);
+        require(ok, "transaction failed");
+        // Optionally handle returnedData if needed
+    }
+
+    function encodeWithSignature(address to, uint256 amount)
+        external
+        pure
+        returns (bytes memory)
+    {
+        return abi.encodeWithSignature("transfer(address,uint256)", to, amount);
+    }
+
+    function encodeWithSelector(address to, uint256 amount)
+        external
+        pure
+        returns (bytes memory)
+    {
+        return abi.encodeWithSelector(IERC20.transfer.selector, to, amount);
+    }
+
+    function encodeCall(address to, uint256 amount)
+        external
+        pure
+        returns (bytes memory)
+    {
+        return abi.encodeCall(IERC20.transfer, (to, amount));
+    }
+}
+
+
+// 🚀 Purpose of the Contract
+// The contract AbiEncode provides functions to:
+
+// Encode function calls in different ways (encodeWithSignature, encodeWithSelector, encodeCall).
+// Send encoded data to another contract (callTokenContractFunction).
+// This is useful when interacting with external contracts dynamically without directly importing their interfaces.`,
+        },
+        {
+          name: "10_42_delegatecall.sol",
+          lines: 28,
+          type: "Contract · CalledContract & Caller",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract CalledContract { //painter
+    uint256 public someNumber;
+
+    // Function to set the value of someNumber
+    function setNumber(uint256 _num) public {
+        someNumber = _num;
+    }
+}
+
+contract Caller { //owner
+    uint256 public someNumber; // Note that this is the same variable name as in the Called Contract
+
+    // Function to call setNumber on another contract
+    function setNumber(address _calledContractAddress, uint256 _num) public {
+        // Prepare the data to call setNumber(uint) on the Called contract
+        bytes memory data = abi.encodeWithSignature("setNumber(uint256)", _num);
+
+        // Perform the call
+        (bool success, ) = _calledContractAddress.call(data);
+
+        // Check if the call was successful
+        require(success, "call failed");
+    }
+}
+`,
+        },
+        {
+          name: "10_43_delegatecall2.sol",
+          lines: 25,
+          type: "Contract · CalledContract & Caller",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract CalledContract {//painter
+    uint256 public someNumber;
+
+    function setNumber(uint256 _num) public {
+        someNumber = _num;
+    }
+}
+
+contract Caller {//owner
+    uint256 public someNumber; // Note that this is the same variable name as in the Called Contract
+
+    function setNumber(address _calledContractAddress, uint256 _num) public {
+        // Prepare the data to call setNumber(uint) on the Called contract
+        bytes memory data = abi.encodeWithSignature("setNumber(uint256)", _num);
+
+        // Perform the delegatecall
+        (bool success, ) = _calledContractAddress.delegatecall(data);
+        require(success, "Delegatecall failed");
+    }
+}
+//painter ne kya kiya --- mere resources se mere hi ghar me kam kiya.yani ki mera storage or mere me hi changes
+`,
+        },
+        {
+          name: "newdelegateextra.sol",
+          lines: 70,
+          type: "Contract · Multi-Call Delegate",
+          content: `// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.2 <0.9.0;
+contract A {
+    function callB(address _bAddress, address _cAddress) public payable {
+        // A sends ETH to B via regular call, passing C's address
+        (bool success, ) = _bAddress.call{value: msg.value}(
+            abi.encodeWithSignature("delegateLog(address)", _cAddress)
+        );
+        require(success, "call to B failed");
+    }
+}
+
+contract B {
+    address public sender;
+    uint public value;
+
+    function delegateLog(address _cAddress) public payable {
+        sender = msg.sender;  // msg.sender = A's address (B is the caller of C via delegatecall)
+        value = msg.value;    // msg.value = ETH sent by A
+        bytes memory data = abi.encodeWithSignature("log()");
+        (bool success, ) = _cAddress.delegatecall(data); // B delegates to C
+        require(success, "delegatecall failed");
+    }
+}
+
+contract C {
+    address public sender;
+    uint public value;
+
+    function log() public payable {
+        sender = msg.sender; // = A's address (NOT B's!) — preserved through delegatecall
+        value = msg.value;   // = Ether originally sent by A — also preserved
+        // These are stored in B's storage, not C's!
+    }
+}
+
+// Summary:
+// When B does delegatecall → C:
+//   • C's code runs in B's storage context
+//   • msg.sender inside C = A's address (the original caller of B)
+//   • msg.value inside C = ETH originally sent to B by A
+//   • C's own state variables are NOT affected
+/*
+// Summary:
+//
+// Call Flow:
+//   • External user (EOA) calls A.callB()
+//   • Contract A calls B.delegateLog() using .call and forwards ETH
+//   • Contract B then uses delegatecall to execute C.log()
+//
+// Behavior during delegatecall (B → C):
+//
+//   • C.log() ka code execute hota hai, BUT storage B ka use hota hai
+//
+//   • msg.sender inside B.delegateLog() = address of contract A
+//   • msg.sender inside C.log() = SAME as in B → address of contract A
+//
+//   • msg.value inside B = ETH sent by EOA via A
+//   • msg.value inside C = SAME ETH (delegatecall preserves it)
+//
+//   • State changes in C.log() are applied to B's storage
+//     (i.e., B.sender and B.value get updated, NOT C.sender and C.value)
+//
+// Final Result:
+//
+//   • B.sender = address of A
+//   • B.value = msg.value
+//
+//   • C's storage remains unchanged
+*/
+`,
+        },
+        {
+          name: "newdelegatemodularity.sol",
+          lines: 248,
+          type: "Contract · Main & Modules",
+          content: `// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+/*
+===========================================
+🧠 DELEGATECALL MODULARITY - FULL EXPLANATION
+===========================================
+
+🎯 Goal:
+Ek Main contract hai jo multiple modules (A, B, C) ka logic use karta hai
+using delegatecall — bina apni storage lose kiye.
+
+-------------------------------------------
+🔥 CORE IDEA:
+-------------------------------------------
+delegatecall me:
+
+    code     → Module contract ka run hota hai
+    storage  → Main contract ka use hota hai
+    msg.sender → preserve hota hai
+    msg.value  → preserve hota hai
+
+-------------------------------------------
+📌 CALL FLOW:
+-------------------------------------------
+
+EOA (user)
+   ↓
+calls Main.deposit()
+   ↓
+Main.delegatecall(ModuleA.deposit)
+   ↓
+ModuleA ka code run hota hai
+BUT storage Main ka update hota hai
+
+-------------------------------------------
+💥 RESULT:
+-------------------------------------------
+Main.balance update hota hai
+ModuleA.balance unchanged rehta hai
+
+-------------------------------------------
+⚠️ IMPORTANT:
+-------------------------------------------
+Storage layout SAME hona chahiye
+
+Example:
+Main.balance  ↔ ModuleA.balance
+Main.name     ↔ ModuleB.name
+Main.owner    ↔ ModuleC.owner
+
+-------------------------------------------
+🔥 REMIX TEST STEPS:
+-------------------------------------------
+
+1. Deploy ModuleA, ModuleB, ModuleC
+2. Deploy Main
+3. Call:
+   Main.deposit(moduleA_address) with VALUE = 1 ether
+4. Check:
+   Main.balance → updated
+   ModuleA.balance → 0
+
+===========================================
+*/
+
+
+contract Main {
+
+    /*
+    ===========================================
+    🧠 SHARED STORAGE (VERY IMPORTANT)
+    ===========================================
+
+    Ye variables sab modules ke saath match hone chahiye
+
+    ModuleA.balance ↔ Main.balance
+    ModuleB.name    ↔ Main.name
+    ModuleC.owner   ↔ Main.owner
+    */
+
+    address public owner;
+    uint public balance;
+    string public name;
+
+    constructor() {
+        owner = msg.sender;
+    }
+
+    /*
+    ===========================================
+    🔥 GENERIC DELEGATECALL FUNCTION
+    ===========================================
+
+    Ye low-level function hai jo kisi bhi module ko call kar sakta hai
+    with custom calldata
+
+    module = jis contract ka code chalana hai
+    data   = encoded function call
+
+    Example:
+    deposit() → 0xd0e30db0
+    */
+    function execute(address module, bytes calldata data) external payable {
+        (bool success, ) = module.delegatecall(data);
+        require(success, "delegatecall failed");
+    }
+
+
+    /*
+    ===========================================
+    🔥 HELPER FUNCTION: DEPOSIT
+    ===========================================
+
+    Ye internally encode karta hai:
+    "deposit()" function call
+
+    User ko manually calldata dene ki zarurat nahi
+
+    IMPORTANT:
+    msg.value Main me aata hai (NOT ModuleA me)
+    but ModuleA ka code run hota hai
+    */
+    function deposit(address moduleA) external payable {
+        bytes memory data = abi.encodeWithSignature("deposit()");
+        (bool success, ) = moduleA.delegatecall(data);
+        require(success, "deposit failed");
+    }
+
+
+    /*
+    ===========================================
+    🔥 HELPER FUNCTION: SET NAME
+    ===========================================
+
+    encode karta hai:
+    setName(string)
+
+    ModuleB ka code run karega
+    but Main.name update hoga
+    */
+    function setName(address moduleB, string memory _name) external {
+        bytes memory data = abi.encodeWithSignature("setName(string)", _name);
+        (bool success, ) = moduleB.delegatecall(data);
+        require(success, "setName failed");
+    }
+
+
+    /*
+    ===========================================
+    🔥 HELPER FUNCTION: CHANGE OWNER
+    ===========================================
+
+    ModuleC ka code run karega
+    but Main.owner update hoga
+    */
+    function changeOwner(address moduleC, address _new) external {
+        bytes memory data = abi.encodeWithSignature("changeOwner(address)", _new);
+        (bool success, ) = moduleC.delegatecall(data);
+        require(success, "changeOwner failed");
+    }
+
+
+    /*
+    ===========================================
+    🔥 RECEIVE FUNCTION
+    ===========================================
+
+    ETH receive karne ke liye zaruri hai
+
+    NOTE:
+    delegatecall ETH transfer nahi karta
+    ETH always Main contract me hi rehta hai
+    */
+    receive() external payable {}
+}
+
+
+/*
+===========================================
+🧩 MODULE A → BALANCE LOGIC
+===========================================
+
+IMPORTANT:
+Ye contract ka storage use nahi hoga
+Sirf code use hoga
+
+balance variable Main ke balance ko represent karega
+*/
+contract ModuleA {
+    uint public balance;
+
+    function deposit() public payable {
+        balance += msg.value;
+
+        /*
+        Yaha actually update ho raha hai:
+        Main.balance
+
+        NOT:
+        ModuleA.balance
+        */
+    }
+}
+
+
+/*
+===========================================
+🧩 MODULE B → NAME LOGIC
+===========================================
+*/
+contract ModuleB {
+    string public name;
+
+    function setName(string memory _name) public {
+        name = _name;
+
+        /*
+        Actually update:
+        Main.name
+
+        NOT:
+        ModuleB.name
+        */
+    }
+}
+
+
+/*
+===========================================
+🧩 MODULE C → OWNER LOGIC
+===========================================
+*/
+contract ModuleC {
+    address public owner;
+
+    function changeOwner(address _new) public {
+        owner = _new;
+
+        /*
+        Actually update:
+        Main.owner
+
+        NOT:
+        ModuleC.owner
+        */
+    }
+}
+`,
+        },
+        {
+          name: "newtryencode.sol",
+          lines: 34,
+          type: "Contract · EncodeDecodeData",
+          content: `// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.2 <0.9.0;
+
+contract EncodeDecodeData {
+    // ENCODE: converts typed data to raw bytes
+    function encodeData(
+        uint256 fixedNumber,
+        string memory dynamicString,
+        uint256[2] memory fixedArray,
+        uint256[] memory dynamicArray
+    ) public pure returns (bytes memory) {
+        return abi.encode(fixedNumber, dynamicString, fixedArray, dynamicArray);
+    }
+
+    // DECODE: converts raw bytes back to typed data
+    function decodeData(bytes memory data)
+        public
+        pure
+        returns (
+            uint256,
+            string memory,
+            uint256[2] memory,
+            uint256[] memory
+        )
+    {
+        (
+            uint256 fixedNumber,
+            string memory dynamicString,
+            uint256[2] memory fixedArray,
+            uint256[] memory dynamicArray
+        ) = abi.decode(data, (uint256, string, uint256[2], uint256[]));
+        return (fixedNumber, dynamicString, fixedArray, dynamicArray);
+    }
+}
+`,
+        },
+        {
+          name: "10_44_tokenmarketplace.sol",
+          lines: 160,
+          type: "Contract · TokenMarketPlace",
+          content: `// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+import "hardhat/console.sol"; //to console output
+
+contract TokenMarketPlace is Ownable {
+    using SafeERC20 for IERC20;
+    //jitne bhi IERC20 type ke variable honge
+    //unke pass ab SafeERC20 ke method available ho jayenge
+
+    using SafeMath for uint256; //x.add(y) = x+y
+
+    uint256 public tokenPrice = 2e16 wei; // 0.02 ether per GLD token //2 * 10^16
+    //10 * 0.02 = 0.2 ether
+
+    uint256 public sellerCount = 1;
+    uint256 public buyerCount = 1;
+    uint256 public prevAdjustedRatio;
+    IERC20 public gldToken;
+    /*
+    IERC20
+    IERC20 is an interface from OpenZeppelin's ERC-20 contract, which defines the standard functions of an ERC-20 token.
+    It allows the smart contract to interact with any ERC-20 token without knowing its implementation.
+
+    gldToken
+    This is the ERC-20 token contract that will be used in this marketplace.
+    It holds the reference to the token's smart contract, which allows this marketplace contract to transfer, buy, and sell tokens.
+
+    IERC20 public gldToken; is a reference to the ERC-20 token contract, allowing this marketplace contract to buy, sell, and manage GLD tokens safely.
+
+    */
+
+    event TokenPriceUpdated(uint256 newPrice);
+    event TokenBought(address indexed buyer, uint256 amount, uint256 totalCost);
+    event TokenSold(
+        address indexed seller,
+        uint256 amount,
+        uint256 totalEarned
+    );
+    event TokensWithdrawn(address indexed owner, uint256 amount);
+    event EtherWithdrawn(address indexed owner, uint256 amount);
+    event CalculateTokenPrice(uint256 priceToPay);
+
+    constructor(address _gldToken) Ownable(msg.sender) {
+        //apne parent ke constructor ko call karna hai to ---name of parent constructor and pass the value
+        gldToken = IERC20(_gldToken);
+        /* Initialized in Constructor:
+_gldToken is the address of an existing ERC-20 token contract.
+IERC20(_gldToken) casts this address as an IERC20 interface, allowing this contract to call ERC-20 functions.
+
+----------------Simple Meaning with a Life Example
+Think of IERC20 public gldToken; as a wallet app that supports different bank cards (like Visa, Mastercard).
+
+IERC20 → Just like all bank cards follow a common standard (chip, PIN, swipe/tap), all ERC-20 tokens follow a common standard (transfer, balance check).
+gldToken → This is like one specific bank card that the wallet app is currently using.
+Life Example: Wallet & Bank Card
+📌 Imagine you have a wallet app that can store different bank cards (HDFC, ICICI, SBI).
+📌 Right now, your wallet is linked to an HDFC debit card.
+
+
+IERC20 public hdfcCard;
+This means the wallet app (contract) knows how to use the HDFC card (token contract) for transactions.
+
+Just like you can check balance, send money, or receive money using your card, this contract can check token balance, transfer, and receive tokens using gldToken.
+
+✅ Conclusion: IERC20 public gldToken; means this contract is linked to a specific ERC-20 token (like a wallet linked to a bank card), so it can perform transactions with it. 🚀
+
+*/
+    }
+
+    // Updated logic for token price calculation with safeguards
+    function adjustTokenPriceBasedOnDemand() public {
+        uint256 marketDemandRatio = buyerCount.mul(1e18).div(sellerCount);
+        uint256 smoothingFactor = 1e18;
+        uint256 adjustedRatio = marketDemandRatio.add(smoothingFactor).div(2);
+        if (prevAdjustedRatio != adjustedRatio) {
+            prevAdjustedRatio = adjustedRatio;
+            uint256 newTokenPrice = tokenPrice.mul(adjustedRatio).div(1e18);
+            uint256 minimumPrice = 2e16;
+            if (newTokenPrice < minimumPrice) {
+                tokenPrice = minimumPrice;
+            }
+            tokenPrice = newTokenPrice;
+        }
+    }
+
+    // Buy tokens from the marketplace
+    function buyGLDToken(uint256 _amountOfToken) public payable {
+        require(_amountOfToken > 0, "Invalid Token amount");
+
+        uint256 requiredTokenPrice = calculateTokenPrice(_amountOfToken);
+        console.log("requiredTokenPrice", requiredTokenPrice);
+        require(requiredTokenPrice == msg.value, "Incorrect token price paid");
+        buyerCount = buyerCount + 1;
+        // Transfer token to the buyer address
+        gldToken.safeTransfer(msg.sender, _amountOfToken);
+        // Event Emiting
+        emit TokenBought(msg.sender, _amountOfToken, requiredTokenPrice);
+    }
+
+    function calculateTokenPrice(uint256 _amountOfToken)
+        public
+        returns (uint256)
+    {
+        require(_amountOfToken > 0, "Amount Of Token > 0");
+        adjustTokenPriceBasedOnDemand();
+        uint256 amountToPay = _amountOfToken.mul(tokenPrice).div(1e18);
+        console.log("amountToPay", amountToPay);
+        return amountToPay;
+    }
+
+    // Sell tokens back to the marketplace
+    function sellGLDToken(uint256 _amountOfToken) public {
+        require(
+            gldToken.balanceOf(msg.sender) >= _amountOfToken,
+            "invalid amount of token"
+        );
+        sellerCount = sellerCount + 1;
+        uint256 priceToPayToUser = calculateTokenPrice(_amountOfToken);
+        gldToken.safeTransferFrom(msg.sender, address(this), _amountOfToken);
+        (bool success, ) = payable(msg.sender).call{value: priceToPayToUser}(
+            ""
+        );
+        require(success, "Transaction Failed");
+        emit TokenSold(msg.sender, _amountOfToken, priceToPayToUser);
+    }
+
+    // Owner can withdraw excess tokens from the contract
+    function withdrawTokens(uint256 _amount) public onlyOwner {
+        require(gldToken.balanceOf(address(this)) >= _amount, "Out of balance");
+        gldToken.safeTransfer(msg.sender, _amount);
+        emit TokensWithdrawn(msg.sender, _amount);
+    }
+
+    // Owner can withdraw accumulated Ether from the contract
+    function withdrawEther(uint256 _amount) public onlyOwner {
+        require(address(this).balance >= _amount, "Invalid Ether amount");
+        (bool success, ) = payable(msg.sender).call{value: _amount}("");
+        require(success, "Transaction Failed");
+    }
+}
+
+//buyerCount = 5
+//sellerCount = 1
+//markedDemand ratio =
+//buyerCount.mul(1e18).div(sellerCount) = 510^18 /1 = 510^18
+//adjustedRatio = (510^18 + 110^18)/2 = (6 * 10^18)/2 = 3 * 10^18
+// newTokenPrice = //(2 * 10^16 * 3 * 10^18) / 10^18 = (6 * 10^34)/10^18 = 6*10^16 wei = 0.06 ether
+`,
+        },
+        {
+          name: "10_45_votingintegratedwitherc20.sol",
+          lines: 225,
+          type: "Contract · Vote (Integrated)",
+          content: `// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.26;
+
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+contract Vote {
+    //first entity
+    struct Voter {
+        string name;
+        uint256 age;
+        uint256 voterId;
+        Gender gender;
+        uint256 voteCandidateId; //candidate id to whom the voter has voted
+        address voterAddress; //EOA of the voter
+    }
+
+    //second entity
+    struct Candidate {
+        string name;
+        string party;
+        uint256 age;
+        Gender gender;
+        uint256 candidateId;
+        address candidateAddress; //candidate EOA
+        uint256 votes; //number of votes
+    }
+
+    //third entity
+    address public electionCommission;
+    address public winner;
+    uint256 nextVoterId = 1;
+    uint256 nextCandidateId = 1;
+
+    //voting period
+    uint256 startTime;
+    uint256 endTime;
+    bool stopVoting;
+    mapping(uint256 => Voter) voterDetails;
+    mapping(uint256 => Candidate) candidateDetails;
+
+    IERC20 public gldToken;
+
+    enum VotingStatus {
+        NotStarted,
+        InProgress,
+        Ended
+    }
+    enum Gender {
+        NotSpecified,
+        Male,
+        Female,
+        Other
+    }
+
+    constructor(address _gldToken) {
+        gldToken = IERC20(_gldToken);
+        electionCommission = msg.sender; //msg.sender is a global variable
+    }
+
+    modifier isVotingOver() {
+        require(
+            block.timestamp <= endTime && stopVoting == false,
+            "Voting time is over"
+        );
+        _;
+    }
+
+    // end time - 1720540700 - Tuesday, 9 July 2024 21:28:20
+    // current time - 1720540861 - Tuesday, 9 July 2024 21:31:01
+
+    modifier onlyCommissioner() {
+        require(msg.sender == electionCommission, "Not authuorized");
+        _;
+    }
+
+    modifier isValidAge(uint256 _age) {
+        require(_age >= 18, "not eligible for voting");
+        _;
+    }
+
+    function registerCandidate(
+        string calldata _name,
+        string calldata _party,
+        uint256 _age,
+        Gender _gender
+    ) external isValidAge(_age) {
+        require(
+            isCandidateNotRegistered(msg.sender),
+            "You are already registered"
+        );
+        require(nextCandidateId < 3, "Candidate Registration Full");
+        require(
+            msg.sender != electionCommission,
+            "Election Commision not allowed to register"
+        );
+
+        candidateDetails[nextCandidateId] = Candidate({
+            name: _name,
+            party: _party,
+            gender: _gender,
+            age: _age,
+            candidateId: nextCandidateId,
+            candidateAddress: msg.sender,
+            votes: 0
+        });
+        nextCandidateId++;
+    }
+
+    function isCandidateNotRegistered(address _person)
+        private
+        view
+        returns (bool)
+    {
+        for (uint256 i = 1; i < nextCandidateId; i++) {
+            if (candidateDetails[i].candidateAddress == _person) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function getCandidateList() public view returns (Candidate[] memory) {
+        Candidate[] memory candidateList = new Candidate[](nextCandidateId - 1); //initialize an empty array of length = \`nextCandidateId - 1\`
+        for (uint256 i = 0; i < candidateList.length; i++) {
+            candidateList[i] = candidateDetails[i + 1];
+        }
+        return candidateList;
+    }
+
+    function isVoterNotRegistered(address _person) private view returns (bool) {
+        for (uint256 i = 1; i < nextVoterId; i++) {
+            if (voterDetails[i].voterAddress == _person) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function registerVoter(
+        string calldata _name,
+        uint256 _age,
+        Gender _gender
+    ) external isValidAge(_age) {
+        require(isVoterNotRegistered(msg.sender), "You are already registered");
+
+        voterDetails[nextVoterId] = Voter({
+            name: _name,
+            age: _age,
+            voterId: nextVoterId,
+            gender: _gender,
+            voteCandidateId: 0,
+            voterAddress: msg.sender
+        });
+        nextVoterId++;
+    }
+
+    function getVoterList() public view returns (Voter[] memory) {
+        uint256 lengthArr = nextVoterId - 1;
+        Voter[] memory voterList = new Voter[](lengthArr);
+        for (uint256 i = 0; i < voterList.length; i++) {
+             voterList[i] = voterDetails[i + 1];
+        }
+        return voterList;
+    }
+
+    function castVote(uint256 _voterId, uint256 _candidateId)
+        external
+        isVotingOver
+    {
+        require(gldToken.balanceOf(msg.sender) > 0, "not allowed");
+        require(block.timestamp >= startTime, "Voting has not started yet");
+        require(
+            voterDetails[_voterId].voteCandidateId == 0,
+            "You have already voted"
+        );
+        require(
+            voterDetails[_voterId].voterAddress == msg.sender,
+            "You are not authourized"
+        );
+        require(
+            _candidateId >= 1 && _candidateId < 3,
+            "Candidate Id is not correct"
+        );
+        voterDetails[_voterId].voteCandidateId = _candidateId; //voting to _candidateId
+        candidateDetails[_candidateId].votes++; //increment _candidateId votes
+    }
+
+    function setVotingPeriod(
+        uint256 _startTimeDuration,
+        uint256 _endTimeDuration
+    ) external onlyCommissioner {
+        require(
+            _endTimeDuration > 3600,
+            "_endTimeDuration must be greater than 1 hour"
+        );
+        startTime = 1720799550 + _startTimeDuration; //_startTimeDuration = 3600 , _endTimeDuration = 3600
+        endTime = startTime + _endTimeDuration;
+    }
+
+    function getVotingStatus() public view returns (VotingStatus) {
+        if (startTime == 0) {
+            return VotingStatus.NotStarted;
+        } else if (endTime > block.timestamp && stopVoting == false) {
+            return VotingStatus.InProgress;
+        } else {
+            return VotingStatus.Ended;
+        }
+    }
+
+    function announceVotingResult() external onlyCommissioner {
+        uint256 max = 0;
+        for (uint256 i = 1; i < nextCandidateId; i++) {
+            if (candidateDetails[i].votes > max) {
+                max = candidateDetails[i].votes;
+                winner = candidateDetails[i].candidateAddress;
+            }
+        }
+    }
+
+    function emergencyStopVoting() public onlyCommissioner {
+        stopVoting = true;
+    }
+}
+`,
+        },
+        {
+          name: "10_46_gldtoken.sol",
+          lines: 14,
+          type: "Contract · CTEToken (GLD)",
+          content: `// contracts/GLDToken.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract CTEToken is ERC20 {
+    constructor(uint256 initialSupply) ERC20("GLDToken", "GLD") {
+        _mint(msg.sender, initialSupply);
+    }
+    function decimals() public pure override returns (uint8) {
+        return 18;
+    }
+}
+`,
+        },
+      ];
+
+      /* SYNTAX HIGHLIGHTER */
+      function esc(s) {
+        return s
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+      function highlightLine(line) {
+        const trimmed = line.trimStart();
+        if (trimmed.startsWith("//"))
+          return `<span class="c-comment">${esc(line)}</span>`;
+        if (trimmed.startsWith("pragma"))
+          return `<span class="c-pragma">pragma</span>${highlightRest(line.slice(line.indexOf("pragma") + 6))}`;
+        return highlightRest(line);
+      }
+      function highlightRest(str) {
+        let out = "",
+          i = 0;
+        const src = str;
+        const KEYWORDS =
+          /^(contract|function|returns|return|public|pure|view|uint256|uint|int256|int|bool|address|string|bytes|mapping|memory|storage|calldata|if|else|for|while|new|emit|event|modifier|require|revert|true|false|this|import|is|struct|enum|constructor|payable|external|internal|private|indexed|override|virtual|abstract|using|library|interface|try|catch|delete|assembly|pragma|solidity)(?=[^a-zA-Z0-9_]|$)/;
+        const TYPES = [
+          "uint256",
+          "uint",
+          "int256",
+          "int",
+          "bool",
+          "address",
+          "string",
+          "bytes",
+          "mapping",
+        ];
+        while (i < src.length) {
+          if (src[i] === "/" && src[i + 1] === "/") {
+            out += `<span class="c-comment">${esc(src.slice(i))}</span>`;
+            break;
+          }
+          if (src[i] === '"' || src[i] === "'") {
+            const q = src[i];
+            let j = i + 1;
+            while (j < src.length && src[j] !== q) j++;
+            j++;
+            out += `<span class="c-string">${esc(src.slice(i, j))}</span>`;
+            i = j;
+            continue;
+          }
+          if (
+            /[0-9]/.test(src[i]) &&
+            (i === 0 || /[^a-zA-Z_]/.test(src[i - 1]))
+          ) {
+            let j = i;
+            while (j < src.length && /[0-9a-fA-FxX_.]/.test(src[j])) j++;
+            out += `<span class="c-number">${esc(src.slice(i, j))}</span>`;
+            i = j;
+            continue;
+          }
+          if (/[a-zA-Z_$]/.test(src[i])) {
+            let j = i;
+            while (j < src.length && /[a-zA-Z0-9_$]/.test(src[j])) j++;
+            const word = src.slice(i, j);
+            const km = src.slice(i).match(KEYWORDS);
+            if (km && km[0] === word) {
+              out += TYPES.includes(word)
+                ? `<span class="c-type">${esc(word)}</span>`
+                : `<span class="c-keyword">${esc(word)}</span>`;
+            } else {
+              let k = j;
+              while (k < src.length && src[k] === " ") k++;
+              out +=
+                src[k] === "("
+                  ? `<span class="c-fn">${esc(word)}</span>`
+                  : esc(word);
+            }
+            i = j;
+            continue;
+          }
+          if (/[=<>!&|+\-*/%^~]/.test(src[i])) {
+            let j = i;
+            while (j < src.length && /[=<>!&|+\-*/%^~]/.test(src[j])) j++;
+            out += `<span class="c-op">${esc(src.slice(i, j))}</span>`;
+            i = j;
+            continue;
+          }
+          out += esc(src[i]);
+          i++;
+        }
+        return out;
+      }
+      function highlight(code) {
+        return code
+          .split("\n")
+          .map(
+            (line, i) =>
+              `<div class="code-line"><span class="line-num">${i + 1}</span><span class="line-code">${highlightLine(line)}</span></div>`,
+          )
+          .join("");
+      }
+
+      /* BUILD HOME */
+      const FILE_SVG_CARD = `<svg viewBox="0 0 24 24" fill="none" stroke="#00e5ff" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+      const ARROW_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+
+      function buildHome() {
+        const totalLines = files.reduce((s, f) => s + f.lines, 0);
+        const contracts = files.filter((f) =>
+          f.type.startsWith("Contract"),
+        ).length;
+        document.getElementById("statsRow").innerHTML = `
+    <div class="stat-card"><div class="stat-num">${files.length}</div><div class="stat-label">Total Files</div></div>
+    <div class="stat-card"><div class="stat-num">${totalLines}</div><div class="stat-label">Total Lines</div></div>
+    <div class="stat-card"><div class="stat-num">${contracts}</div><div class="stat-label">Contracts</div></div>
+  `;
+        document.getElementById("filesGrid").innerHTML = files
+          .map((f, idx) => {
+            const preview = f.content.split("\n").slice(0, 3).join("\n");
+            return `<div class="file-card" onclick="openViewer(${idx})">
+      <div class="card-top">
+        <div class="card-file-icon">${FILE_SVG_CARD}</div>
+        <div class="card-name-wrap">
+          <span class="card-filename">${f.name}</span>
+          <span class="card-type">${f.type}</span>
+        </div>
+      </div>
+      <div class="card-preview">${esc(preview)}</div>
+      <div class="card-footer">
+        <span class="card-lines">${f.lines} lines</span>
+        <span class="card-open-btn">Open ${ARROW_SVG}</span>
+      </div>
+    </div>`;
+          })
+          .join("");
+        document.getElementById("fileCountBadge").textContent =
+          `${files.length} files`;
+      }
+
+      /* BUILD SIDEBAR */
+      function buildSidebar(activeIdx) {
+        document.getElementById("sidebarList").innerHTML = files
+          .map(
+            (f, idx) => `
+    <button class="s-file-btn ${idx === activeIdx ? "active" : ""}" onclick="switchFile(${idx})">
+      <div class="s-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="${idx === activeIdx ? "#00e5ff" : "#5a6380"}" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+        </svg>
+      </div>
+      <div class="s-meta">
+        <span class="s-name">${f.name}</span>
+        <span class="s-sub">${f.lines} lines · ${f.type}</span>
+      </div>
+    </button>`,
+          )
+          .join("");
+      }
+
+      /* NAVIGATION */
+      let currentFile = null;
+
+      function openViewer(idx) {
+        currentFile = idx;
+        document.getElementById("homePage").style.display = "none";
+        document.getElementById("viewerPage").classList.add("visible");
+        document.getElementById("backBtn").classList.add("visible");
+        buildSidebar(idx);
+        loadCode(idx);
+      }
+
+      function switchFile(idx) {
+        currentFile = idx;
+        buildSidebar(idx);
+        loadCode(idx);
+      }
+
+      function goHome() {
+        currentFile = null;
+        document.getElementById("viewerPage").classList.remove("visible");
+        document.getElementById("homePage").style.display = "flex";
+        document.getElementById("backBtn").classList.remove("visible");
+      }
+
+      function loadCode(idx) {
+        const f = files[idx];
+        document.getElementById("panelTitle").textContent = f.name;
+        document.getElementById("codeBlock").innerHTML = highlight(f.content);
+        const cb = document.getElementById("copyBtn");
+        cb.classList.remove("copied");
+        cb.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Code`;
+      }
+
+      /* COPY */
+      function copyCode() {
+        if (currentFile === null) return;
+        navigator.clipboard.writeText(files[currentFile].content).then(() => {
+          const cb = document.getElementById("copyBtn");
+          cb.classList.add("copied");
+          cb.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+          setTimeout(() => {
+            cb.classList.remove("copied");
+            cb.innerHTML = `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Code`;
+          }, 2200);
+        });
+      }
+
+      /* INIT */
+      buildHome();
+    </script>
+  </body>
+</html>

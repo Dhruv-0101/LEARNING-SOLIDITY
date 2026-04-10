@@ -1,26 +1,13 @@
 {
 	"compiler": {
-		"version": "0.8.31+commit.fd3a2265"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [],
-				"name": "getter",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "pureFunction",
+				"name": "f1",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -33,27 +20,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "setter",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_value",
-						"type": "uint256"
-					}
-				],
-				"name": "setter1",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "state_var",
+				"name": "f4",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -61,7 +28,7 @@
 						"type": "uint256"
 					}
 				],
-				"stateMutability": "view",
+				"stateMutability": "pure",
 				"type": "function"
 			}
 		],
@@ -78,9 +45,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/10.1.local&state-variable.sol": "demo"
+			"contracts/10.12.visibility.sol": "demo"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -92,12 +59,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/10.1.local&state-variable.sol": {
-			"keccak256": "0x1b6fe4f848ed93ce236f3e8ba277597b4b0e0ab03daa2d1f8af5ad44f30bfd6a",
-			"license": "GPL-3.0",
+		"contracts/10.12.visibility.sol": {
+			"keccak256": "0x0155ae9e8037a43047ffb5ee9d88bd05b1af5cff9b018f1ce98617f3ebd60338",
+			"license": "MIT",
 			"urls": [
-				"bzz-raw://2e60bce37640d3d212557f3450ab93bf432458b0d34a21708ba6ba73f8e803cf",
-				"dweb:/ipfs/QmNfaHsZ5s2F9Nv5D9oWYX3iVNcu283udei4HqNpoZBMGM"
+				"bzz-raw://b9ad6b666938383308bae66769fedefd0e440f916d04061138417d111d092afa",
+				"dweb:/ipfs/QmRtNeWFe88u1xtJRKDBbwFaJMwTYUQKmvrL88N9WvaLGd"
 			]
 		}
 	},

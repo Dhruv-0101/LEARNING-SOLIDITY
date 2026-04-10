@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.31+commit.fd3a2265"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
@@ -195,7 +195,7 @@
 		"compilationTarget": {
 			"contracts/10.4.integerdatatypes.sol": "IntegerExample"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -208,11 +208,11 @@
 	},
 	"sources": {
 		"contracts/10.4.integerdatatypes.sol": {
-			"keccak256": "0x35481a68e24dbf1fab73d99fc4d15bc2574a9431538b8837e6bdb92d9dc73240",
+			"keccak256": "0x9d35736d76c8a66c3b08e05f6103005738d453e201d9b3e28fa06350465d0f82",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://47325ed6e2c563e2d275d99a4dee2237b478e7b00a1f377888c2cf8cf7482f06",
-				"dweb:/ipfs/QmSt8iGk6sLWvFFu5tm7hZFvA9GVJ1oZGvwENQGgZrCSuz"
+				"bzz-raw://dc921aa1f890494414cfa0f126a39e8c2f67e33dfb49a99a71e2a0e40ed5f844",
+				"dweb:/ipfs/QmbvjLQJibLr1DooYj6ZMHEvNmQutyKSAYAJ3dN6BR9WmP"
 			]
 		}
 	},

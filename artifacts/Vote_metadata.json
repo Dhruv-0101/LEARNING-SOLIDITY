@@ -1,32 +1,14 @@
 {
 	"compiler": {
-		"version": "0.8.31+commit.fd3a2265"
+		"version": "0.8.30+commit.73712a01"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
 				"inputs": [],
-				"name": "InvalidInitialization",
-				"type": "error"
-			},
-			{
-				"inputs": [],
-				"name": "NotInitializing",
-				"type": "error"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "uint64",
-						"name": "version",
-						"type": "uint64"
-					}
-				],
-				"name": "Initialized",
-				"type": "event"
+				"stateMutability": "nonpayable",
+				"type": "constructor"
 			},
 			{
 				"inputs": [],
@@ -182,39 +164,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "initialize",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "nextCandidateId",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "nextVoterId",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -269,7 +218,12 @@
 				"inputs": [
 					{
 						"internalType": "uint256",
-						"name": "_startInSeconds",
+						"name": "_startTimeDuration",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_endTimeDuration",
 						"type": "uint256"
 					}
 				],
@@ -293,23 +247,6 @@
 			}
 		],
 		"devdoc": {
-			"errors": {
-				"InvalidInitialization()": [
-					{
-						"details": "The contract is already initialized."
-					}
-				],
-				"NotInitializing()": [
-					{
-						"details": "The contract is not initializing."
-					}
-				]
-			},
-			"events": {
-				"Initialized(uint64)": {
-					"details": "Triggered when the contract has been initialized or reinitialized."
-				}
-			},
 			"kind": "dev",
 			"methods": {},
 			"version": 1
@@ -322,9 +259,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/votingdeploy.sol": "Vote"
+			"contracts/10.27.voting_project.sol": "Vote"
 		},
-		"evmVersion": "osaka",
+		"evmVersion": "prague",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -336,19 +273,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol": {
-			"keccak256": "0xdb4d24ee2c087c391d587cd17adfe5b3f9d93b3110b1388c2ab6c7c0ad1dcd05",
+		"contracts/10.27.voting_project.sol": {
+			"keccak256": "0x50109c8ab82790a4a7a76628d1fb7d6f613afc6df7d1ed7b9272a97fc0c2f5b5",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ab7b6d5b9e2b88176312967fe0f0e78f3d9a1422fa5e4b64e2440c35869b5d08",
-				"dweb:/ipfs/QmXKYWWyzcLg1B2k7Sb1qkEXgLCYfXecR9wYW5obRzWP1Q"
-			]
-		},
-		"contracts/votingdeploy.sol": {
-			"keccak256": "0x79b73c900a0790607ad87fcc3d639fa7fff94b9c9633f24f29d471ebf2fa794a",
-			"urls": [
-				"bzz-raw://d4273c8e3ecff88a8af5affa68ad73fb6946466ce14f4c211a5c3894d3e577d2",
-				"dweb:/ipfs/QmQSfC99SAKJqusq9qvegUGLDw4effLiwbAMDBqPcJavAV"
+				"bzz-raw://1bafb94893fff9a3a90d25bd190432a1ccd108049dd1084a315eb99f147b26f2",
+				"dweb:/ipfs/QmcTGWxsfKCtooeYoXgP4b3pPhf3LhBpaWFZtsoTZQv4mK"
 			]
 		}
 	},

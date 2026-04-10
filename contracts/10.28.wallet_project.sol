@@ -172,11 +172,4 @@ contract SimpleWallet {
         payable(owner).transfer(address(this).balance);
     }
 }
-// n Solidity, the require statement is used for input validation and conditional checks. If the first condition (boolean expression) evaluates to false, the transaction is reverted and the provided error message (string) is returned.
 
-//Add the following features
-//1.Setting and Changing Owner done
-//2.Emergency Stop
-//3. Emergency Withdrawl
-//4. Check for invalid address done
-//5. Transaction history - from,to,amount,timestamp done

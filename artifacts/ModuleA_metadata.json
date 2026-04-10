@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "balance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/newdelegatemodularity.sol": "ModuleA"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/newdelegatemodularity.sol": {
+			"keccak256": "0x622fef16d9e130e66291656ea6f30f9aff83a4a3c0caa523bf1e6feaf8a0f2c9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6d26390b459794e7cb0b10cffc2761e9d7e35e7ea5005d6b4970de699d3709e1",
+				"dweb:/ipfs/QmZi1PgzVgp46RKSMNKBzKFKwfuVzUe2gocMYSV3uoNFw5"
+			]
+		}
+	},
+	"version": 1
+}
